@@ -22,9 +22,12 @@ func _process(delta):
 			#main.sSkills.append(a[2]);
 			
 			main.sSkills = [a[0],a[1],a[2]];
+			main.all_skills_chosen = true;
 			
 			n[i].set_disabled(true);
-			
+		else:
+			main.all_skills_chosen = false;
+		
 		if n[i].is_pressed():
 			check_pos[var2str(i)] = var2str(i);
 		else:

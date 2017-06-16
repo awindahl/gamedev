@@ -7,6 +7,7 @@ var intellect = 0;
 
 var class_has_been_chosen = false;
 var dice_has_been_rolled = false;
+var all_skills_chosen = false;
 
 var sClass = {st_mod = 0, ag_mod = 0, ch_mod = 0, it_mod = 0};
 

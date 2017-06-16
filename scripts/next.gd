@@ -8,8 +8,10 @@ func _ready():
 	set_process(true);
 
 func _process(delta):
-	if main.sSkills.size()>2 && main.class_has_been_chosen && main.dice_has_been_rolled:
+	if (main.all_skills_chosen && main.class_has_been_chosen && main.dice_has_been_rolled):
 		this.set_disabled(false);
+	else:
+		this.set_disabled(true);
 
 func _on_Button_pressed():
 	
