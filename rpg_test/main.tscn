@@ -1320,6 +1320,20 @@ shortcut = null
 flat = false
 script/script = ExtResource( 6 )
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Next"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 23.0
+margin/top = 5.0
+margin/right = 102.0
+margin/bottom = 45.0
+bbcode/enabled = false
+bbcode/bbcode = "Next"
+visible_characters = -1
+
 [connection signal="pressed" from="StatDad/StatRoller" to="StatDad" method="_on_Button_1_pressed"]
 
 [connection signal="pressed" from="Next" to="Next" method="_on_Button_pressed"]
