@@ -20,7 +20,9 @@ var skillList = [
 var sSkills = []; # selected skills
 var pSkills = []; # picked skills
 
-var current_scene = null
+var myClass = [];
+
+var current_scene = null;
 
 func _ready():
 	var root = get_parent();
