@@ -1303,7 +1303,7 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="Button" type="Button" parent="."]
+[node name="Next" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -1313,6 +1313,7 @@ margin/left = 540.0
 margin/top = 309.0
 margin/right = 619.0
 margin/bottom = 335.0
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1321,6 +1322,6 @@ script/script = ExtResource( 6 )
 
 [connection signal="pressed" from="StatDad/StatRoller" to="StatDad" method="_on_Button_1_pressed"]
 
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Next" to="Next" method="_on_Button_pressed"]
 
 

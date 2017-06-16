@@ -7,6 +7,9 @@ func _ready():
 	pass;
 
 func _on_Button_1_pressed():
+	
+	main.dice_has_been_rolled = true;
+	
 	# Roll four d20s 
 	for i in range(4):
 		var dice = rand_range(1.0,20.0);

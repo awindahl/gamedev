@@ -15,11 +15,13 @@ func _process(delta):
 		if check_pos.size() > 2:
 			var a = check_pos.values();
 			n[str2var(a[0])].set_disabled(false);
-			main.sSkills[0] = a[0];
+			#main.sSkills.append(a[0]);
 			n[str2var(a[1])].set_disabled(false);
-			main.sSkills[1] = a[1];
+			#main.sSkills.append(a[1]);
 			n[str2var(a[2])].set_disabled(false);
-			main.sSkills[2] = a[2];
+			#main.sSkills.append(a[2]);
+			
+			main.sSkills = [a[0],a[1],a[2]];
 			
 			n[i].set_disabled(true);
 			

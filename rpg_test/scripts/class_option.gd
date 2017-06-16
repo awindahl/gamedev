@@ -76,6 +76,7 @@ func _process(delta):
 		ch_mod = 0;
 		it_mod = -1;
 		main.sClass = {st_mod = st_mod, ag_mod = ag_mod, ch_mod = ch_mod, it_mod = it_mod};
+		main.class_has_been_chosen = true;
 	
 	if(get_selected_ID()==2):
 		st_mod = 0;
@@ -83,6 +84,7 @@ func _process(delta):
 		ch_mod = 1;
 		it_mod = 0;
 		main.sClass = {st_mod = st_mod, ag_mod = ag_mod, ch_mod = ch_mod, it_mod = it_mod};
+		main.class_has_been_chosen = true;
 	
 	if(get_selected_ID()==3):
 		st_mod = -1;
@@ -90,6 +92,7 @@ func _process(delta):
 		ch_mod = 3;
 		it_mod = 1;
 		main.sClass = {st_mod = st_mod, ag_mod = ag_mod, ch_mod = ch_mod, it_mod = it_mod};
+		main.class_has_been_chosen = true;
 	
 	if(get_selected_ID()==4):
 		st_mod = 0;
@@ -97,4 +100,5 @@ func _process(delta):
 		ch_mod = 0;
 		it_mod = 3;
 		main.sClass = {st_mod = st_mod, ag_mod = ag_mod, ch_mod = ch_mod, it_mod = it_mod};
+		main.class_has_been_chosen = true;
 	
