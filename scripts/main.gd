@@ -22,6 +22,7 @@ var intellect = 0;
 var class_has_been_chosen = false;
 var dice_has_been_rolled = false;
 var all_skills_chosen = false;
+var name_has_been_entered = false;
 
 var sClass = {st_mod = 0, ag_mod = 0, ch_mod = 0, it_mod = 0};
 
@@ -81,7 +82,7 @@ func _save_game_state(var saveName):
 		saveGame.open("user://Saves/"+saveName+".sve", File.WRITE);
 	
 	var data = _save();
-	#var err = saveGame.open_encrypted_with_pass("user://Saves/"+saveName+".sve", File.WRITE, "cockmuncher")
+	var err = saveGame.open_encrypted_with_pass("user://Saves/"+saveName+".sve", File.WRITE, "cockmuncher")
 	saveGame.store_line(data.to_json());
 	saveGame.close();
 
