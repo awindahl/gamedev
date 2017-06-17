@@ -30,4 +30,5 @@ func _on_Button_pressed():
 	main._save_game_state(main.myName);
 	
 	# goto next scene # 
+	get_tree().change_scene("res://top-down movement GRID/Game.tscn")
 	# multiple clicks appends mutliple times #

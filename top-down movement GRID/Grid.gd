@@ -8,8 +8,8 @@ var half_tile_size = tile_size / 2
 var grid_size = Vector2(16, 16)
 
 var grid = []
-onready var Obstacle = preload("res://Obstacle.tscn")
-onready var Player = preload("res://Player.tscn")
+onready var Obstacle = preload("res://top-down movement GRID/Obstacle.tscn")
+onready var Player = preload("res://top-down movement GRID/Player.tscn")
 
 func _ready():
 	for x in range(grid_size.x):

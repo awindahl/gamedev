@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://tilesets/Mines.tres" type="TileSet" id=2]
-[ext_resource path="res://Grid.gd" type="Script" id=3]
-[ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
+[ext_resource path="res://top-down movement GRID/Game.gd" type="Script" id=1]
+[ext_resource path="res://top-down movement GRID/tilesets/Mines.tres" type="TileSet" id=2]
+[ext_resource path="res://top-down movement GRID/Grid.gd" type="Script" id=3]
+[ext_resource path="res://top-down movement GRID/GridVisualizer.gd" type="Script" id=4]
 
 [node name="Game" type="Node"]
 
