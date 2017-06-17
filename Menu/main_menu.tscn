@@ -104,7 +104,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="NewGame" type="Button" parent="."]
+[node name="PlayGame" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -119,7 +119,7 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
-[node name="NewGameLabel" type="Label" parent="NewGame"]
+[node name="PlayGameLabel" type="Label" parent="PlayGame"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -129,39 +129,7 @@ margin/left = 20.0
 margin/top = 9.0
 margin/right = 96.0
 margin/bottom = 24.0
-text = "New Game"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="LoadGame" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 480.0
-margin/top = 383.0
-margin/right = 594.0
-margin/bottom = 415.0
-disabled = true
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="LoadGameLabel" type="Label" parent="LoadGame"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 20.0
-margin/top = 9.0
-margin/right = 96.0
-margin/bottom = 24.0
-text = "Load Game"
+text = "Play"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -169,6 +137,6 @@ max_lines_visible = -1
 
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
 
-[connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="PlayGame" to="." method="_on_NewGame_pressed"]
 
 

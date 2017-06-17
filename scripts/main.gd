@@ -10,9 +10,12 @@ var myMC;
 var myHp;
 var myMp;
 var i = 0;
+var myFile;
+var tempNameSave;
 
-
-
+var mySave1;
+var mySave2;
+var mySave3;
 
 var strength = 0;
 var agility = 0;
@@ -40,17 +43,58 @@ var myClass = [];
 var current_scene = null;
 
 func _ready():
+
+# ----- Load saves if game_data exists -----
+	var game_data = File.new();
+	if game_data.file_exists("res://game_data.sve"):
+		var current_line = {}
+		game_data.open("res://game_data.sve", File.READ)
+		while (!game_data.eof_reached()):
+			current_line.parse_json(game_data.get_line())
+			mySave1 = current_line["file1"]
+			mySave2 = current_line["file2"]
+			mySave3 = current_line["file3"]
+	else:
+		var files = _game_data();
+		game_data.open("res://game_data.sve", File.WRITE)
+		game_data.store_line(files.to_json());
+	game_data.close();
+	
+	print (mySave1)
+	print (mySave2)
+	print (mySave3)
+
+# ----- Check for saves directory -----
 	var dir = Directory.new()
-	if !dir.dir_exists("user://Saves"):
+	if !dir.dir_exists("user://Saves/"):
 		dir.open("user://")
 		dir.make_dir("user://Saves")
+		dir.make_dir("user://Saves/Rpg")
+	#-- if Saves folder already exists --
+	if !dir.dir_exists("user://Saves/Rpg"):
+		dir.open("user://Saves")
+		dir.make_dir("user://Saves/Rpg")
 
+# ----- Check if saves loaded in game_data actually exists -----
+	
+	var findGame = File.new();
+	if mySave1:
+		if !findGame.file_exists("user://Saves/Rpg/"+mySave1+".sve"):
+			mySave1 = null
+	if mySave2:
+		if !findGame.file_exists("user://Saves/Rpg/"+mySave2+".sve"):
+			mySave2 = null
+	if mySave3:
+		if !findGame.file_exists("user://Saves/Rpg/"+mySave3+".sve"):
+			mySave3 = null
+	findGame.close()
 	
 	var root = get_parent();
 	current_scene = root.get_child( root.get_child_count() -1 );
 	
 func _save():
 	var savedict = {
+		"File"	   : myFile,
 		"Strength" : myClass[0],
 		"Agility"  : myClass[1],
 		"Charisma" : myClass[2],
@@ -68,22 +112,47 @@ func _save():
 	}
 	return savedict;
 
+func _game_data():
+	var datadict = {
+		"file1" : mySave1,
+		"file2" : mySave2,
+		"file3" : mySave3
+	}
+	return datadict;
+
+
 func _save_game_state(var saveName):
 	var saveGame = File.new();
-	if saveGame.file_exists("user://Saves/"+saveName+".sve"):
+	var saveGameInfo = File.new();
+	if saveGame.file_exists("user://Saves/Rpg/"+saveName+".sve"):
 		i = i + 1;
-		if saveGame.file_exists("user://Saves/"+saveName+".sve"):
+		if saveGame.file_exists("user://Saves/Rpg/"+saveName+".sve"):
 			i = i + 1;
-			saveGame.open("user://Saves/"+saveName+var2str(i)+".sve", File.WRITE);
+			saveGame.open("user://Saves/Rpg/"+saveName+var2str(i)+".sve", File.WRITE);
+			tempNameSave = saveName+var2str(i)
 		else:
-			saveGame.open("user://Saves/"+saveName+var2str(i)+".sve", File.WRITE);
+			saveGame.open("user://Saves/Rpg/"+saveName+var2str(i)+".sve", File.WRITE);
+			tempNameSave = saveName+var2str(i)
 	else:
-		saveGame.open("user://Saves/"+saveName+".sve", File.WRITE);
+		saveGame.open("user://Saves/Rpg/"+saveName+".sve", File.WRITE);
+		tempNameSave = saveName
 	
 	var data = _save();
-	#var err = saveGame.open_encrypted_with_pass("user://Saves/"+saveName+".sve", File.WRITE, "cockmuncher")
+	if data["File"] == 1:
+		mySave1 = tempNameSave
+	elif data["File"] == 2:
+		mySave2 = tempNameSave
+	elif data["File"] == 3:
+		mySave3 = tempNameSave
+		
+	saveGameInfo.open("res://game_data.sve", File.WRITE);
+	var data2 = _game_data();
+	
+	#var err = saveGame.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.WRITE, "cockmuncher")
 	saveGame.store_line(data.to_json());
+	saveGameInfo.store_line(data2.to_json());
 	saveGame.close();
+	saveGameInfo.close();
 
 func _load_game_state():
 	pass

@@ -1,6 +1,8 @@
 extends Control
 
 func _ready():
+	
+	
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
@@ -14,4 +16,4 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_NewGame_pressed():
-	get_tree().change_scene("res://rpg_test/main.tscn")
+	get_tree().change_scene("res://Menu/load_menu.tscn")
