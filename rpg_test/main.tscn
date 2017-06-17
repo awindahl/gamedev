@@ -1323,7 +1323,7 @@ script/script = ExtResource( 6 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Next"]
 
-focus/ignore_mouse = false
+focus/ignore_mouse = true
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
