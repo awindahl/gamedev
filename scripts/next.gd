@@ -8,7 +8,7 @@ func _ready():
 	set_process(true);
 
 func _process(delta):
-	if (main.all_skills_chosen && main.class_has_been_chosen && main.dice_has_been_rolled):
+	if (main.all_skills_chosen && main.class_has_been_chosen && main.dice_has_been_rolled && main.name_has_been_entered):
 		this.set_disabled(false);
 	else:
 		this.set_disabled(true);

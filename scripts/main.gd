@@ -25,6 +25,7 @@ var intellect = 0;
 var class_has_been_chosen = false;
 var dice_has_been_rolled = false;
 var all_skills_chosen = false;
+var name_has_been_entered = false;
 
 var sClass = {st_mod = 0, ag_mod = 0, ch_mod = 0, it_mod = 0};
 
@@ -138,6 +139,7 @@ func _save_game_state(var saveName):
 		tempNameSave = saveName
 	
 	var data = _save();
+	
 	if data["File"] == 1:
 		mySave1 = tempNameSave
 	elif data["File"] == 2:
@@ -149,6 +151,7 @@ func _save_game_state(var saveName):
 	var data2 = _game_data();
 	
 	#var err = saveGame.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.WRITE, "cockmuncher")
+
 	saveGame.store_line(data.to_json());
 	saveGameInfo.store_line(data2.to_json());
 	saveGame.close();
