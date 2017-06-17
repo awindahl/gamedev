@@ -13,20 +13,21 @@ func _process(delta):
 		n[i].set_disabled(false);
 		
 		if check_pos.size() > 2:
+			main.sSkills.resize(3);
 			var a = check_pos.values();
 			n[str2var(a[0])].set_disabled(false);
-			#main.sSkills.append(a[0]);
+			main.sSkills[0] =a[0];
 			n[str2var(a[1])].set_disabled(false);
-			#main.sSkills.append(a[1]);
+			main.sSkills[1] =a[1];
 			n[str2var(a[2])].set_disabled(false);
-			#main.sSkills.append(a[2]);
+			main.sSkills[2] = a[2];
 			
-			main.sSkills = [a[0],a[1],a[2]];
 			main.all_skills_chosen = true;
 			
 			n[i].set_disabled(true);
 		else:
 			main.all_skills_chosen = false;
+			main.sSkills.clear();
 		
 		if n[i].is_pressed():
 			check_pos[var2str(i)] = var2str(i);
