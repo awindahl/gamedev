@@ -5,11 +5,11 @@ enum ENTITY_TYPES {PLAYER, OBSTACLE, COLLECTIBLE}
 
 var tile_size = get_cell_size()
 var half_tile_size = tile_size / 2
-var grid_size = Vector2(16, 16)
+var grid_size = Vector2(50, 50)
 
 var grid = []
-onready var Obstacle = preload("res://Obstacle.tscn")
-onready var Player = preload("res://Player.tscn")
+onready var Obstacle = preload("res://top-down movement GRID/Obstacle.tscn")
+onready var Player = preload("res://top-down movement GRID/Player.tscn")
 
 func _ready():
 	for x in range(grid_size.x):
@@ -24,12 +24,12 @@ func _ready():
 
 	# Obstacles
 	var positions = []
-	for x in range(5):
+	for x in range(100):
 		var placed = false
 		while not placed:
 			var grid_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
 			if not grid[grid_pos.x][grid_pos.y]:
-				if not grid_pos in positions:
+				if not grid_pos in positions && grid_pos.x!=4 && grid_pos.y!=4:
 					positions.append(grid_pos)
 					placed = true
 
