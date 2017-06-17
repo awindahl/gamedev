@@ -61,10 +61,6 @@ func _ready():
 		game_data.store_line(files.to_json());
 	game_data.close();
 	
-	print (mySave1)
-	print (mySave2)
-	print (mySave3)
-
 # ----- Check for saves directory -----
 	var dir = Directory.new()
 	if !dir.dir_exists("user://Saves/"):
@@ -157,7 +153,29 @@ func _save_game_state(var saveName):
 	saveGame.close();
 	saveGameInfo.close();
 
-func _load_game_state():
-	pass
+func _load_game_state(var saveName):
 	
-	
+	myClass.resize(7);
+	var current_line = {}
+	var load_data = File.new();
+	#var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
+	load_data.open("user://Saves/Rpg/"+saveName+".sve", File.READ)
+	while (!load_data.eof_reached()):
+		current_line.parse_json(load_data.get_line())
+		myFile = current_line["File"]
+		myClass[0] = current_line["Strength"]
+		myClass[1] = current_line["Agility"]
+		myClass[2] = current_line["Charisma"]
+		myClass[3] = current_line["Intellect"]
+		[myClass[4], myClass[5], myClass[6]] = current_line["Skills"]
+		myName = current_line["Name"]
+		mySprite = current_line["mySprite"]
+		myInventory = current_line["Inventory"]
+		myExp = current_line["Exp"]
+		myLevel = current_line["Level"]
+		myAbilities = current_line["Abilities"]
+		myMC = current_line["MisCom"]
+		myHp = current_line["HP"]
+		myMp = current_line["MP"]
+	load_data.close()
+	myClass.empty();
