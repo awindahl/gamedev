@@ -117,6 +117,11 @@ func _game_data():
 	}
 	return datadict;
 
+func _update_game_data():
+	var saveGameInfo = File.new();
+	var data = _game_data()
+	saveGameInfo.store_line(data.to_json());
+	saveGameInfo.close();
 
 func _save_game_state(var saveName):
 	var saveGame = File.new();
@@ -154,28 +159,35 @@ func _save_game_state(var saveName):
 	saveGameInfo.close();
 
 func _load_game_state(var saveName):
+	if saveName:
+		myClass.resize(7);
+		var current_line = {}
+		var load_data = File.new();
+		#var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
+		load_data.open("user://Saves/Rpg/"+saveName+".sve", File.READ)
+		while (!load_data.eof_reached()):
+			current_line.parse_json(load_data.get_line())
+			myFile = current_line["File"]
+			myClass[0] = current_line["Strength"]
+			myClass[1] = current_line["Agility"]
+			myClass[2] = current_line["Charisma"]
+			myClass[3] = current_line["Intellect"]
+			[myClass[4], myClass[5], myClass[6]] = current_line["Skills"]
+			myName = current_line["Name"]
+			mySprite = current_line["mySprite"]
+			myInventory = current_line["Inventory"]
+			myExp = current_line["Exp"]
+			myLevel = current_line["Level"]
+			myAbilities = current_line["Abilities"]
+			myMC = current_line["MisCom"]
+			myHp = current_line["HP"]
+			myMp = current_line["MP"]
+		load_data.close()
+		myClass.empty();
+	else:
+		pass
 	
-	myClass.resize(7);
-	var current_line = {}
-	var load_data = File.new();
-	#var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
-	load_data.open("user://Saves/Rpg/"+saveName+".sve", File.READ)
-	while (!load_data.eof_reached()):
-		current_line.parse_json(load_data.get_line())
-		myFile = current_line["File"]
-		myClass[0] = current_line["Strength"]
-		myClass[1] = current_line["Agility"]
-		myClass[2] = current_line["Charisma"]
-		myClass[3] = current_line["Intellect"]
-		[myClass[4], myClass[5], myClass[6]] = current_line["Skills"]
-		myName = current_line["Name"]
-		mySprite = current_line["mySprite"]
-		myInventory = current_line["Inventory"]
-		myExp = current_line["Exp"]
-		myLevel = current_line["Level"]
-		myAbilities = current_line["Abilities"]
-		myMC = current_line["MisCom"]
-		myHp = current_line["HP"]
-		myMp = current_line["MP"]
-	load_data.close()
-	myClass.empty();
+func _delete_save(var saveName):
+	print("delete: "+saveName)
+	var deleteSave = Directory.new()
+	deleteSave.remove("user://Saves/Rpg/"+saveName+".sve")
