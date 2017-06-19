@@ -40,6 +40,7 @@ func _on_File1Btn_pressed():
 		main._game_data()
 		main._update_game_data()
 		_load()
+		get_node("File1Btn").set_disabled(true)
 	else:
 		if (get_node("File1Btn/File1Label").get_text() == "Empty"):
 			main.myFile = 1
@@ -55,6 +56,7 @@ func _on_File2Btn_pressed():
 		main._game_data()
 		main._update_game_data()
 		_load()
+		get_node("File2Btn").set_disabled(true)
 	else:
 		if (get_node("File2Btn/File2Label").get_text() == "Empty"):
 			main.myFile = 2
@@ -70,6 +72,7 @@ func _on_File3Btn_pressed():
 		main._game_data()
 		main._update_game_data()
 		_load()
+		get_node("File3Btn").set_disabled(true)
 	else:
 		if (get_node("File3Btn/File3Label").get_text() == "Empty"):
 			main.myFile = 3
