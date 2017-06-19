@@ -9,21 +9,22 @@ func _ready():
 	_load()
 	
 func _load():
-	if !file1:
+	print("loading")
+	if !(file1):
 		get_node("File1Btn/File1Label").set_text("Empty")
-	else:
+	elif file1:
 		main._load_game_state(file1)
 		get_node("File1Btn/File1Label").set_text(main.myName)
 		get_node("DeleteBtn").set_disabled(false)
-	if !file2:
+	if !(file2):
 		get_node("File2Btn/File2Label").set_text("Empty")
-	else:
+	elif file2:
 		main._load_game_state(file2)
 		get_node("File2Btn/File2Label").set_text(main.myName)
 		get_node("DeleteBtn").set_disabled(false)
-	if !file3:
+	if !(file3):
 		get_node("File3Btn/File3Label").set_text("Empty")
-	else:
+	elif file3:
 		main._load_game_state(file3)
 		get_node("File3Btn/File3Label").set_text(main.myName)
 		get_node("DeleteBtn").set_disabled(false)
@@ -34,8 +35,8 @@ func _on_BackBtn_pressed():
 func _on_File1Btn_pressed():
 	if deleteActive:
 		main._delete_save(file1)
-		file1 = ""
-		main.mySave1 = ""
+		file1 = null
+		main.mySave1 = null
 		main._game_data()
 		main._update_game_data()
 		_load()
@@ -49,8 +50,8 @@ func _on_File1Btn_pressed():
 func _on_File2Btn_pressed():
 	if deleteActive:
 		main._delete_save(file2)
-		file2 = ""
-		main.mySave1 = ""
+		file2 = null
+		main.mySave2 = null
 		main._game_data()
 		main._update_game_data()
 		_load()
@@ -64,8 +65,8 @@ func _on_File2Btn_pressed():
 func _on_File3Btn_pressed():
 	if deleteActive:
 		main._delete_save(file3)
-		file3 = ""
-		main.mySave1 = ""
+		file3 = null
+		main.mySave3 = null
 		main._game_data()
 		main._update_game_data()
 		_load()

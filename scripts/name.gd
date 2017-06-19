@@ -1,4 +1,4 @@
-extends TextEdit
+extends LineEdit
 
 var myName ="";
 onready var this = get_node(".");

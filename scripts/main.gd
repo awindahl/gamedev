@@ -119,7 +119,8 @@ func _game_data():
 
 func _update_game_data():
 	var saveGameInfo = File.new();
-	var data = _game_data()
+	var data = _game_data();
+	saveGameInfo.open("res://game_data.sve", File.WRITE);
 	saveGameInfo.store_line(data.to_json());
 	saveGameInfo.close();
 
@@ -159,13 +160,16 @@ func _save_game_state(var saveName):
 	saveGameInfo.close();
 
 func _load_game_state(var saveName):
-	if saveName:
+	print(saveName)
+	if saveName == null:
+		pass
+	else:
 		myClass.resize(7);
 		var current_line = {}
 		var load_data = File.new();
 		#var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
 		load_data.open("user://Saves/Rpg/"+saveName+".sve", File.READ)
-		while (!load_data.eof_reached()):
+		while !(load_data.eof_reached()):
 			current_line.parse_json(load_data.get_line())
 			myFile = current_line["File"]
 			myClass[0] = current_line["Strength"]
@@ -184,8 +188,7 @@ func _load_game_state(var saveName):
 			myMp = current_line["MP"]
 		load_data.close()
 		myClass.empty();
-	else:
-		pass
+
 	
 func _delete_save(var saveName):
 	print("delete: "+saveName)
