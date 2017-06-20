@@ -9,6 +9,8 @@ var grid_size = Vector2(50, 50)
 
 var grid = []
 onready var Player = preload("res://top-down movement GRID/Player.tscn")
+onready var Obstacle = preload("res://top-down movement GRID/Obstacle.tscn")
+onready var Enemy = preload("res://top-down movement GRID/Enemy.tscn")
 
 func _ready():
 	
@@ -21,7 +23,17 @@ func _ready():
 	var new_player = Player.instance()
 	new_player.set_pos(map_to_world(Vector2(4,4)) + half_tile_size)
 	add_child(new_player)
-
+	
+	#creates test obstacle
+	var new_obstacle = Obstacle.instance()
+	new_obstacle.set_pos(map_to_world(Vector2(5,5))+half_tile_size)
+	# occupies a grid tile
+	grid[5][5] = new_obstacle.get_name()
+	add_child(new_obstacle)
+	
+	var new_enemy = Enemy.instance()
+	new_enemy.set_pos(map_to_world(Vector2(6,6))+half_tile_size)
+	add_child(new_enemy)
 
 func get_cell_content(pos=Vector2()):
 	return grid[pos.x][pos.y]

@@ -14,27 +14,23 @@ var is_moving = false
 var type
 var grid
 
-onready var attack = get_node("Attack");
-var attack_wait = 0
-var attack_val = 0
-
 func _ready():
 	grid = get_parent()
 	type = grid.PLAYER
 	set_fixed_process(true)
 
-
 func _fixed_process(delta):
+	
 	direction = Vector2()
 	speed = 0
 
-	if Input.is_action_pressed("move_up") && attack_val == 0:
+	if Input.is_action_pressed("move_up"):
 		direction.y = -1
-	elif Input.is_action_pressed("move_down") && attack_val == 0:
+	elif Input.is_action_pressed("move_down"):
 		direction.y = 1
-	elif Input.is_action_pressed("move_left") && attack_val == 0:
+	elif Input.is_action_pressed("move_left"):
 		direction.x = -1
-	elif Input.is_action_pressed("move_right") && attack_val == 0:
+	elif Input.is_action_pressed("move_right"):
 		direction.x = 1
 
 	if not is_moving and direction != Vector2():
@@ -55,17 +51,4 @@ func _fixed_process(delta):
 			is_moving = false
 		
 		move(velocity)
-	
-	if Input.is_action_pressed("ui_accept") && attack_val == 0 && attack_wait == 0:
-		attack_wait = 20
-		attack.show()
-		attack_val = 30
-		attack.set_pos(target_direction * 60);
-	
-	if attack_val < 101 && attack_val > 0:
-		attack_val-=1
-	
-	if attack_val == 0 && attack_wait > 0:
-		attack.hide()
-		attack_wait -= 1
 	

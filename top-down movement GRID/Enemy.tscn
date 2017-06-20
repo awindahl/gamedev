@@ -7,12 +7,11 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Obstacle" type="StaticBody2D"]
+[node name="Enemy" type="StaticBody2D"]
 
-transform/pos = Vector2( 662, 108 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 3.06889, 0, 0, 3.06589, -0.176034, -0.19757 )
+shapes/0/transform = Matrix32( 2.93669, 0, 0, 2.93669, 0.238703, 0.238703 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -20,21 +19,16 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+modulate = Color( 0.242188, 1, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( -0.176034, -0.19757 )
-transform/scale = Vector2( 3.06889, 3.06589 )
+transform/pos = Vector2( 0.238703, 0.238703 )
+transform/scale = Vector2( 2.93669, 2.93669 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
