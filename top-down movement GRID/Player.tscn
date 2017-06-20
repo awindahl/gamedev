@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://top-down movement GRID/Player.gd" type="Script" id=1]
 [ext_resource path="res://top-down movement GRID/Player.png" type="Texture" id=2]
 [ext_resource path="res://top-down movement GRID/Obstacle.png" type="Texture" id=3]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 27.736, 25.9846 )
+
 [node name="Player" type="KinematicBody2D"]
 
 transform/pos = Vector2( 234.194, 204.355 )
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -50,10 +58,15 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="Looking" type="RayCast2D" parent="."]
 
-transform/rot = -178.649
 enabled = true
-cast_to = Vector2( 0, 50 )
-layer_mask = 2
+cast_to = Vector2( 0, 64 )
+layer_mask = 3
 type_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
