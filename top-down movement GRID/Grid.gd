@@ -8,10 +8,10 @@ var half_tile_size = tile_size / 2
 var grid_size = Vector2(50, 50)
 
 var grid = []
-onready var Obstacle = preload("res://top-down movement GRID/Obstacle.tscn")
 onready var Player = preload("res://top-down movement GRID/Player.tscn")
 
 func _ready():
+	
 	for x in range(grid_size.x):
 		grid.append([])
 		for y in range(grid_size.y):
@@ -21,23 +21,6 @@ func _ready():
 	var new_player = Player.instance()
 	new_player.set_pos(map_to_world(Vector2(4,4)) + half_tile_size)
 	add_child(new_player)
-
-	# Obstacles
-	var positions = []
-	for x in range(100):
-		var placed = false
-		while not placed:
-			var grid_pos = Vector2(randi() % int(grid_size.x), randi() % int(grid_size.y))
-			if not grid[grid_pos.x][grid_pos.y]:
-				if not grid_pos in positions && grid_pos.x!=4 && grid_pos.y!=4:
-					positions.append(grid_pos)
-					placed = true
-
-	for pos in positions:
-		var new_obstacle = Obstacle.instance()
-		new_obstacle.set_pos(map_to_world(pos) + half_tile_size)
-		grid[pos.x][pos.y] = new_obstacle.get_name()
-		add_child(new_obstacle)
 
 
 func get_cell_content(pos=Vector2()):

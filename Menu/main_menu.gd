@@ -16,4 +16,4 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_NewGame_pressed():
-	get_tree().change_scene("res://Menu/load_menu.tscn")
+	get_tree().change_scene("res://top-down movement GRID/Game.tscn")
