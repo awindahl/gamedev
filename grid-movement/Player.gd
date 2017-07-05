@@ -3,9 +3,10 @@ extends KinematicBody2D
 var direction = Vector2()
 var start_pos = Vector2()
 
-var is_moving = false
+var is_attacking = false
 
-const GRID = 64
+var coolDown = 0
+var attack_timer = 0
 const SPEED = 4
 
 onready var world = get_world_2d().get_direct_space_state()
@@ -17,42 +18,46 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
-	
-	#-------Handles looking control-----#
-	if Input.is_action_pressed("move_up"):
+
+	#-------Handles Strafing Control
+	if Input.is_action_pressed("move_up") && !is_attacking:
 		look.set_rot(deg2rad(180))
-	elif Input.is_action_pressed("move_down"):
+	elif Input.is_action_pressed("move_down") && !is_attacking:
 		look.set_rot(deg2rad(0))
-	elif Input.is_action_pressed("move_left"):
-		look.set_rot(deg2rad(240))
-	elif Input.is_action_pressed("move_right"):
+	elif Input.is_action_pressed("move_left") && !is_attacking:
+		look.set_rot(deg2rad(270))
+	elif Input.is_action_pressed("move_right") && !is_attacking:
 		look.set_rot(deg2rad(90))
-	
-	#-------Handles grid movement-------#
-	if !is_moving:
-		
-		var resultUp = world.intersect_point(get_pos() + Vector2(0, -GRID))
-		var resultDown = world.intersect_point(get_pos() + Vector2(0, GRID))
-		var resultLeft = world.intersect_point(get_pos() + Vector2(-GRID, 0))
-		var resultRight = world.intersect_point(get_pos() + Vector2(GRID, 0))
-		
-		if Input.is_action_pressed("move_up") && resultUp.empty():
-			is_moving=true
-			direction = Vector2(0,-1)
-			start_pos=get_pos()
-		elif Input.is_action_pressed("move_down") && resultDown.empty():
-			is_moving=true
-			direction = Vector2(0,1)
-			start_pos=get_pos()
-		elif  Input.is_action_pressed("move_left") && resultLeft.empty():
-			is_moving=true
-			direction = Vector2(-1,0)
-			start_pos=get_pos()
-		elif  Input.is_action_pressed("move_right") &&resultRight.empty():
-			is_moving=true
-			direction = Vector2(1,0)
-			start_pos=get_pos()
+
+	#-------Handles Movement-------#
+	if Input.is_action_pressed("move_up"):
+		direction = Vector2(0,-1)
+		move(direction * SPEED)
+	elif Input.is_action_pressed("move_down"):
+		direction = Vector2(0,1)
+		move(direction * SPEED)
+	elif  Input.is_action_pressed("move_left"):
+		direction = Vector2(-1,0)
+		move(direction * SPEED)
+	elif  Input.is_action_pressed("move_right"):
+		direction = Vector2(1,0)
+		move(direction * SPEED)
+
+	#-----Handles Attacking-------#
+	if coolDown > 0:
+		coolDown -= 1
 	else:
-		move_to(get_pos() + direction * SPEED)
-		if get_pos() == start_pos +Vector2(GRID*direction.x, GRID*direction.y):
-			is_moving = false
+		look.get_child(0).hide();
+	
+	if is_attacking:
+		attack_timer -= 1
+		if attack_timer == 0:
+			is_attacking = false
+	
+	if !is_attacking && Input.is_action_pressed("ui_select"):
+		is_attacking = true
+		attack_timer = 25
+		coolDown = 5
+		look.get_child(0).show()
+	elif is_attacking && Input.is_action_pressed("ui_select"):
+		look.get_child(0).show()
