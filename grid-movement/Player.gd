@@ -56,7 +56,7 @@ func _fixed_process(delta):
 	
 	if !is_attacking && Input.is_action_pressed("ui_select"):
 		is_attacking = true
-		attack_timer = 25
+		attack_timer = 7
 		coolDown = 5
 		look.get_child(0).show()
 	elif is_attacking && Input.is_action_pressed("ui_select"):
