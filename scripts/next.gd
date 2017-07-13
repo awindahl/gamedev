@@ -26,6 +26,8 @@ func _on_Button_pressed():
 	main.myClass[4] = main.pSkills[0];
 	main.myClass[5] = main.pSkills[1];
 	main.myClass[6] = main.pSkills[2];
+	main.myHp = 10 + main.myClass[0]/2;
+	main.myMp = 10 + main.myClass[3]/2;
 	
 	main._save_game_state(main.myName);
 	
