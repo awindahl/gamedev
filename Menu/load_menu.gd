@@ -46,6 +46,7 @@ func _on_File1Btn_pressed():
 			main.myFile = 1
 			get_tree().change_scene("res://rpg_test/main.tscn")
 		else:
+			main._load_game_state(file1)
 			get_tree().change_scene("res://Menu/campain_menu.tscn")
 
 func _on_File2Btn_pressed():
@@ -62,6 +63,7 @@ func _on_File2Btn_pressed():
 			main.myFile = 2
 			get_tree().change_scene("res://rpg_test/main.tscn")
 		else:
+			main._load_game_state(file2)
 			get_tree().change_scene("res://Menu/campain_menu.tscn")
 
 func _on_File3Btn_pressed():
@@ -78,6 +80,7 @@ func _on_File3Btn_pressed():
 			main.myFile = 3
 			get_tree().change_scene("res://rpg_test/main.tscn")
 		else:
+			main._load_game_state(file3)
 			get_tree().change_scene("res://Menu/campain_menu.tscn")
 
 func _on_DeleteBtn_pressed():

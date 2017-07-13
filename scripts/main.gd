@@ -48,6 +48,9 @@ func _ready():
 # ----- :') -----
 	OS.set_window_position(OS.get_screen_size(OS.get_current_screen())/10)
 	OS.set_window_title("Game: the game")
+	
+	
+	print(OS.get_data_dir())
 # ----- Load saves if game_data exists -----
 	var game_data = File.new();
 	if game_data.file_exists("res://game_data.sve"):
@@ -155,7 +158,7 @@ func _save_game_state(var saveName):
 	saveGameInfo.open("res://game_data.sve", File.WRITE);
 	var data2 = _game_data();
 	
-	#var err = saveGame.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.WRITE, "cockmuncher")
+	#EKIN HELP var err = saveGame.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.WRITE, "cockmuncher")
 
 	saveGame.store_line(data.to_json());
 	saveGameInfo.store_line(data2.to_json());
@@ -170,7 +173,7 @@ func _load_game_state(var saveName):
 		myClass.resize(7);
 		var current_line = {}
 		var load_data = File.new();
-		#var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
+		#EKIN HELP var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
 		load_data.open("user://Saves/Rpg/"+saveName+".sve", File.READ)
 		while !(load_data.eof_reached()):
 			current_line.parse_json(load_data.get_line())

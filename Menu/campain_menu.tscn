@@ -39,6 +39,7 @@ margin/bottom = 443.0
 custom_colors/font_color_selected = Color( 0.402344, 0.402344, 0.402344, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 2
+custom_constants/hseparation = 1
 
 [node name="TextureFrame" type="TextureFrame" parent="."]
 
@@ -99,6 +100,8 @@ margin/left = 8.0
 margin/top = 140.0
 margin/right = 130.0
 margin/bottom = 171.0
+align = 1
+uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
