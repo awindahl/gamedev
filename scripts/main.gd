@@ -45,6 +45,9 @@ var current_scene = null;
 
 func _ready():
 
+# ----- :') -----
+	OS.set_window_position(OS.get_screen_size(OS.get_current_screen())/10)
+	OS.set_window_title("Game: the game")
 # ----- Load saves if game_data exists -----
 	var game_data = File.new();
 	if game_data.file_exists("res://game_data.sve"):
