@@ -49,6 +49,7 @@ func _ready():
 	OS.set_window_position(OS.get_screen_size(OS.get_current_screen())/2-(OS.get_window_size()/2))
 	OS.set_window_resizable(false)
 	OS.set_window_title("Game: the game")
+	OS.set_target_fps(60)
 	
 	
 	print(OS.get_data_dir())
