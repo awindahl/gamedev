@@ -45,8 +45,9 @@ var current_scene = null;
 
 func _ready():
 
-# ----- :') -----
-	OS.set_window_position(OS.get_screen_size(OS.get_current_screen())/10)
+# ----- Initial screen settings -----
+	OS.set_window_position(OS.get_screen_size(OS.get_current_screen())/2-(OS.get_window_size()/2))
+	OS.set_window_resizable(false)
 	OS.set_window_title("Game: the game")
 	
 	
@@ -190,8 +191,8 @@ func _load_game_state(var saveName):
 			myLevel = current_line["Level"]
 			myAbilities = current_line["Abilities"]
 			myMC = current_line["MisCom"]
-			myHp = current_line["HP"]
-			myMp = current_line["MP"]
+			myHp = int(current_line["HP"])
+			myMp = int(current_line["MP"])
 		load_data.close()
 		myClass.empty();
 

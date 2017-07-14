@@ -12,10 +12,12 @@ func _ready():
 		get_node("Control/Button2/Label").set_text("Vsync off")
 
 func _on_Button_pressed():
+	OS.set_window_resizable(true)
 	if OS.is_window_fullscreen():
 		OS.set_window_fullscreen(false)
 	else:
 		OS.set_window_fullscreen(true)
+
 
 func _on_BackBtn_pressed():
 	get_tree().change_scene("res://Menu/main_menu.tscn")
