@@ -1,20 +1,21 @@
-extends Button
+extends Node2D
 
-var i = 0;
-onready var this = get_node(".");
 
 func _ready():
-	
-	set_process(true);
 
-func _process(delta):
+	set_fixed_process(true)
+
+func _fixed_process(delta):
 	if (main.all_skills_chosen && main.class_has_been_chosen && main.dice_has_been_rolled && main.name_has_been_entered):
-		this.set_disabled(false);
+		get_node("Next").set_disabled(false);
 	else:
-		this.set_disabled(true);
+		get_node("Next").set_disabled(false);
 
-func _on_Button_pressed():
-	
+func _on_Back_pressed():
+	get_tree().change_scene("res://Menu/load_menu.tscn")
+
+func _on_Next_pressed():
+		
 	for i in range(3):
 		main.pSkills[i] = (main.skillList[str2var(main.sSkills[i])]);
 	

@@ -23,7 +23,7 @@ func _on_Button_1_pressed():
 			dice += 1;
 		var dice_str = str(dice);
 		
-		# assign each die to global variable
+		# assign each dice to global variable
 		if ( i == 0 ):
 			main.strength = dice;
 		if ( i == 1 ):
@@ -33,6 +33,6 @@ func _on_Button_1_pressed():
 		if ( i == 3 ):
 			main.intellect = dice;
 		
-		#Show the die rolls
+		#Show the dice rolls
 		var output = get_node("StatRoller/RichTextLabel " + var2str(i+2));
 		output.set_bbcode(dice_str);

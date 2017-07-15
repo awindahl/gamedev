@@ -1,4 +1,4 @@
-extends Panel
+extends ColorFrame
 
 onready var n = get_children();
 var i = 0;
