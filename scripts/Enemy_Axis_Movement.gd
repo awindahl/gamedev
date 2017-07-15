@@ -3,11 +3,17 @@ extends RigidBody2D
 export var speed = 200
 export var  is_x = false
 export var  is_y = false
+export var  is_contained = false
 
 onready var look_x = get_node("XLOOK")
 onready var look_y = get_node("YLOOK")
-onready var timer = get_node("Timer")
+onready var timer = get_node("WalkTimer")
+onready var container = get_node("ContainedTimer")
+
 var direction = Vector2(1,-1)
+var xmove = false
+var ymove = false
+
 
 func _ready():
 	look_x.add_exception(self)
@@ -28,10 +34,19 @@ func _process(delta):
 	if is_x:
 		if floor(timer.get_time_left()) == 2 &&  get_linear_velocity().y == 0:
 			set_axis_velocity(Vector2(speed * direction.x, 0))
-		else:
+			xmove = true
+		elif !ymove:
+			xmove = false
 			set_linear_velocity(Vector2(0,0))
 	if is_y:
 		if floor(timer.get_time_left()) == 0 && get_linear_velocity().x == 0:
 			set_axis_velocity(Vector2(0,speed * direction.y))
-		else:
+			ymove = true
+		elif !xmove:
 			set_linear_velocity(Vector2(0,0))
+			ymove = false
+
+func _on_ContainedTimer_timeout():
+	look_x.rotate(deg2rad(180))
+	look_y.rotate(deg2rad(180))
+	direction = direction * -1
