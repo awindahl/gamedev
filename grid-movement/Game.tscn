@@ -12,6 +12,10 @@ script/script = ExtResource( 1 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
 
 mode = 0
