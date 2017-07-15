@@ -9,9 +9,15 @@ var myAbilities;
 var myMC;
 var myHp;
 var myMp;
+var myStr;
+var myAgi;
+var myCha;
+var myInt;
 var i = 0;
 var myFile;
 var tempNameSave;
+var myFeat = ["","",""];
+var myClass;
 
 var mySave1;
 var mySave2;
@@ -22,29 +28,9 @@ var agility = 0;
 var charisma = 0;
 var intellect = 0;
 
-var class_has_been_chosen = false;
-var dice_has_been_rolled = false;
-var all_skills_chosen = false;
-var name_has_been_entered = false;
-
-var sClass = {st_mod = 0, ag_mod = 0, ch_mod = 0, it_mod = 0};
-
-var skillList = [
-	"acrobatics", "climb", "diplomacy", "disguise", "disable_trap", "play_instrument", "jump", "listen",
-	"stealth", "open_lock", "detect_trap", "ride", "search", "nat_knowl", "swim", "tumble", "use_rope",
-	"first_aid", "detect_magic", "perception", "arcane_knowl", "forgery", "fletching", "smithing",
-	"pickpocket", "religion"
-];
-
-var sSkills = [0,1,2]; # selected skills
-var pSkills = [0,1,2]; # picked skills
-
-var myClass = [];
-
 var current_scene = null;
 
 func _ready():
-
 # ----- Initial screen settings -----
 	OS.set_window_position(OS.get_screen_size(OS.get_current_screen())/2-(OS.get_window_size()/2))
 	OS.set_window_resizable(false)
@@ -100,11 +86,11 @@ func _ready():
 func _save():
 	var savedict = {
 		"File"	   : myFile,
-		"Strength" : myClass[0],
-		"Agility"  : myClass[1],
-		"Charisma" : myClass[2],
-		"Intellect": myClass[3],
-		"Skills"   : [myClass[4], myClass[5], myClass[6]],
+		"Strength" : myStr,
+		"Agility"  : myAgi,
+		"Charisma" : myCha,
+		"Intellect": myInt,
+		"Feats"   : [myFeat[0], myFeat[1], myFeat[2]],
 		"Name"     : myName,
 		"mySprite" : mySprite,
 		"Inventory": myInventory,
@@ -113,7 +99,8 @@ func _save():
 		"Abilities": myAbilities,
 		"MisCom"   : myMC,
 		"HP"       : myHp,
-		"MP"       : myMp
+		"MP"       : myMp,
+		"Class"    : myClass
 	}
 	return savedict;
 
@@ -172,7 +159,6 @@ func _load_game_state(var saveName):
 	if saveName == null:
 		pass
 	else:
-		myClass.resize(7);
 		var current_line = {}
 		var load_data = File.new();
 		#EKIN HELP var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
@@ -180,11 +166,11 @@ func _load_game_state(var saveName):
 		while !(load_data.eof_reached()):
 			current_line.parse_json(load_data.get_line())
 			myFile = current_line["File"]
-			myClass[0] = current_line["Strength"]
-			myClass[1] = current_line["Agility"]
-			myClass[2] = current_line["Charisma"]
-			myClass[3] = current_line["Intellect"]
-			[myClass[4], myClass[5], myClass[6]] = current_line["Skills"]
+			myStr = current_line["Strength"]
+			myAgi = current_line["Agility"]
+			myCha = current_line["Charisma"]
+			myInt = current_line["Intellect"]
+			[myFeat[0], myFeat[1], myFeat[2]] = current_line["Feats"]
 			myName = current_line["Name"]
 			mySprite = current_line["mySprite"]
 			myInventory = current_line["Inventory"]
@@ -194,8 +180,8 @@ func _load_game_state(var saveName):
 			myMC = current_line["MisCom"]
 			myHp = int(current_line["HP"])
 			myMp = int(current_line["MP"])
+			myClass = current_line["Class"]
 		load_data.close()
-		myClass.empty();
 
 	
 func _delete_save(var saveName):
