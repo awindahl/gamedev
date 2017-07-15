@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://grid-movement/Player.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://scripts/player_attack.gd" type="Script" id=4]
+[ext_resource path="res://top-down movement GRID/Hud.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://scripts/player_attack.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -59,10 +60,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Node2D" parent="Camera2D" instance=ExtResource( 3 )]
+
+margin/left = -459.0
+margin/top = -270.0
+
 [node name="Attack" type="Sprite" parent="."]
 
 visibility/visible = false
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="Looking" type="RayCast2D" parent="."]
@@ -71,13 +77,13 @@ enabled = true
 cast_to = Vector2( 0, 85 )
 layer_mask = 3
 type_mask = 15
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Looking"]
 
 transform/pos = Vector2( 0, 58 )
 transform/scale = Vector2( 0.245305, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
