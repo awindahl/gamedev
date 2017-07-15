@@ -143,27 +143,28 @@ func _fixed_process(delta):
 		modCha = 0;
 		modInt = -1;
 		class_chosen = true;
-	
+		get_node("Sprite").set_hidden(true)
 	if(classBtn.get_selected_ID()==2):
 		modStr = 0;
 		modAgi = 2;
 		modCha = 1;
 		modInt = 0;
 		class_chosen = true;
-	
+		get_node("Sprite").set_hidden(true)
 	if(classBtn.get_selected_ID()==3):
 		modStr = -1;
 		modAgi = 0;
 		modCha = 3;
 		modInt = 1;
 		class_chosen = true;
-	
+		get_node("Sprite").set_hidden(true)
 	if(classBtn.get_selected_ID()==4):
 		modStr = 0;
 		modAgi = 0;
 		modCha = 0;
 		modInt = 3;
 		class_chosen = true;
+		get_node("Sprite").set_hidden(false)
 
 	#--- Feats ---
 	for k in range(get_node("FeatBg").get_children().size()-1):
@@ -229,7 +230,7 @@ func _on_Next_pressed():
 	main.myHp = 10 + main.myStr/2;
 	main.myMp = 10 + main.myAgi/2;
 	main.myFeat[0] = feat; #skill1
-	main.myClass = classBtn.get_item_text(classBtn.get_selected_ID())
+	main.myClass = classBtn.get_item_text(classBtn.get_selected_ID()+1)
 
 	
 	main._save_game_state(main.myName);

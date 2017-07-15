@@ -6,9 +6,20 @@ var changeInMP = 0;
 var e = 0;
 var usingMP = false
 var diff
+var color
+
 func _ready():
 	
 	get_node("Panel/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
+	if main.myClass == "Fighter":
+		color = "FF0000"
+	elif main.myClass == "Rogue":
+		color = "00FF00"
+	elif main.myClass == "Bard":
+		color = "FFFF00"
+	elif main.myClass == "Mage":
+		color = "0000FF"
+	get_node("Panel/MPActual").set_frame_color(color)
 	set_fixed_process(true)
 	
 func _fixed_process(delta):

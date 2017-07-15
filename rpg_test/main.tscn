@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://scripts/character_create.gd" type="Script" id=1]
+[ext_resource path="res://rpg_test/boobwiz.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -734,6 +735,13 @@ visible_characters = -1
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 503.63, 455.358 )
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
 
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 
