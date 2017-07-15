@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://grid-movement/Player.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://grid-movement/Player.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scripts/player_attack.gd" type="Script" id=4]
@@ -68,16 +68,15 @@ modulate = Color( 0, 0, 0, 1 )
 [node name="Looking" type="RayCast2D" parent="."]
 
 enabled = true
-cast_to = Vector2( 0, 64 )
+cast_to = Vector2( 0, 85 )
 layer_mask = 3
 type_mask = 15
 script/script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Looking"]
 
-visibility/visible = false
-transform/pos = Vector2( 0.903001, 58 )
-transform/scale = Vector2( 0.409281, 1 )
+transform/pos = Vector2( 0, 58 )
+transform/scale = Vector2( 0.245305, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
