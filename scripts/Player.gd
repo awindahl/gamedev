@@ -14,6 +14,7 @@ onready var world = get_world_2d().get_direct_space_state()
 onready var look = get_node("Looking")
 
 func _ready():
+	set_meta("Type", "Player")
 	look.add_exception(self)
 	set_fixed_process(true)
 

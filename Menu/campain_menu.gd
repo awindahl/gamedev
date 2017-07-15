@@ -40,4 +40,4 @@ func _on_Button_pressed():
 
 
 func _on_GoBtn_pressed():
-	get_tree().change_scene("res://top-down movement GRID/Game.tscn")
+	get_tree().change_scene("res://grid-movement/Game.tscn")

@@ -46,17 +46,42 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="XLOOK" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -17.3949, -1.41711 )
-transform/rot = 90.1735
-enabled = false
-cast_to = Vector2( 0, 50 )
+editor/display_folded = true
+transform/rot = 90.0
+enabled = true
+cast_to = Vector2( 0, 40 )
 layer_mask = 1
 type_mask = 15
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Sprite" type="Sprite" parent="XLOOK"]
+
+transform/pos = Vector2( -0.194556, 37.0713 )
+transform/scale = Vector2( 0.187292, 0.218526 )
+texture = ExtResource( 2 )
+
+[node name="YLOOK" type="RayCast2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -5.68434e-14, 0 )
+transform/rot = 180.0
+enabled = true
+cast_to = Vector2( 0, 40 )
+layer_mask = 1
+type_mask = 15
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YLOOK"]
+
+transform/pos = Vector2( -0.194556, 37.0713 )
+transform/scale = Vector2( 0.187292, 0.218526 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
