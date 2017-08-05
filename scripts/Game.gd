@@ -1,5 +1,7 @@
 extends Node
 
+onready var node = get_node("Navigation2D")
+
 func _ready():
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)

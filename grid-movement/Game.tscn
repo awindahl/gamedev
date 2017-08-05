@@ -41,11 +41,17 @@ __meta__ = {
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 225.851, 158.712 )
-speed = 100
 
 [node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 223.436, 350.455 )
+is_y = false
+
+[node name="Enemy_Axis_Movement1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 352.436, 420.455 )
+speed = 125
+is_x = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
@@ -60,6 +66,7 @@ scale = Vector2( 1, 1 )
 
 [node name="Node2D" parent="gui" instance=ExtResource( 7 )]
 
+process/pause_mode = 2
 anchor/left = 3
 anchor/top = 3
 anchor/right = 3
