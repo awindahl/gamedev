@@ -12,7 +12,7 @@ func _ready():
 	
 	get_node("Panel/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
 	if main.myClass == "Fighter":
-		color = "FF0000"
+		color = "FFA500"
 	elif main.myClass == "Rogue":
 		color = "00FF00"
 	elif main.myClass == "Bard":
