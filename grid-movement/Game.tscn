@@ -6,7 +6,7 @@
 [ext_resource path="res://grid-movement/Enemy_Node_Movement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://grid-movement/Enemy_Axis_Movement.tscn" type="PackedScene" id=5]
 [ext_resource path="res://grid-movement/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://top-down movement GRID/Hud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Hud/Hud.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node2D"]
 
@@ -94,13 +94,5 @@ scale = Vector2( 1, 1 )
 [node name="Node2D" parent="gui" instance=ExtResource( 7 )]
 
 process/pause_mode = 2
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
-margin/left = 510.0
-margin/top = 301.0
-margin/right = -412.0
-margin/bottom = -239.0
 
 
