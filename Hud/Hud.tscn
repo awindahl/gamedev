@@ -225,6 +225,7 @@ max_lines_visible = -1
 
 [node name="Pause" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.77
 anchor/left = 3
@@ -238,7 +239,7 @@ size_flags/vertical = 2
 margin/left = -394.0
 margin/top = -146.0
 margin/right = -606.0
-margin/bottom = -431.0
+margin/bottom = -386.0
 
 [node name="PauseLabel" type="Label" parent="Pause"]
 
@@ -255,8 +256,156 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Btn_resume" type="Button" parent="Pause"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 52.0
+margin/top = 35.0
+margin/right = 155.0
+margin/bottom = 71.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Pause/Btn_resume"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 103.0
+margin/bottom = 36.0
+text = "Resume"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Btn_options" type="Button" parent="Pause"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 53.0
+margin/top = 83.0
+margin/right = 155.0
+margin/bottom = 119.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Pause/Btn_options"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 102.0
+margin/bottom = 36.0
+text = "Options"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Btn_quit_menu" type="Button" parent="Pause"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 53.0
+margin/top = 132.0
+margin/right = 155.0
+margin/bottom = 168.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Pause/Btn_quit_menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 102.0
+margin/bottom = 36.0
+text = "Quit to menu"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Btn_quit_desktop" type="Button" parent="Pause"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 53.0
+margin/top = 180.0
+margin/right = 155.0
+margin/bottom = 216.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Label" type="Label" parent="Pause/Btn_quit_desktop"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 102.0
+margin/bottom = 36.0
+text = "Quit to Desktop"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="ButtonAdd" to="." method="_on_ButtonAdd_pressed"]
+
+[connection signal="pressed" from="Pause/Btn_resume" to="." method="_on_Btn_resume_pressed"]
+
+[connection signal="pressed" from="Pause/Btn_options" to="." method="_on_Btn_options_pressed"]
+
+[connection signal="pressed" from="Pause/Btn_quit_menu" to="." method="_on_Btn_quit_menu_pressed"]
+
+[connection signal="pressed" from="Pause/Btn_quit_desktop" to="." method="_on_Btn_quit_desktop_pressed"]
 
 

@@ -47,7 +47,6 @@ func _on_Button_pressed():
 	e = 1;
 	usingMP = true;
 	
-
 func _on_ButtonAdd_pressed():
 	if currentMP == myMP:
 		pass
@@ -55,3 +54,19 @@ func _on_ButtonAdd_pressed():
 	e = -1;
 	usingMP = true;
 	get_node("Button").set_disabled(false)
+	
+func _on_Btn_quit_desktop_pressed():
+	get_tree().quit()
+
+func _on_Btn_quit_menu_pressed():
+	get_tree().change_scene("res://Menu/campain_menu.tscn")
+	get_tree().set_pause(false)
+
+func _on_Btn_options_pressed():
+	pass # replace with function body
+	# -- TODO: MAKE CUSTOM OPTIONS MENU FOR INGAME --
+
+func _on_Btn_resume_pressed():
+	get_node("Pause").set_hidden(true)
+	get_tree().set_pause(false)
+	
