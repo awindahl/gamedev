@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://grid-movement/tilesets/mines/floor.png" type="Texture" id=1]
-[ext_resource path="res://grid-movement/tilesets/mines/obstacle-grass.png" type="Texture" id=2]
+[ext_resource path="res://grid-movement/tilesets/mines/FLOOR.png" type="Texture" id=1]
+[ext_resource path="res://grid-movement/tilesets/mines/ROCK.png" type="Texture" id=2]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -12,7 +12,7 @@ outlines = [ Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 ) ]
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+extents = Vector2( 32, 16.5041 )
 
 [node name="tileset" type="Node"]
 
@@ -22,18 +22,19 @@ __meta__ = {
 
 [node name="floor" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 32, 32 )
 texture = ExtResource( 1 )
+modulate = Color( 0.406721, 0.449219, 0.273743, 1 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="floor"]
 
+visibility/visible = false
+transform/pos = Vector2( -0.0317078, 0.0456607 )
 navpoly = SubResource( 1 )
 enabled = true
 
 [node name="obstacle" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 96, 32 )
 texture = ExtResource( 2 )
 
@@ -41,7 +42,7 @@ texture = ExtResource( 2 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1.9334, -0.041851, 0.0591542 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -52,8 +53,10 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/StaticBody2D"]
 
+transform/pos = Vector2( -0.041851, 0.0591542 )
+transform/scale = Vector2( 1, 1.9334 )
 shape = SubResource( 2 )
 trigger = false
-_update_shape_index = -1
+_update_shape_index = 0
 
 
