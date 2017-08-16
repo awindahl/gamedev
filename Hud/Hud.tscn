@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Hud/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Hud/level1.png" type="Texture" id=2]
+[ext_resource path="res://grid-movement/tilesets/tileset.tres" type="TileSet" id=3]
 
 [node name="Node2D" type="Control"]
 
@@ -141,6 +142,7 @@ flat = false
 
 [node name="Character" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.77
 focus/ignore_mouse = false
@@ -169,6 +171,7 @@ max_lines_visible = -1
 
 [node name="Inventory" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.77
 focus/ignore_mouse = false
@@ -222,6 +225,25 @@ text = "Map"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="TileMap" type="TileMap" parent="Map"]
+
+transform/scale = Vector2( 0.2, 0.2 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 64
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
 
 [node name="Pause" type="Panel" parent="."]
 

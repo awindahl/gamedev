@@ -44,4 +44,5 @@ func _on_Button_pressed():
 
 
 func _on_GoBtn_pressed():
+	#-- TODO: LOAD THE RIGHT MAP --
 	get_tree().change_scene("res://grid-movement/Game.tscn")
