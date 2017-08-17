@@ -291,7 +291,7 @@ __meta__ = {
 [node name="Back" type="Button" parent="."]
 
 editor/display_folded = true
-focus_neighbour/top = NodePath("../FeatBg")
+focus_neighbour/top = NodePath("../FeatBg/Focused")
 focus_neighbour/right = NodePath("../Name")
 focus/ignore_mouse = false
 focus/stop_mouse = true
