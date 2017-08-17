@@ -1,10 +1,10 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var focusing = false
 
 func _ready():
+	get_node("Start").grab_focus()
+	set_process_input(true)
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
@@ -18,3 +18,8 @@ func _on_Start_pressed():
 	
 func _on_Quit_pressed():
 	get_tree().quit()
+	
+func _input(event):
+	if(event.type == InputEvent.KEY) and not focusing:
+		get_node("Start").grab_focus()
+		focusing = true

@@ -5,9 +5,18 @@ var file2 = main.mySave2
 var file3 = main.mySave3
 var deleteActive = false
 
+var focusing = true
+
 func _ready():
+	get_node("File1Btn").grab_focus()
 	_load()
-	
+	set_process_input(true)
+
+func _input(event):
+	if(event.type == InputEvent.KEY) and not focusing:
+		get_node("DeleteBtn").grab_focus()
+		focusing = true
+
 func _load():
 	print("loading")
 	if !(file1):
@@ -41,6 +50,8 @@ func _on_File1Btn_pressed():
 		main._update_game_data()
 		_load()
 		get_node("File1Btn").set_disabled(true)
+		focusing = false
+		get_node("DeleteBtn").grab_focus()
 	else:
 		if (get_node("File1Btn/File1Label").get_text() == "Empty"):
 			main.myFile = 1
@@ -58,6 +69,8 @@ func _on_File2Btn_pressed():
 		main._update_game_data()
 		_load()
 		get_node("File2Btn").set_disabled(true)
+		focusing = false
+		get_node("DeleteBtn").grab_focus()
 	else:
 		if (get_node("File2Btn/File2Label").get_text() == "Empty"):
 			main.myFile = 2
@@ -75,6 +88,8 @@ func _on_File3Btn_pressed():
 		main._update_game_data()
 		_load()
 		get_node("File3Btn").set_disabled(true)
+		focusing = false
+		get_node("DeleteBtn").grab_focus()
 	else:
 		if (get_node("File3Btn/File3Label").get_text() == "Empty"):
 			main.myFile = 3

@@ -6,6 +6,7 @@
 
 [node name="Node2D" type="Control"]
 
+process/pause_mode = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -247,7 +248,6 @@ tile_data = IntArray(  )
 
 [node name="Pause" type="Panel" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.77
 anchor/left = 3
@@ -280,6 +280,8 @@ max_lines_visible = -1
 
 [node name="Btn_resume" type="Button" parent="Pause"]
 
+focus_neighbour/top = NodePath("../Btn_quit_desktop")
+focus_neighbour/bottom = NodePath("../Btn_options")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -315,6 +317,8 @@ __meta__ = {
 
 [node name="Btn_options" type="Button" parent="Pause"]
 
+focus_neighbour/top = NodePath("../Btn_resume")
+focus_neighbour/bottom = NodePath("../Btn_quit_menu")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -350,6 +354,8 @@ __meta__ = {
 
 [node name="Btn_quit_menu" type="Button" parent="Pause"]
 
+focus_neighbour/top = NodePath("../Btn_options")
+focus_neighbour/bottom = NodePath("../Btn_quit_desktop")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -385,6 +391,8 @@ __meta__ = {
 
 [node name="Btn_quit_desktop" type="Button" parent="Pause"]
 
+focus_neighbour/top = NodePath("../Btn_quit_menu")
+focus_neighbour/bottom = NodePath("../Btn_resume")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

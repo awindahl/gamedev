@@ -1,15 +1,16 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var focusing = false
 
 func _ready():
+	get_node("Control/Button").grab_focus()
 	get_node("Control/Label1").set_text(OS.get_engine_version().to_json())
 	if OS.is_vsync_enabled():
 		get_node("Control/Button2/Label").set_text("Vsync on")
 	else:
 		get_node("Control/Button2/Label").set_text("Vsync off")
+	
+	set_process_input(true)
 
 func _on_Button_pressed():
 	OS.set_window_resizable(true)
@@ -32,3 +33,9 @@ func _on_Button2_pressed():
 		OS.set_use_vsync(true)
 		print("on")
 		get_node("Control/Button2/Label").set_text("Vsync on")
+
+func _input(event):
+	if(event.type == InputEvent.KEY) and not focusing:
+		get_node("Control/Button").grab_focus()
+		focusing = true
+

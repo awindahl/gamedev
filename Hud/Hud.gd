@@ -8,6 +8,8 @@ var usingMP = false
 var diff
 var color
 
+var focused = false
+
 func _ready():
 	
 	get_node("HUD/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
@@ -23,6 +25,11 @@ func _ready():
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
+	if get_node("Pause").is_visible() and not focused:
+		get_node("Pause/Btn_resume").grab_focus()
+		focused = true
+	if not get_node("Pause").is_visible():
+		focused = false
 	
 	if usingMP:
 		currentMP = currentMP - changeInMP*e;

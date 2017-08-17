@@ -23,21 +23,23 @@ __meta__ = {
 
 [node name="FeatBg" type="ColorFrame" parent="."]
 
-editor/display_folded = true
 visibility/self_opacity = 0.69
+focus_neighbour/bottom = NodePath("../Back")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 7.0
-margin/top = 399.0
-margin/right = 124.0
-margin/bottom = 535.0
+margin/left = 19.0
+margin/top = 405.0
+margin/right = 136.0
+margin/bottom = 541.0
 color = Color( 0.230469, 0.230469, 0.230469, 1 )
 
 [node name="Social" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
+focus_neighbour/top = NodePath("../../ColorFrame/ClassButton")
+focus_neighbour/right = NodePath("../../Name")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -76,6 +78,7 @@ __meta__ = {
 [node name="Strong" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
+focus_neighbour/right = NodePath("../../Name")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -114,6 +117,7 @@ __meta__ = {
 [node name="Agile" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
+focus_neighbour/right = NodePath("../../Name")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -152,6 +156,7 @@ __meta__ = {
 [node name="Educated" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
+focus_neighbour/right = NodePath("../../Name")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -190,6 +195,8 @@ __meta__ = {
 [node name="Focused" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
+focus_neighbour/right = NodePath("../../Name")
+focus_neighbour/bottom = NodePath("../../Back")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -245,6 +252,8 @@ max_lines_visible = -1
 [node name="Next" type="Button" parent="."]
 
 editor/display_folded = true
+focus_neighbour/left = NodePath("../Name")
+focus_neighbour/top = NodePath("../ColorFrame/StatDad/StatRoller")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -282,6 +291,8 @@ __meta__ = {
 [node name="Back" type="Button" parent="."]
 
 editor/display_folded = true
+focus_neighbour/top = NodePath("../FeatBg")
+focus_neighbour/right = NodePath("../Name")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -318,6 +329,9 @@ __meta__ = {
 [node name="Name" type="LineEdit" parent="."]
 
 editor/display_folded = true
+focus_neighbour/left = NodePath("../FeatBg/Social")
+focus_neighbour/top = NodePath("../ColorFrame/StatDad/StatRoller")
+focus_neighbour/right = NodePath("../Next")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -382,7 +396,6 @@ __meta__ = {
 
 [node name="StatDad" type="Control" parent="ColorFrame"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -395,6 +408,7 @@ margin/bottom = 57.0
 [node name="StatRoller" type="Button" parent="ColorFrame/StatDad"]
 
 editor/display_folded = true
+focus_neighbour/right = NodePath("../../../Next")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -648,6 +662,8 @@ __meta__ = {
 [node name="ClassButton" type="OptionButton" parent="ColorFrame"]
 
 hint/tooltip = "-Select a Class-"
+focus_neighbour/right = NodePath("../../Name")
+focus_neighbour/bottom = NodePath("../../FeatBg/Social")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

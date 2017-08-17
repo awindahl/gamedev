@@ -33,6 +33,7 @@ var red = Color("ff0000");
 var green = Color("00ff00");
 
 func _ready():
+	get_node("ColorFrame/StatDad/StatRoller").grab_focus()
 	classBtn = get_node("ColorFrame/ClassButton")
 	classBtn.add_item(" Select a Base Class ",0);
 	classBtn.set_item_disabled(0,true);
@@ -177,7 +178,7 @@ func _fixed_process(delta):
 				
 				for l in range(get_node("FeatBg").get_children().size()-1):
 					if !(get_node("FeatBg").get_child(l) == selectedFeat):
-						get_node("FeatBg").get_child(l).set_disabled(true)
+						get_node("FeatBg").get_child(l).set_toggle_mode(false)
 		
 		else:
 			if !selectedFeat.is_pressed():

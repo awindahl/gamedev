@@ -4,8 +4,10 @@ var green = Color(0,255,0)
 var yellow = Color(255,255,0)
 var red = Color(204,0,0)
 
+var focusing = false
+
 func _ready():
-	
+	get_node("Button").grab_focus()
 	var campain_texture = get_node("TextureFrame")
 	var campain_list = get_node("CampainList")
 	
@@ -34,6 +36,12 @@ func _ready():
 		get_node("TextureFrame").set_texture(image)
 	
 	set_fixed_process(true)
+	set_process_input(true)
+	
+func _input(event):
+	if(event.type == InputEvent.KEY) and not focusing:
+		get_node("Button").grab_focus()
+		focusing = true
 
 func _fixed_process(delta):
 	pass

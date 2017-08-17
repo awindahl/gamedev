@@ -28,6 +28,7 @@ margin/bottom = 601.0
 
 [node name="CampainList" type="ItemList" parent="."]
 
+focus_neighbour/right = NodePath("../GoBtn")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
