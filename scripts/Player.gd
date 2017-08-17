@@ -37,7 +37,7 @@ func _fixed_process(delta):
 	elif Input.is_action_pressed("move_down"):
 		direction = Vector2(0,1)
 		move(direction * SPEED)
-	elif  Input.is_action_pressed("move_left"):
+	if  Input.is_action_pressed("move_left"):
 		direction = Vector2(-1,0)
 		move(direction * SPEED)
 	elif  Input.is_action_pressed("move_right"):

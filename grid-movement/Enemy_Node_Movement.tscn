@@ -6,9 +6,9 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -27.8295, -26.5958, 26.1913, -26.9454, 26.1913, 27.7747, -27.8295, 27.5998 )
+points = Vector2Array( -28.7842, -25.5102, 27.747, -25.3678, 28.0318, 28.6004, -28.9266, 28.458 )
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -16,23 +16,9 @@ shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-mode = 2
-mass = 1.0
-friction = 0.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = -1.0
-damp_override/angular = -1.0
+collision/margin = 0.1
 script/script = ExtResource( 1 )
-speed = 200
+speed = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -50,7 +36,7 @@ modulate = Color( 0.382812, 1, 0, 1 )
 [node name="Timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 2.0
 one_shot = false
 autostart = true
 
@@ -60,6 +46,13 @@ process_mode = 0
 wait_time = 3.0
 one_shot = false
 autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -28.7842, -25.5102, 27.747, -25.3678, 28.0318, 28.6004, -28.9266, 28.458 )
+shape_range = Vector2( 0, 0 )
+trigger = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

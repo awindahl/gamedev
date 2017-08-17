@@ -41,6 +41,7 @@ __meta__ = {
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 225.851, 158.712 )
+speed = 4
 
 [node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 5 )]
 
