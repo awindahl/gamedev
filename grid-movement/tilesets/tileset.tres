@@ -12,7 +12,7 @@ outlines = [ Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 ) ]
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -31.2269, -31.8416, 32.5196, -31.7369, 32.5196, 31.8002, -31.0418, 31.8461 )
+points = Vector2Array( -31.2598, -31.8893, 32.725, -31.8899, 32.7038, 32.0702, -31.2205, 32.0841 )
 
 [resource]
 
