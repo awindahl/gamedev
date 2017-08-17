@@ -1,389 +1,27 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://scripts/main.gd" type="Script" id=1]
-[ext_resource path="res://scripts/dice_btn.gd" type="Script" id=2]
-[ext_resource path="res://scripts/class_option.gd" type="Script" id=3]
-[ext_resource path="res://scripts/stats.gd" type="Script" id=4]
-[ext_resource path="res://scripts/skills.gd" type="Script" id=5]
-[ext_resource path="res://scripts/next.gd" type="Script" id=6]
-[ext_resource path="res://scripts/BtnBack.gd" type="Script" id=7]
-[ext_resource path="res://scripts/name.gd" type="Script" id=8]
+[ext_resource path="res://scripts/character_create.gd" type="Script" id=1]
+[ext_resource path="res://rpg_test/boobwiz.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
-[node name="StatDad" type="Control" parent="."]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 30.0
-margin/top = 30.0
-margin/right = 70.0
-margin/bottom = 70.0
-script/script = ExtResource( 2 )
-
-[node name="StatRoller" type="Button" parent="StatDad"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 17.0
-margin/top = 89.0
-margin/right = 121.0
-margin/bottom = 126.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-
-[node name="RichTextLabel 6" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -4.0
-margin/top = -79.0
-margin/right = 106.0
-margin/bottom = -39.0
-bbcode/enabled = false
-bbcode/bbcode = "Strength"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel1" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -4.0
-margin/top = -59.0
-margin/right = 106.0
-margin/bottom = -19.0
-bbcode/enabled = false
-bbcode/bbcode = "Agility"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -4.0
-margin/top = -39.0
-margin/right = 106.0
-margin/bottom = 1.0
-bbcode/enabled = false
-bbcode/bbcode = "Charisma"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -4.0
-margin/top = -19.0
-margin/right = 106.0
-margin/bottom = 21.0
-bbcode/enabled = false
-bbcode/bbcode = "Intellect"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 23.0
-margin/top = 11.0
-margin/right = 81.0
-margin/bottom = 32.0
-bbcode/enabled = false
-bbcode/bbcode = "Roll Dice"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel 2" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 94.0
-margin/top = -80.0
-margin/right = 137.0
-margin/bottom = -40.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel 3" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 94.0
-margin/top = -60.0
-margin/right = 137.0
-margin/bottom = -20.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel 4" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 94.0
-margin/top = -40.0
-margin/right = 137.0
-margin/bottom = 0.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel 5" type="RichTextLabel" parent="StatDad/StatRoller"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 94.0
-margin/top = -20.0
-margin/right = 137.0
-margin/bottom = 20.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="OptionButton" type="OptionButton" parent="."]
-
-editor/display_folded = true
-hint/tooltip = "-Select a Class-"
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 48.0
-margin/top = 170.0
-margin/right = 195.0
-margin/bottom = 206.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-selected = -1
-items = [  ]
-script/script = ExtResource( 3 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="OptionButton"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 112.0
-margin/top = -131.0
-margin/right = 152.0
-margin/bottom = -91.0
-custom_colors/default_color = Color( 0, 1, 0.203125, 1 )
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel1" type="RichTextLabel" parent="OptionButton"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 112.0
-margin/top = -111.0
-margin/right = 152.0
-margin/bottom = -71.0
-custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="OptionButton"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 112.0
-margin/top = -91.0
-margin/right = 152.0
-margin/bottom = -51.0
-custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="OptionButton"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 112.0
-margin/top = -71.0
-margin/right = 152.0
-margin/bottom = -31.0
-custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Total Stat" type="Control" parent="."]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 180.0
-margin/top = 39.0
-margin/right = 220.0
-margin/bottom = 79.0
-script/script = ExtResource( 4 )
-
-[node name="RichTextLabel1" type="RichTextLabel" parent="Total Stat"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Total Stat"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 21.0
-margin/right = 40.0
-margin/bottom = 61.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="Total Stat"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 41.0
-margin/right = 40.0
-margin/bottom = 81.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="Total Stat"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 61.0
-margin/right = 40.0
-margin/bottom = 101.0
-bbcode/enabled = false
-bbcode/bbcode = ""
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 42.0
-margin/top = 20.0
-margin/right = 200.0
-margin/bottom = 60.0
-bbcode/enabled = false
-bbcode/bbcode = "Stat      			B   M   T"
-visible_characters = -1
-
 [node name="Panel" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -5.0
+margin/top = -6.0
+margin/right = 1036.0
+margin/bottom = 608.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FeatBg" type="ColorFrame" parent="."]
 
 editor/display_folded = true
 visibility/self_opacity = 0.69
@@ -391,64 +29,33 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 229.0
-margin/top = 20.0
-margin/right = 476.0
-margin/bottom = 315.0
-script/script = ExtResource( 5 )
+margin/left = 7.0
+margin/top = 399.0
+margin/right = 124.0
+margin/bottom = 535.0
+color = Color( 0.230469, 0.230469, 0.230469, 1 )
 
-[node name="CheckBox0" type="CheckBox" parent="Panel"]
+[node name="Social" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 7.0
-margin/right = 126.0
-margin/bottom = 30.0
+margin/left = 99.0
+margin/top = 23.0
+margin/right = 125.0
+margin/bottom = 46.0
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 flat = false
 align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox0"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Acrobatics"
-visible_characters = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox1" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 27.0
-margin/right = 126.0
-margin/bottom = 50.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox1"]
+[node name="SocialLabel" type="Label" parent="FeatBg/Social"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -456,67 +63,37 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -95.0
 margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Climb"
-visible_characters = -1
+margin/right = -58.0
+margin/bottom = 18.0
+text = "Social"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox2" type="CheckBox" parent="Panel"]
+[node name="Strong" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 47.0
-margin/right = 126.0
-margin/bottom = 70.0
+margin/left = 99.0
+margin/top = 46.0
+margin/right = 125.0
+margin/bottom = 69.0
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 flat = false
 align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox2"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Diplomacy"
-visible_characters = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox3" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 67.0
-margin/right = 126.0
-margin/bottom = 90.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox3"]
+[node name="StrongLabel" type="Label" parent="FeatBg/Strong"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -524,67 +101,37 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -95.0
 margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Disguise"
-visible_characters = -1
+margin/right = -55.0
+margin/bottom = 18.0
+text = "Strong"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox4" type="CheckBox" parent="Panel"]
+[node name="Agile" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 87.0
-margin/right = 126.0
-margin/bottom = 110.0
+margin/left = 99.0
+margin/top = 69.0
+margin/right = 125.0
+margin/bottom = 92.0
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 flat = false
 align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox4"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -9.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Disable Trap"
-visible_characters = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox5" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 107.0
-margin/right = 126.0
-margin/bottom = 130.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox5"]
+[node name="AgileLabel" type="Label" parent="FeatBg/Agile"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -592,98 +139,37 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -95.0
 margin/top = 4.0
-margin/right = 10.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Play Instrum."
-visible_characters = -1
+margin/right = -63.0
+margin/bottom = 18.0
+text = "Agile"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox6" type="CheckBox" parent="Panel"]
+[node name="Educated" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 127.0
-margin/right = 126.0
-margin/bottom = 150.0
+margin/left = 99.0
+margin/top = 92.0
+margin/right = 125.0
+margin/bottom = 115.0
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 flat = false
 align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox6"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Jump"
-visible_characters = -1
-
-[node name="CheckBox7" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 147.0
-margin/right = 126.0
-margin/bottom = 170.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox7"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Listen"
-visible_characters = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox8" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 167.0
-margin/right = 126.0
-margin/bottom = 190.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox8"]
+[node name="EducatedLabel" type="Label" parent="FeatBg/Educated"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -691,67 +177,37 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -95.0
 margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Stealth"
-visible_characters = -1
+margin/right = -37.0
+margin/bottom = 18.0
+text = "Educated"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox9" type="CheckBox" parent="Panel"]
+[node name="Focused" type="CheckBox" parent="FeatBg"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 187.0
-margin/right = 126.0
-margin/bottom = 210.0
+margin/left = 99.0
+margin/top = 115.0
+margin/right = 125.0
+margin/bottom = 138.0
 toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 flat = false
 align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox9"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Open Lock"
-visible_characters = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox10" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 207.0
-margin/right = 126.0
-margin/bottom = 230.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox10"]
+[node name="FocusedLabel" type="Label" parent="FeatBg/Focused"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -759,603 +215,87 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -95.0
 margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Detect Trap"
-visible_characters = -1
+margin/right = -42.0
+margin/bottom = 18.0
+text = "Focused"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CheckBox11" type="CheckBox" parent="Panel"]
+[node name="Label" type="Label" parent="FeatBg"]
 
-editor/display_folded = true
-focus/ignore_mouse = false
+focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 227.0
-margin/right = 126.0
-margin/bottom = 250.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox11"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Ride"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox12" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 247.0
-margin/right = 126.0
-margin/bottom = 270.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox12"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Search"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox13" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 267.0
-margin/right = 126.0
-margin/bottom = 290.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox13"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Nat. Knowl."
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox14" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 7.0
-margin/right = 246.0
-margin/bottom = 30.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox14"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Swim"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox15" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 27.0
-margin/right = 246.0
-margin/bottom = 50.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox15"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Tumble"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox16" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 47.0
-margin/right = 246.0
-margin/bottom = 70.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox16"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Use Rope"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox17" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 67.0
-margin/right = 246.0
-margin/bottom = 90.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox17"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -20.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "First Aid"
-visible_characters = -1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CheckBox18" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 87.0
-margin/right = 246.0
-margin/bottom = 110.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox18"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -8.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Detect Magic"
-visible_characters = -1
-
-[node name="CheckBox19" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 107.0
-margin/right = 246.0
-margin/bottom = 130.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox19"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -8.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Perception"
-visible_characters = -1
-
-[node name="CheckBox20" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 127.0
-margin/right = 246.0
-margin/bottom = 150.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox20"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Arcane Knowl."
-visible_characters = -1
-
-[node name="CheckBox21" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 147.0
-margin/right = 246.0
-margin/bottom = 170.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox21"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Forgery"
-visible_characters = -1
-
-[node name="CheckBox22" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 167.0
-margin/right = 246.0
-margin/bottom = 190.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox22"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Fletching"
-visible_characters = -1
-
-[node name="CheckBox23" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 187.0
-margin/right = 246.0
-margin/bottom = 210.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox23"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Smithing"
-visible_characters = -1
-
-[node name="CheckBox24" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 207.0
-margin/right = 246.0
-margin/bottom = 230.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox24"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Pickpocket"
-visible_characters = -1
-
-[node name="CheckBox25" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 220.0
-margin/top = 227.0
-margin/right = 246.0
-margin/bottom = 250.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox25"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Religion"
-visible_characters = -1
-
-[node name="CheckBox26" type="CheckBox" parent="Panel"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 630.0
-margin/top = -93.0
-margin/right = 656.0
-margin/bottom = -70.0
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-flat = false
-align = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CheckBox26"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -95.0
-margin/top = 4.0
-margin/right = -3.0
-margin/bottom = 44.0
-bbcode/enabled = false
-bbcode/bbcode = "Religion"
-visible_characters = -1
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-transform/pos = Vector2( 331, 177 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 0.6, 0.6 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 6.0
+margin/right = 117.0
+margin/bottom = 20.0
+text = "Select a feat"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Next" type="Button" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 540.0
-margin/top = 309.0
-margin/right = 619.0
-margin/bottom = 335.0
+margin/left = 925.0
+margin/top = 552.0
+margin/right = 1004.0
+margin/bottom = 578.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 flat = false
-script/script = ExtResource( 6 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Next"]
+[node name="Label" type="Label" parent="Next"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 23.0
-margin/top = 5.0
-margin/right = 102.0
-margin/bottom = 45.0
-bbcode/enabled = false
-bbcode/bbcode = "Next"
-visible_characters = -1
+margin/left = 0.0
+margin/top = -1.0
+margin/right = 79.0
+margin/bottom = 26.0
+text = "Create"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Back" type="Button" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 45.0
-margin/top = 309.0
-margin/right = 124.0
-margin/bottom = 335.0
+margin/left = 23.0
+margin/top = 552.0
+margin/right = 102.0
+margin/bottom = 578.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 flat = false
-script/script = ExtResource( 7 )
 
-[node name="RichTextLabel" type="Label" parent="Back"]
+[node name="Label" type="Label" parent="Back"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = false
@@ -1377,38 +317,436 @@ __meta__ = {
 
 [node name="Name" type="LineEdit" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 53.0
-margin/top = 245.0
-margin/right = 168.0
-margin/bottom = 269.0
+margin/left = 451.0
+margin/top = 561.0
+margin/right = 566.0
+margin/bottom = 585.0
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false
 caret/caret_blink_speed = 0.65
-script/script = ExtResource( 8 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Name"]
+[node name="Label" type="Label" parent="Name"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = -16.0
-margin/right = 113.0
-margin/bottom = -1.0
+margin/top = -13.0
+margin/right = 115.0
+margin/bottom = 1.0
+text = "Character name"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 4.0
+margin/right = 175.0
+margin/bottom = 156.0
+color = Color( 0.203922, 0.203922, 0.211765, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorFrame"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 9.0
+margin/top = 9.0
+margin/right = 167.0
+margin/bottom = 49.0
 bbcode/enabled = false
-bbcode/bbcode = "Character Name"
+bbcode/bbcode = "Stat      			B   M   T"
 visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
 
-[connection signal="pressed" from="StatDad/StatRoller" to="StatDad" method="_on_Button_1_pressed"]
+[node name="StatDad" type="Control" parent="ColorFrame"]
 
-[connection signal="pressed" from="Next" to="Next" method="_on_Button_pressed"]
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -3.0
+margin/top = 17.0
+margin/right = 37.0
+margin/bottom = 57.0
 
-[connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
+[node name="StatRoller" type="Button" parent="ColorFrame/StatDad"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 89.0
+margin/right = 156.0
+margin/bottom = 126.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="StrengthLabel" type="Label" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -4.0
+margin/top = -79.0
+margin/right = 49.0
+margin/bottom = -65.0
+text = "Strength"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AgilityLabel" type="Label" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -4.0
+margin/top = -59.0
+margin/right = 54.0
+margin/bottom = -45.0
+text = "Agility"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CharismaLabel" type="Label" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -4.0
+margin/top = -39.0
+margin/right = 55.0
+margin/bottom = -25.0
+text = "Charisma"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="IntellectLabel" type="Label" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -4.0
+margin/top = -19.0
+margin/right = 50.0
+margin/bottom = -5.0
+text = "Intellect"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 41.0
+margin/top = 12.0
+margin/right = 99.0
+margin/bottom = 33.0
+bbcode/enabled = false
+bbcode/bbcode = "Roll Dice"
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Base0" type="RichTextLabel" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 94.0
+margin/top = -80.0
+margin/right = 137.0
+margin/bottom = -40.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Base1" type="RichTextLabel" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 94.0
+margin/top = -60.0
+margin/right = 137.0
+margin/bottom = -20.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Base2" type="RichTextLabel" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 94.0
+margin/top = -40.0
+margin/right = 137.0
+margin/bottom = 0.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Base3" type="RichTextLabel" parent="ColorFrame/StatDad/StatRoller"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 94.0
+margin/top = -20.0
+margin/right = 137.0
+margin/bottom = 20.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Total Stat" type="Control" parent="ColorFrame"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 147.0
+margin/top = 26.0
+margin/right = 187.0
+margin/bottom = 66.0
+
+[node name="Total1" type="RichTextLabel" parent="ColorFrame/Total Stat"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Total2" type="RichTextLabel" parent="ColorFrame/Total Stat"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 21.0
+margin/right = 40.0
+margin/bottom = 61.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Total3" type="RichTextLabel" parent="ColorFrame/Total Stat"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 41.0
+margin/right = 40.0
+margin/bottom = 81.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Total4" type="RichTextLabel" parent="ColorFrame/Total Stat"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 61.0
+margin/right = 40.0
+margin/bottom = 101.0
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ClassButton" type="OptionButton" parent="ColorFrame"]
+
+hint/tooltip = "-Select a Class-"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 157.0
+margin/right = 167.0
+margin/bottom = 193.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+align = 0
+selected = -1
+items = [  ]
+
+[node name="Modifier1" type="RichTextLabel" parent="ColorFrame/ClassButton"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 126.0
+margin/top = -131.0
+margin/right = 166.0
+margin/bottom = -91.0
+custom_colors/default_color = Color( 0, 1, 0.203125, 1 )
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Modifier2" type="RichTextLabel" parent="ColorFrame/ClassButton"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 126.0
+margin/top = -111.0
+margin/right = 166.0
+margin/bottom = -71.0
+custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Modifier3" type="RichTextLabel" parent="ColorFrame/ClassButton"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 126.0
+margin/top = -91.0
+margin/right = 166.0
+margin/bottom = -51.0
+custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Modifier4" type="RichTextLabel" parent="ColorFrame/ClassButton"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 126.0
+margin/top = -71.0
+margin/right = 166.0
+margin/bottom = -31.0
+custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
+bbcode/enabled = false
+bbcode/bbcode = ""
+visible_characters = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 503.63, 455.358 )
+transform/scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+
+[connection signal="pressed" from="ColorFrame/StatDad/StatRoller" to="." method="_on_StatRoller_pressed"]
 
 

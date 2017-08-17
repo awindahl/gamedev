@@ -23,6 +23,16 @@ func _ready():
 			campain_list.set_item_custom_bg_color(i,yellow)
 		else:
 			campain_list.set_item_custom_bg_color(i,red)
+			
+	get_node("NameLabel").set_text(main.myName)
+	get_node("LevelLabel").set_text("Level " + var2str(int(main.myLevel)) + " " + main.myClass)
+	get_node("HPLabel").set_text("HP: " + var2str(int(main.myHp)))
+	get_node("MPLabel").set_text("MP: " + var2str(int(main.myMp)))
+	get_node("MCLabel").set_text("Missions completed: " + var2str(int(main.myMC)))
+	if main.myClass == "Mage":
+		var image = load("res://rpg_test/boobwiz.png")
+		get_node("TextureFrame").set_texture(image)
+	
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -31,3 +41,8 @@ func _fixed_process(delta):
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Menu/load_menu.tscn")
+
+
+func _on_GoBtn_pressed():
+	#-- TODO: LOAD THE RIGHT MAP --
+	get_tree().change_scene("res://grid-movement/Game.tscn")

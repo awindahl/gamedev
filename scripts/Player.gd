@@ -14,6 +14,7 @@ onready var world = get_world_2d().get_direct_space_state()
 onready var look = get_node("Looking")
 
 func _ready():
+	set_meta("Type", "Player")
 	look.add_exception(self)
 	set_fixed_process(true)
 
@@ -36,7 +37,7 @@ func _fixed_process(delta):
 	elif Input.is_action_pressed("move_down"):
 		direction = Vector2(0,1)
 		move(direction * SPEED)
-	elif  Input.is_action_pressed("move_left"):
+	if  Input.is_action_pressed("move_left"):
 		direction = Vector2(-1,0)
 		move(direction * SPEED)
 	elif  Input.is_action_pressed("move_right"):

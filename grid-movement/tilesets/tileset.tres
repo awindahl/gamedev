@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=1]
 
-[ext_resource path="res://grid-movement/tilesets/mines/floor.png" type="Texture" id=1]
-[ext_resource path="res://grid-movement/tilesets/mines/obstacle-grass.png" type="Texture" id=2]
+[ext_resource path="res://grid-movement/tilesets/mines/FLOOR.png" type="Texture" id=1]
+[ext_resource path="res://grid-movement/tilesets/mines/ROCK.png" type="Texture" id=2]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -9,17 +9,17 @@ vertices = Vector2Array( 32, -32, 32, 32, -32, 32, -32, -32 )
 polygons = [ IntArray( 0, 1, 2, 3 ) ]
 outlines = [ Vector2Array( -32, -32, -32, 32, 32, 32, 32, -32 ) ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+points = Vector2Array( -31.2598, -31.8893, 32.725, -31.8899, 32.7038, 32.0702, -31.2205, 32.0841 )
 
 [resource]
 
 0/name = "floor"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
+0/modulate = Color( 0.406721, 0.449219, 0.273743, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
 0/occluder_offset = Vector2( 32, 32 )
 0/navigation_offset = Vector2( 32, 32 )

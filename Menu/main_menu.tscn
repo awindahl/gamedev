@@ -21,9 +21,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
-margin/right = 1023.0
-margin/bottom = 598.0
+margin/top = -2.0
+margin/right = 1025.0
+margin/bottom = 600.0
 
 [node name="Label" type="Label" parent="."]
 
@@ -47,10 +47,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 482.0
-margin/top = 532.0
-margin/right = 596.0
-margin/bottom = 564.0
+margin/left = 451.0
+margin/top = 547.0
+margin/right = 565.0
+margin/bottom = 579.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -78,11 +78,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 483.0
-margin/top = 482.0
-margin/right = 597.0
-margin/bottom = 514.0
-disabled = true
+margin/left = 452.0
+margin/top = 497.0
+margin/right = 566.0
+margin/bottom = 529.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -110,10 +109,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 481.0
-margin/top = 432.0
-margin/right = 595.0
-margin/bottom = 464.0
+margin/left = 450.0
+margin/top = 447.0
+margin/right = 564.0
+margin/bottom = 479.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -136,6 +135,8 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
 
 [connection signal="pressed" from="PlayGame" to="." method="_on_NewGame_pressed"]
 
