@@ -187,7 +187,7 @@ func _fixed_process(delta):
 				print(feat)
 				selectedFeat = ""
 				for m in range(get_node("FeatBg").get_children().size()-1):
-					get_node("FeatBg").get_child(m).set_disabled(false)
+					get_node("FeatBg").get_child(m).set_toggle_mode(true)
 
 	#--- create? ---
 	if (feat_chosen && class_chosen && dice_rolled && name_aquired):
