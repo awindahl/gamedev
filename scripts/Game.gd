@@ -7,11 +7,11 @@ var tile
 func _ready():
 	# -- TODO: LOAD MINIMAP + FOW(?)
 	mapCells = get_node("Navigation2D/TileMap").get_used_cells()
-	miniMapCells = get_node("gui/Node2D/Map/TileMap")
+	miniMapCells = get_node("gui/Node2D/Map/TilePanel/TileMap")
 	print (miniMapCells.world_to_map(Vector2(10,10)))
 	for cells in mapCells:
 		tile = get_node("Navigation2D/TileMap").get_cellv(mapCells[mapCells.find(cells)])
-		miniMapCells.set_cell(mapCells[mapCells.find(cells)][0]+30,mapCells[mapCells.find(cells)][1]+20,tile,false,false,false)
+		miniMapCells.set_cell(mapCells[mapCells.find(cells)][0],mapCells[mapCells.find(cells)][1],tile,false,false,false)
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 

@@ -227,7 +227,23 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="TileMap" type="TileMap" parent="Map"]
+[node name="TilePanel" type="Panel" parent="Map"]
+
+visibility/self_opacity = 0.0
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 41.5
+margin/top = 45.0
+margin/right = -8.5
+margin/bottom = -11.0
+
+[node name="TileMap" type="TileMap" parent="Map/TilePanel"]
 
 transform/scale = Vector2( 0.2, 0.2 )
 mode = 0

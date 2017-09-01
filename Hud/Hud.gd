@@ -7,6 +7,7 @@ var e = 0;
 var usingMP = false
 var diff
 var color
+var zoomed = false
 
 var focused = false
 
@@ -23,8 +24,40 @@ func _ready():
 		color = "0000FF"
 	get_node("HUD/MPActual").set_frame_color(color)
 	set_fixed_process(true)
+	set_process_input(true)
 	
+func _input(event):
+	if get_node("Map").is_visible():
+		if event.is_action_pressed("ui_select"):
+			if zoomed:
+				zoomed = false
+			else:
+				zoomed = true
+
 func _fixed_process(delta):
+	#-- TODO: GET FIRST/LAST TILE BOTH HORIZONTALLY AND VERTICALLY
+	#         TO HINDER MAP SCROLLING OUTSIDE OF AREA
+	if get_node("Map").is_visible():
+		if Input.is_action_pressed("move_up"):
+			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x,get_node("Map/TilePanel").get_pos().y-10))
+		if Input.is_action_pressed("move_down"):
+			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x,get_node("Map/TilePanel").get_pos().y+10))
+		if Input.is_action_pressed("move_left"):
+			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x-10,get_node("Map/TilePanel").get_pos().y))
+		if Input.is_action_pressed("move_right"):
+			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x+10,get_node("Map/TilePanel").get_pos().y))
+		if zoomed:
+			for i in range (0,3):
+				if get_node("Map/TilePanel/TileMap").get_scale() < Vector2(0.5,0.5):
+					get_node("Map/TilePanel/TileMap").set_scale(Vector2(get_node("Map/TilePanel/TileMap").get_scale().x+i*0.01,get_node("Map/TilePanel/TileMap").get_scale().y+i*0.01))
+		else:
+			for i in range (0,3):
+				if get_node("Map/TilePanel/TileMap").get_scale() > Vector2(0.2,0.2):
+					get_node("Map/TilePanel/TileMap").set_scale(Vector2(get_node("Map/TilePanel/TileMap").get_scale().x-i*0.01,get_node("Map/TilePanel/TileMap").get_scale().y-i*0.01))
+
+		
+		
+
 	if get_node("Pause").is_visible() and not focused:
 		get_node("Pause/Btn_resume").grab_focus()
 		focused = true
