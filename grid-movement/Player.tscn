@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://grid-movement/Player.png" type="Texture" id=2]
@@ -10,11 +10,6 @@
 custom_solver_bias = 0.0
 extents = Vector2( 28.7351, 26.5989 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
 [node name="Player" type="KinematicBody2D"]
 
 transform/pos = Vector2( 234.194, 204.355 )
@@ -22,9 +17,6 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.9, 0, 0, 0.9, -0.0193384, -0.384822 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
-shapes/1/transform = Matrix32( 2.90501, 0, 0, 2.90501, 0, 0 )
-shapes/1/trigger = true
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.1
@@ -87,13 +79,15 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="CollisionShape2D 2" type="CollisionShape2D" parent="."]
+[node name="invin_timer" type="Timer" parent="."]
 
-transform/scale = Vector2( 2.90501, 2.90501 )
-shape = SubResource( 2 )
-trigger = true
-_update_shape_index = 1
+process_mode = 1
+wait_time = 1.5
+one_shot = false
+autostart = false
 
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]
+
+[connection signal="timeout" from="invin_timer" to="." method="_on_invin_timer_timeout"]
 
 
