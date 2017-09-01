@@ -19,6 +19,12 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	
+	if self.is_colliding():
+		if get_collider().get_meta("Type") == "Enemy":
+			move(direction*-1*SPEED*10)
+			var sprite = get_node("Sprite")
+			sprite.set_modulate(55)
 
 	#-------Handles Strafing Control
 	if Input.is_action_pressed("move_up") && !is_attacking:
