@@ -4,14 +4,37 @@ var mapCells
 var miniMapCells
 var tile
 
+var xBorder = [0,0]; #xborder[0] = left, xborder[1] = right
+var yBorder = [0,0]; #yborder[0] = top, yborder[1] = bot
+var center = [0,0]; #center[0] = x, center[1] = y
+var coolValues
+
+
 func _ready():
 	# -- TODO: LOAD MINIMAP + FOW(?)
 	mapCells = get_node("Navigation2D/TileMap").get_used_cells()
 	miniMapCells = get_node("gui/Node2D/Map/TilePanel/TileMap")
-	print (miniMapCells.world_to_map(Vector2(10,10)))
 	for cells in mapCells:
 		tile = get_node("Navigation2D/TileMap").get_cellv(mapCells[mapCells.find(cells)])
 		miniMapCells.set_cell(mapCells[mapCells.find(cells)][0],mapCells[mapCells.find(cells)][1],tile,false,false,false)
+		
+	#-------------------------------------------
+	#print( miniMapCells.get_used_cells().size())
+	for i in miniMapCells.get_used_cells():
+		if !(miniMapCells.get_cellv(miniMapCells.get_used_cells()[miniMapCells.get_used_cells().find(i)]) == -1):
+			coolValues = get_node("gui/Node2D/Map/TilePanel/TileMap").map_to_world(Vector2(miniMapCells.get_used_cells()[miniMapCells.get_used_cells().find(i)][0],miniMapCells.get_used_cells()[miniMapCells.get_used_cells().find(i)][1]),false)
+			if coolValues.x < xBorder[0]:
+				xBorder[0] = coolValues.x
+			if coolValues.x > xBorder[1]:
+				xBorder[1] = coolValues.x
+			if coolValues.y < yBorder[0]:
+				yBorder[0] = coolValues.y 
+			if coolValues.y > yBorder[0]:
+				yBorder[1] = coolValues.y
+	print(xBorder)
+	print(yBorder)
+	print(OS.get_window_size())
+	get_node("gui/Node2D").mapcenter = center
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)
 
