@@ -24,7 +24,6 @@ func _ready():
 		color = "0000FF"
 	get_node("HUD/MPActual").set_frame_color(color)
 	
-	
 	set_fixed_process(true)
 	set_process_input(true)
 	
@@ -43,13 +42,13 @@ func _fixed_process(delta):
 	#         ADD OPTION TO REMAP KEYS AND SHOW WHAT KEYS ARE MAPPED
 	#         ON THE MAP SCREEN.
 	if get_node("Map").is_visible():
-		if Input.is_action_pressed("move_up"):
+		if Input.is_action_pressed("move_up") and (get_node("Map/TilePanel").get_pos().y) < (OS.get_window_size().y+mapcenter[1]-300):
 			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x,get_node("Map/TilePanel").get_pos().y+10))
-		if Input.is_action_pressed("move_down"):
+		if Input.is_action_pressed("move_down") and (get_node("Map/TilePanel").get_pos().y) > 200-mapcenter[1]:
 			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x,get_node("Map/TilePanel").get_pos().y-10))
-		if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("move_left") and (get_node("Map/TilePanel").get_pos().x) < OS.get_window_size().x+mapcenter[0]:
 			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x+10,get_node("Map/TilePanel").get_pos().y))
-		if Input.is_action_pressed("move_right"):
+		if Input.is_action_pressed("move_right") and (get_node("Map/TilePanel").get_pos().x) > -mapcenter[0]:
 			get_node("Map/TilePanel").set_pos(Vector2(get_node("Map/TilePanel").get_pos().x-10,get_node("Map/TilePanel").get_pos().y))
 		if zoomed:
 			for i in range (0,3):
