@@ -12,6 +12,9 @@ const SPEED = 4
 onready var world = get_world_2d().get_direct_space_state()
 
 onready var look = get_node("Looking")
+onready var sprite = get_node("Sprite")
+onready var collider = get_node("CollisionShape2D")
+onready var timer = get_node("invin_timer")
 
 func _ready():
 	set_meta("Type", "Player")
@@ -23,8 +26,9 @@ func _fixed_process(delta):
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Enemy":
 			move(direction*-1*SPEED*10)
-			var sprite = get_node("Sprite")
 			sprite.set_modulate(55)
+			collider.set_trigger(true)
+			timer.start()
 
 	#-------Handles Strafing Control
 	if Input.is_action_pressed("move_up") && !is_attacking:
@@ -71,3 +75,8 @@ func _fixed_process(delta):
 	elif is_attacking && Input.is_action_pressed("ui_select"):
 		look.get_child(0).show()
 		look.set_enabled(true)
+
+
+func _on_invin_timer_timeout():
+	collider.set_trigger(false)
+	sprite.set_modulate(255)
