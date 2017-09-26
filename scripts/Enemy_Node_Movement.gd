@@ -4,9 +4,10 @@ extends KinematicBody2D
 var s = seed(randi())
 
 # travel speed in pixel/s
-export var speed = 2
+export var speed = 4
 onready var end = get_node("Position2D")
 onready var timer = get_node("walk_time")
+onready var collider = get_node("CollisionShape2D")
 var start_pos = self.get_pos()
 
 # at which distance to stop moving
@@ -19,9 +20,11 @@ var points = []
 func _ready():
 	randomize(s)
 	set_meta("Type", "Enemy")
-	set_fixed_process(true)
+	set_process(true)
 
-func _fixed_process(delta):
+func _process(delta):
+	
+	print(self.is_colliding())
 	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player":
@@ -37,9 +40,9 @@ func _fixed_process(delta):
 		var direction = distance.normalized() # direction of movement
 		if distance.length() > eps:
 			if floor(timer.get_time_left()) < 1:
-				move_local_x(direction.x*speed,false)
+				move(Vector2(direction.x*speed,0))
 			else:
-				move_local_y(direction.y*speed,false)
+				move(Vector2(0,direction.y*speed))
 		else:
 			move(Vector2(0,0)) # close enough - stop moving
 		update() # we update the node so it has to draw it self again

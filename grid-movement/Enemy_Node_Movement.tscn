@@ -3,10 +3,10 @@
 [ext_resource path="res://scripts/Enemy_Node_Movement.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -28.7842, -25.5102, 27.747, -25.3678, 28.0318, 28.6004, -28.9266, 28.458 )
+extents = Vector2( 30.0254, 31.4908 )
 
 [node name="Enemy" type="KinematicBody2D"]
 
@@ -18,7 +18,7 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.1
 script/script = ExtResource( 1 )
-speed = 2
+speed = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -26,12 +26,21 @@ texture = ExtResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
+
 [node name="Sprite" type="Sprite" parent="Position2D"]
 
 transform/pos = Vector2( 0.395872, 0.604125 )
 transform/scale = Vector2( 0.199871, 0.199871 )
 texture = ExtResource( 2 )
 modulate = Color( 0.382812, 1, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -46,13 +55,6 @@ process_mode = 0
 wait_time = 3.0
 one_shot = false
 autostart = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-
-build_mode = 0
-polygon = Vector2Array( -28.7842, -25.5102, 27.747, -25.3678, 28.0318, 28.6004, -28.9266, 28.458 )
-shape_range = Vector2( 0, 0 )
-trigger = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
