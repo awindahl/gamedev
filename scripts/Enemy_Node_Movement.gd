@@ -24,8 +24,6 @@ func _ready():
 
 func _process(delta):
 	
-	print(self.is_colliding())
-	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player":
 			var node = get_parent().get_node("Player")
