@@ -14,6 +14,8 @@ script/script = ExtResource( 1 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
+editor/display_folded = true
+
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
 
 mode = 0
@@ -43,14 +45,8 @@ speed = 4
 
 [node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 223.436, 350.455 )
-is_y = false
-
-[node name="Enemy_Axis_Movement1" parent="." instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 352.436, 420.455 )
-speed = 125
-is_x = false
+transform/pos = Vector2( 229.459, 309.009 )
+speed = 4
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
@@ -58,6 +54,7 @@ transform/pos = Vector2( 504.431, 283.274 )
 
 [node name="gui" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

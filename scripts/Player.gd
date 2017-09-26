@@ -21,14 +21,19 @@ func _ready():
 	look.add_exception(self)
 	set_fixed_process(true)
 
+func _on_player_hit():
+
+		move(direction*-1*SPEED*15)
+		sprite.set_opacity(0.5)
+		collider.set_trigger(true)
+		timer.start()
+
 func _fixed_process(delta):
 	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Enemy":
-			move(direction*-1*SPEED*10)
-			sprite.set_modulate(55)
-			collider.set_trigger(true)
-			timer.start()
+			var node = get_parent().get_node("Player")
+			node._on_player_hit()
 
 	#-------Handles Strafing Control
 	if Input.is_action_pressed("move_up") && !is_attacking:
@@ -79,4 +84,4 @@ func _fixed_process(delta):
 
 func _on_invin_timer_timeout():
 	collider.set_trigger(false)
-	sprite.set_modulate(255)
+	sprite.set_opacity(1)

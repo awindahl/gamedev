@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Enemy_Axis_Movement" type="RigidBody2D"]
+[node name="Enemy_Axis_Movement" type="KinematicBody2D"]
 
 transform/scale = Vector2( 1.2774, 1.2774 )
 input/pickable = false
@@ -19,21 +19,7 @@ shapes/0/transform = Matrix32( 2.32203, -0.00703224, 0.0093456, 3.0859, 0.353577
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-mode = 2
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = -1.0
-damp_override/angular = -1.0
+collision/margin = 0.08
 script/script = ExtResource( 1 )
 speed = 200
 is_x = true
@@ -83,7 +69,7 @@ texture = ExtResource( 4 )
 
 visibility/visible = false
 transform/pos = Vector2( -2.62268e-07, -3 )
-transform/rot = 180.0
+transform/rot = -180.0
 enabled = true
 cast_to = Vector2( 0, 40 )
 layer_mask = 1
@@ -109,15 +95,13 @@ _update_shape_index = 0
 process_mode = 1
 wait_time = 3.0
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="ContainedTimer" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = false
-autostart = true
-
-[connection signal="timeout" from="ContainedTimer" to="." method="_on_ContainedTimer_timeout"]
+autostart = false
 
 

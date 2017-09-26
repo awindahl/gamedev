@@ -100,3 +100,4 @@ func _close_all():
 	get_node("gui/Node2D/Inventory").set_hidden(true)
 	get_node("gui/Node2D/Map").set_hidden(true)
 	get_node("gui/Node2D/Pause").set_hidden(true)
+	

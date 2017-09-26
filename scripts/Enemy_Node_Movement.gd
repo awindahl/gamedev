@@ -22,6 +22,12 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	
+	if self.is_colliding():
+		if get_collider().get_meta("Type") == "Player":
+			var node = get_parent().get_node("Player")
+			node._on_player_hit()
+	
 	# refresh the points in the path
 	points = get_node("../Navigation2D").get_simple_path(get_global_pos(), end.get_global_pos(), false)
 	

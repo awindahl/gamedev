@@ -1,6 +1,6 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-export var speed = 200
+export var speed = 4
 export var  is_x = false
 export var  is_y = false
 export var  is_contained = false
@@ -22,6 +22,11 @@ func _ready():
 	set_process(true)
 	
 func _process(delta):
+	
+	if self.is_colliding():
+		if get_collider().get_meta("Type") == "Player":
+			var node = get_parent().get_node("Player")
+			node._on_player_hit()
 
 	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || look_x.get_collider().get_meta("Type") == "Enemy"):
 		look_x.rotate(deg2rad(180))
@@ -32,18 +37,18 @@ func _process(delta):
 		direction.y = direction.y * - 1
 	
 	if is_x:
-		if floor(timer.get_time_left()) == 2 &&  get_linear_velocity().y == 0:
-			set_axis_velocity(Vector2(speed * direction.x, 0))
+		if floor(timer.get_time_left()) == 2:
+			move(Vector2(speed * direction.x, 0))
 			xmove = true
 		elif !ymove:
 			xmove = false
-			set_linear_velocity(Vector2(0,0))
+			move(Vector2(0,0))
 	if is_y:
-		if floor(timer.get_time_left()) == 0 && get_linear_velocity().x == 0:
-			set_axis_velocity(Vector2(0,speed * direction.y))
+		if floor(timer.get_time_left()) == 0:
+			move(Vector2(0,speed * direction.y))
 			ymove = true
 		elif !xmove:
-			set_linear_velocity(Vector2(0,0))
+			move(Vector2(0,0))
 			ymove = false
 
 func _on_ContainedTimer_timeout():
