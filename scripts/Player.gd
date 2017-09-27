@@ -13,27 +13,28 @@ onready var world = get_world_2d().get_direct_space_state()
 
 onready var look = get_node("Looking")
 onready var sprite = get_node("Sprite")
-onready var collider = get_node("CollisionShape2D")
 onready var timer = get_node("invin_timer")
 
 func _ready():
+	set_meta("Damaged", "False")
 	set_meta("Type", "Player")
 	look.add_exception(self)
 	set_fixed_process(true)
 
 func _on_player_hit():
-
-		move(direction*-1*SPEED*15)
-		sprite.set_opacity(0.5)
-		collider.set_trigger(true)
-		timer.start()
+	
+	set_meta("Damaged", "True")
+	move(direction*-1*SPEED*15)
+	sprite.set_opacity(0.5)
+	timer.start()
+	
 
 func _fixed_process(delta):
 	
 	if self.is_colliding():
-		if get_collider().get_meta("Type") == "Enemy":
-			var node = get_parent().get_node("Player")
-			node._on_player_hit()
+		if get_collider().get_meta("Type") == "Enemy" && self.get_meta("Damaged") == "False":
+			var play_hit = get_parent().get_node("Player")
+			play_hit._on_player_hit()
 
 	#-------Handles Strafing Control
 	if Input.is_action_pressed("move_up") && !is_attacking:
@@ -81,7 +82,6 @@ func _fixed_process(delta):
 		look.get_child(0).show()
 		look.set_enabled(true)
 
-
 func _on_invin_timer_timeout():
-	collider.set_trigger(false)
+	set_meta("Damaged", "False")
 	sprite.set_opacity(1)
