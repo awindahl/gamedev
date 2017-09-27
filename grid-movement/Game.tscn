@@ -46,6 +46,8 @@ transform/pos = Vector2( 228.231, 128.532 )
 
 transform/pos = Vector2( 690.401, 303.469 )
 speed = 2
+damage = 10
+hp = 30
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
@@ -53,7 +55,6 @@ transform/pos = Vector2( 504.431, 283.274 )
 
 [node name="gui" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
