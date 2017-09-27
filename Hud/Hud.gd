@@ -61,8 +61,6 @@ func _fixed_process(delta):
 				if get_node("Map/TilePanel/TileMap").get_scale() > Vector2(0.2,0.2):
 					get_node("Map/TilePanel/TileMap").set_scale(Vector2(get_node("Map/TilePanel/TileMap").get_scale().x-i*0.01,get_node("Map/TilePanel/TileMap").get_scale().y-i*0.01))
 
-		
-		
 
 	if get_node("Pause").is_visible() and not focused:
 		get_node("Pause/Btn_resume").grab_focus()
@@ -86,6 +84,15 @@ func _fixed_process(delta):
 		usingMP = false;
 		changeInMP = 0;
 
+	if get_node("GameOver").is_visible():
+		for i in range (0,10) :
+			if get_node("GameOver/FadePanel").get_opacity() < 10:
+				get_node("GameOver/FadePanel").set_opacity(get_node("GameOver/FadePanel").get_opacity()+(0.0001*i))
+			else:
+				pass
+		
+		
+		
 func _on_Button_pressed():
 	if currentMP == 0:
 		pass
@@ -123,10 +130,22 @@ func _update_hp(healthIn,i):
 	if currentHP <= 0:
 		currentHP = 0
 		diff = get_node("HUD/HPActual").get_size().x
-		# SHOW GAME OVER SCREEN
+		get_parent().get_parent()._player_dead()
+		get_node("GameOver").show()
+		get_node("GameOver/Btn_Retry").grab_focus()
 	if currentHP > myHP:
 		currentHP = myHP
 		diff = get_node("HUD/HPOutline").get_size().x-get_node("HUD/HPActual").get_size().x
 	get_node("HUD/HPActual").set_size(Vector2(get_node("HUD/HPActual").get_size().x-diff*i,get_node("HUD/MPActual").get_size().y))
 	get_node("HUD/HPLabel").set_text(var2str(currentHP) + "/" + var2str(myHP))
 	
+
+func _on_Btn_Retry_pressed():
+	get_parent().get_tree().set_pause(false)
+	get_tree().reload_current_scene()
+	get_node("GameOver").hide()
+
+
+func _on_Btn_Quit_pressed():
+	get_tree().change_scene("res://Menu/campain_menu.tscn")
+	get_tree().set_pause(false)

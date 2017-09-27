@@ -124,3 +124,6 @@ func _player_hurt(damage):
 	get_node("gui/Node2D")._update_hp(damage,1)
 	get_node("Player")._on_player_hit()
 	
+func _player_dead():
+	get_node("Player").get_tree().set_pause(true)
+	set_process_input(false)
