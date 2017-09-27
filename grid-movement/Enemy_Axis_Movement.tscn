@@ -61,7 +61,6 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="XLOOK"]
 
-visibility/visible = false
 transform/pos = Vector2( -0.194556, 22.1418 )
 transform/scale = Vector2( 0.187292, 0.218526 )
 texture = ExtResource( 4 )
@@ -77,7 +76,6 @@ type_mask = 15
 
 [node name="Sprite" type="Sprite" parent="YLOOK"]
 
-visibility/visible = false
 transform/pos = Vector2( -0.194557, 22.9802 )
 transform/scale = Vector2( 0.187292, 0.218526 )
 texture = ExtResource( 4 )

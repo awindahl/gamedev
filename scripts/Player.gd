@@ -21,22 +21,21 @@ func _ready():
 	look.add_exception(self)
 	set_fixed_process(true)
 
-func _on_player_hit():
+func _on_player_hit(dmg_dir):
 	
 	set_meta("Damaged", "True")
-	move(direction*-1*SPEED*15)
+	
+	move (dmg_dir)
 	sprite.set_opacity(0.5)
 	timer.start()
 	
-
 func _fixed_process(delta):
 	
 	if self.is_colliding():
-
 		if get_collider().get_meta("Type") == "Enemy" && self.get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
-			play_hit._on_player_hit()
-
+			play_hit._on_player_hit(direction*-1*SPEED*15)
+	
 	#-------Handles Strafing Control
 	if Input.is_action_pressed("move_up") && !is_attacking:
 		look.set_rot(deg2rad(180))

@@ -24,18 +24,19 @@ func _ready():
 
 func _process(delta):
 	
+	# refresh the points in the path
+	points = get_node("../Navigation2D").get_simple_path(get_global_pos(), end.get_global_pos(), false)
+	var distance = points[1] - get_global_pos()
+	var direction = distance.normalized() # direction of movement
+	
+	# check if colliding with player
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
-			play_hit._on_player_hit()
-	
-	# refresh the points in the path
-	points = get_node("../Navigation2D").get_simple_path(get_global_pos(), end.get_global_pos(), false)
+			play_hit._on_player_hit(direction)
 	
 	# if the path has more than one point
 	if points.size() > 1:
-		var distance = points[1] - get_global_pos()
-		var direction = distance.normalized() # direction of movement
 		if distance.length() > eps:
 			if floor(timer.get_time_left()) < 1:
 				move(Vector2(direction.x*speed,0))

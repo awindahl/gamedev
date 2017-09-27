@@ -36,7 +36,7 @@ func _process(delta):
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
-			play_hit._on_player_hit()
+			play_hit._on_player_hit(direction)
 
 	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || look_x.get_collider().get_meta("Type") == "Enemy"):
 		look_x.rotate(deg2rad(180))
