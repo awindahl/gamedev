@@ -46,6 +46,7 @@ transform/pos = Vector2( 228.231, 128.532 )
 
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
+is_y = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
