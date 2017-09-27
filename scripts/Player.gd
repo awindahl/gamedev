@@ -26,16 +26,12 @@ func _ready():
 	look.add_exception(self)
 	set_fixed_process(true)
 
-<<<<<<< HEAD
-func _on_player_hit(dmg_dir):
-	
-=======
+
 func _on_player_hit():
+
 	print("player:", self.get_instance_ID())
->>>>>>> 235be0b23ce66c4018b160ea0f51b5de43c70b8d
 	set_meta("Damaged", "True")
-	
-	move (dmg_dir)
+	move (direction*-1*SPEED*15)
 	sprite.set_opacity(0.5)
 	timer.start()
 	
@@ -43,15 +39,9 @@ func _fixed_process(delta):
 	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Enemy" && self.get_meta("Damaged") == "False":
-<<<<<<< HEAD
-			var play_hit = get_parent().get_node("Player")
-			play_hit._on_player_hit(direction*-1*SPEED*15)
-	
-=======
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(get_parent().get_node("Player"),test[0].collider.damage)
 
->>>>>>> 235be0b23ce66c4018b160ea0f51b5de43c70b8d
 	#-------Handles Strafing Control
 	if Input.is_action_pressed("move_up") && !is_attacking:
 		look.set_rot(deg2rad(180))

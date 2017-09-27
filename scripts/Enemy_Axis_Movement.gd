@@ -37,13 +37,9 @@ func _process(delta):
 	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
-<<<<<<< HEAD
-			var play_hit = get_parent().get_node("Player")
-			play_hit._on_player_hit(direction)
-=======
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(test[0].collider,damage)
->>>>>>> 235be0b23ce66c4018b160ea0f51b5de43c70b8d
+
 
 	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || look_x.get_collider().get_meta("Type") == "Enemy"):
 		look_x.rotate(deg2rad(180))
