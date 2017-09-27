@@ -8,7 +8,24 @@ var xBorder = [0,0]; #xborder[0] = left, xborder[1] = right
 var yBorder = [0,0]; #yborder[0] = top, yborder[1] = bot
 var center = [0,0]; #center[0] = x, center[1] = y
 var coolValues
-
+# ----------------- load values from main -----------------
+var myName = main.myName
+var mySprite = main.mySprite
+var myInventory = main.myInventory
+var myWep = main.myWep
+var myEquip = main.myEquip
+var myExp = main.myExp
+var myLevel = main.myLevel
+var myAbilities = main.myAbilities
+var myMC = main.myMC
+var myHp = main.myHp
+var myMp = main.myMp
+var myStr = main.myStr
+var myAgi = main.myAgi
+var myCha = main.myCha
+var myInt = main.myInt
+var myFeat = main.myFeat
+var myClass = main.myClass
 
 func _ready():
 	
