@@ -1,7 +1,9 @@
 extends Control
 
-var myMP = main.myMp;
-var currentMP = myMP;
+onready var myHP = get_parent().get_parent().get_node("Player").hp
+onready var currentHP = myHP;
+onready var myMP = get_parent().get_parent().get_node("Player").mp
+onready var currentMP = myMP;
 var changeInMP = 0;
 var e = 0;
 var usingMP = false
@@ -12,7 +14,7 @@ var focused = false
 var mapcenter = [0,0]
 
 func _ready():
-	
+	get_node("HUD/HPLabel").set_text(var2str(currentHP) + "/" + var2str(myHP))
 	get_node("HUD/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
 	if main.myClass == "Fighter":
 		color = "FFA500"
@@ -113,4 +115,18 @@ func _on_Btn_options_pressed():
 func _on_Btn_resume_pressed():
 	get_node("Pause").set_hidden(true)
 	get_tree().set_pause(false)
+	
+func _update_hp(healthIn,i):
+	print(healthIn,i)
+	currentHP = currentHP-healthIn*i;
+	diff = floor(get_node("HUD/HPOutline").get_size().x*(float(healthIn)/float(myMP)))
+	if currentHP <= 0:
+		currentHP = 0
+		diff = get_node("HUD/HPActual").get_size().x
+		# SHOW GAME OVER SCREEN
+	if currentHP > myHP:
+		currentHP = myHP
+		diff = get_node("HUD/HPOutline").get_size().x-get_node("HUD/HPActual").get_size().x
+	get_node("HUD/HPActual").set_size(Vector2(get_node("HUD/HPActual").get_size().x-diff*i,get_node("HUD/MPActual").get_size().y))
+	get_node("HUD/HPLabel").set_text(var2str(currentHP) + "/" + var2str(myHP))
 	

@@ -112,3 +112,15 @@ func _close_all():
 	get_node("gui/Node2D/Map").set_hidden(true)
 	get_node("gui/Node2D/Pause").set_hidden(true)
 	
+func _calculate_damage(id,damage):
+	print(id.get_name(),damage)
+	get_node(id.get_name()).hp = get_node(id.get_name()).hp - damage
+	if id.get_name() == "Player":
+		print("hurtin player")
+		_player_hurt(damage)
+	
+func _player_hurt(damage):
+	print(damage)
+	get_node("gui/Node2D")._update_hp(damage,1)
+	get_node("Player")._on_player_hit()
+	

@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
 export var speed = 4
-export var  is_x = false
-export var  is_y = false
-export var  is_contained = false
+export var is_x = false
+export var is_y = false
+export var is_contained = false
+export var damage = 10
+export var hp = 30
 
 onready var look_x = get_node("XLOOK")
 onready var look_y = get_node("YLOOK")
@@ -25,8 +27,8 @@ func _process(delta):
 	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
-			var play_hit = get_parent().get_node("Player")
-			play_hit._on_player_hit()
+			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
+			get_parent()._calculate_damage(test[0].collider,damage)
 
 	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || "Player" || look_x.get_collider().get_meta("Type") == "Enemy"):
 		look_x.rotate(deg2rad(180))
