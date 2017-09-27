@@ -5,6 +5,9 @@ var s = seed(randi())
 
 # travel speed in pixel/s
 export var speed = 4
+export var damage = 10
+export var hp = 30
+
 onready var end = get_node("Position2D")
 onready var timer = get_node("walk_time")
 onready var collider = get_node("CollisionShape2D")
