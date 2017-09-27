@@ -48,12 +48,11 @@ autoplay = "Enemy_Axis_Movement"
 
 [node name="XLOOK" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -0.262945, 1.14937e-08 )
 transform/rot = 90.0
 transform/scale = Vector2( 1, 0.943841 )
 enabled = true
-cast_to = Vector2( 0, 40 )
+cast_to = Vector2( 0, 26 )
 layer_mask = 1
 type_mask = 15
 __meta__ = {
@@ -62,23 +61,22 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="XLOOK"]
 
-transform/pos = Vector2( -0.194556, 37.0713 )
+transform/pos = Vector2( -0.194556, 22.1418 )
 transform/scale = Vector2( 0.187292, 0.218526 )
 texture = ExtResource( 4 )
 
 [node name="YLOOK" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( -2.62268e-07, -3 )
 transform/rot = -180.0
 enabled = true
-cast_to = Vector2( 0, 40 )
+cast_to = Vector2( 0, 30 )
 layer_mask = 1
 type_mask = 15
 
 [node name="Sprite" type="Sprite" parent="YLOOK"]
 
-transform/pos = Vector2( -0.194556, 37.0713 )
+transform/pos = Vector2( -0.194557, 22.9802 )
 transform/scale = Vector2( 0.187292, 0.218526 )
 texture = ExtResource( 4 )
 
@@ -99,8 +97,10 @@ autostart = true
 [node name="ContainedTimer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 3.0
 one_shot = false
 autostart = true
+
+[connection signal="timeout" from="ContainedTimer" to="." method="_on_ContainedTimer_timeout"]
 
 

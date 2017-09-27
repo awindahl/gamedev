@@ -23,8 +23,6 @@ func _ready():
 	
 func _process(delta):
 	
-	print(floor(timer.get_time_left()))
-	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
@@ -54,8 +52,8 @@ func _process(delta):
 			ymove = false
 			
 	
-
 func _on_ContainedTimer_timeout():
+	print("IM TIMED OUT ASSHOLE")
 	look_x.rotate(deg2rad(180))
 	look_y.rotate(deg2rad(180))
 	direction = direction * -1
