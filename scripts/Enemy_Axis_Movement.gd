@@ -23,16 +23,18 @@ func _ready():
 	
 func _process(delta):
 	
+	print(floor(timer.get_time_left()))
+	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
 			play_hit._on_player_hit()
 
-	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || look_x.get_collider().get_meta("Type") == "Enemy"):
+	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || "Player" || look_x.get_collider().get_meta("Type") == "Enemy"):
 		look_x.rotate(deg2rad(180))
 		direction.x = direction.x * - 1
 		
-	if look_y.is_colliding() && (look_y.get_collider().get_meta("Type") == "Map" || look_y.get_collider().get_meta("Type") == "Enemy"):
+	if look_y.is_colliding() && (look_y.get_collider().get_meta("Type") == "Map" || "Player" || look_y.get_collider().get_meta("Type") == "Enemy"):
 		look_y.rotate(deg2rad(180))
 		direction.y = direction.y * - 1
 	
@@ -50,6 +52,8 @@ func _process(delta):
 		elif !xmove:
 			move(Vector2(0,0))
 			ymove = false
+			
+	
 
 func _on_ContainedTimer_timeout():
 	look_x.rotate(deg2rad(180))
