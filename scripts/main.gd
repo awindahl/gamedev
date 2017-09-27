@@ -3,6 +3,8 @@ extends Node
 var myName;
 var mySprite;
 var myInventory;
+var myWep = ["","",""];
+var myEquip = [["","",""],["","",""],["","",""]];
 var myExp;
 var myLevel;
 var myAbilities;
@@ -90,7 +92,9 @@ func _save():
 		"Agility"  : myAgi,
 		"Charisma" : myCha,
 		"Intellect": myInt,
-		"Feats"   : [myFeat[0], myFeat[1], myFeat[2]],
+		"Feats"    : [ myFeat[0], myFeat[1], myFeat[2]],
+		"Weapon"   : [ myWep[0], myWep[1], myWep[2]],
+		"Equip"    : [[myEquip[0][0],myEquip[0][1],myEquip[0][2]],[myEquip[1][0],myEquip[1][1],myEquip[1][2]],[myEquip[2][0],myEquip[2][1],myEquip[2][2]]],
 		"Name"     : myName,
 		"mySprite" : mySprite,
 		"Inventory": myInventory,
@@ -170,7 +174,9 @@ func _load_game_state(var saveName):
 			myAgi = current_line["Agility"]
 			myCha = current_line["Charisma"]
 			myInt = current_line["Intellect"]
-			[myFeat[0], myFeat[1], myFeat[2]] = current_line["Feats"]
+			[ myFeat[0], myFeat[1], myFeat[2]] = current_line["Feats"]
+			[ myWep[0], myWep[1], myWep[2]] = current_line["Weapon"]
+			[[myEquip[0][0],myEquip[0][1],myEquip[0][2]],[myEquip[1][0],myEquip[1][1],myEquip[1][2]],[myEquip[2][0],myEquip[2][1],myEquip[2][2]]] = current_line["Equip"]
 			myName = current_line["Name"]
 			mySprite = current_line["mySprite"]
 			myInventory = current_line["Inventory"]

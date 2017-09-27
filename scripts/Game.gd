@@ -11,6 +11,7 @@ var coolValues
 
 
 func _ready():
+	
 	# -- TODO: LOAD MINIMAP + FOW(?)
 	mapCells = get_node("Navigation2D/TileMap").get_used_cells()
 	miniMapCells = get_node("gui/Node2D/Map/TilePanel/TileMap")
@@ -31,15 +32,8 @@ func _ready():
 				yBorder[0] = coolValues.y 
 			if coolValues.y > yBorder[0]:
 				yBorder[1] = coolValues.y
-	print("Game prints:")
-	print(xBorder)
-	print(yBorder)
-	print((xBorder[0]+xBorder[1])/2)
-	print (get_node("gui/Node2D/Map/TilePanel").get_pos().x)
 	center[0] = ((xBorder[0]+xBorder[1])/2)-get_node("gui/Node2D/Map/TilePanel").get_pos().x
 	center[1] = ((yBorder[0]+yBorder[1])/2)-get_node("gui/Node2D/Map/TilePanel").get_pos().y
-	print(center)
-	print(OS.get_window_size())
 	get_node("gui/Node2D").mapcenter = center
 	set_process_input(true)
 	set_pause_mode(PAUSE_MODE_PROCESS)

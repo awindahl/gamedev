@@ -32,6 +32,7 @@ func _fixed_process(delta):
 	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Enemy":
+			print(get_collider().get_parent())
 			var node = get_parent().get_node("Player")
 			node._on_player_hit()
 
