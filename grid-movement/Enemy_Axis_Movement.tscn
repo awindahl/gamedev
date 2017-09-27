@@ -61,21 +61,23 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="XLOOK"]
 
+visibility/visible = false
 transform/pos = Vector2( -0.194556, 22.1418 )
 transform/scale = Vector2( 0.187292, 0.218526 )
 texture = ExtResource( 4 )
 
 [node name="YLOOK" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -2.62268e-07, -3 )
-transform/rot = -180.0
+transform/pos = Vector2( -4.67582e-07, -0.651478 )
+transform/rot = 180.0
 enabled = true
-cast_to = Vector2( 0, 30 )
+cast_to = Vector2( 0, 35 )
 layer_mask = 1
 type_mask = 15
 
 [node name="Sprite" type="Sprite" parent="YLOOK"]
 
+visibility/visible = false
 transform/pos = Vector2( -0.194557, 22.9802 )
 transform/scale = Vector2( 0.187292, 0.218526 )
 texture = ExtResource( 4 )
