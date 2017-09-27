@@ -94,13 +94,13 @@ _update_shape_index = 0
 process_mode = 1
 wait_time = 3.0
 one_shot = false
-autostart = false
+autostart = true
 
 [node name="ContainedTimer" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = false
-autostart = false
+autostart = true
 
 
