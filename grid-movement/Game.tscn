@@ -14,9 +14,7 @@ script/script = ExtResource( 1 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
-editor/display_folded = true
-
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
+[node name="Map" type="TileMap" parent="Navigation2D"]
 
 mode = 0
 tile_set = ExtResource( 2 )
@@ -50,18 +48,17 @@ speed = 4
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 504.431, 283.274 )
+transform/pos = Vector2( 480.194, 288.355 )
 
 [node name="gui" type="CanvasLayer" parent="."]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Node2D" parent="gui" instance=ExtResource( 7 )]
+[node name="HUD" parent="gui" instance=ExtResource( 7 )]
 
-process/pause_mode = 2
+process/pause_mode = 0
 
 

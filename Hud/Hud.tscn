@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Hud/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Hud/level1.png" type="Texture" id=2]
-[ext_resource path="res://grid-movement/tilesets/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://scripts/Map.gd" type="Script" id=3]
+[ext_resource path="res://grid-movement/tilesets/tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://scripts/Minimap.gd" type="Script" id=5]
 
-[node name="Node2D" type="Control"]
+[node name="HUD" type="Control"]
 
 process/pause_mode = 1
 focus/ignore_mouse = false
@@ -207,46 +209,11 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -3.0
-margin/top = -4.0
-margin/right = 1028.0
-margin/bottom = 604.0
-
-[node name="TilePanel" type="Panel" parent="Map"]
-
-editor/display_folded = true
-visibility/self_opacity = 0.0
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 41.5
-margin/top = 45.0
-margin/right = -8.5
-margin/bottom = -11.0
-
-[node name="TileMap" type="TileMap" parent="Map/TilePanel"]
-
-transform/scale = Vector2( 0.2, 0.2 )
-mode = 0
-tile_set = ExtResource( 3 )
-cell/size = Vector2( 64, 64 )
-cell/quadrant_size = 64
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray(  )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 3 )
 
 [node name="MapLArrow" type="Label" parent="Map"]
 
@@ -420,8 +387,29 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Minimap" type="TileMap" parent="Map"]
+
+process/pause_mode = 2
+mode = 0
+tile_set = ExtResource( 4 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 64
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 1441833, 0 )
+script/script = ExtResource( 5 )
+
 [node name="Pause" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.77
 anchor/left = 3

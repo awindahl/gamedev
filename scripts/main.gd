@@ -80,8 +80,8 @@ func _ready():
 			mySave3 = null
 	findGame.close()
 	
-	var root = get_parent();
-	current_scene = root.get_child( root.get_child_count() -1 );
+	#var root = get_parent();
+	#current_scene = root.get_child( root.get_child_count() -1 );
 	
 func _save():
 	var savedict = {
