@@ -6,19 +6,21 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30.0254, 31.4908 )
+extents = Vector2( 10, 10 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy_Node_Movement" type="KinematicBody2D"]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/transform = Matrix32( 3, 0, 0, 3, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.1
 script/script = ExtResource( 1 )
 speed = 4
+damage = 10
+hp = 30
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -38,6 +40,7 @@ modulate = Color( 0.382812, 1, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+transform/scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

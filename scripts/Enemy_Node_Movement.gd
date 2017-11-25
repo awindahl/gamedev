@@ -27,6 +27,11 @@ func _ready():
 
 func _process(delta):
 	
+	if self.is_colliding():
+		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
+			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
+			get_parent()._calculate_damage(test[0].collider,damage)
+	
 	# refresh the points in the path
 	points = get_node("../Navigation2D").get_simple_path(get_global_pos(), end.get_global_pos(), false)
 	var distance = points[1] - get_global_pos()
