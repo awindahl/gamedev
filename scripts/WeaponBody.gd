@@ -9,6 +9,11 @@ func _ready():
 func _attacking():
 	#get collision data and send damage to game.gd
 	print("attacking with ", selectedWeapon)
+	get_node(selectedWeapon).show()
+	
+func _hideAttack():
+	get_node(selectedWeapon).set_hidden(true)
+	
 
 func _swapPattern(playerWeapon):
 	#first hide all
@@ -17,4 +22,3 @@ func _swapPattern(playerWeapon):
 		print(self.get_child(i).get_name())
 	#then select new pattern
 	selectedWeapon = playerWeapon
-	get_node(selectedWeapon).show()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://grid-movement/Player.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://grid-movement/WeaponBody.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -58,6 +59,7 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="Looking" type="RayCast2D" parent="."]
 
+editor/display_folded = true
 enabled = true
 cast_to = Vector2( 0, 43 )
 layer_mask = 3
@@ -69,6 +71,10 @@ transform/pos = Vector2( 0, 34.4967 )
 transform/scale = Vector2( 0.245305, 0.265522 )
 texture = ExtResource( 3 )
 
+[node name="WeaponBody" parent="Looking" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 62 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 transform/scale = Vector2( 3, 3 )
@@ -76,15 +82,24 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="invin_timer" type="Timer" parent="."]
+[node name="InvincibilityTimer" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 1.5
 one_shot = false
 autostart = false
 
+[node name="AttackTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.15
+one_shot = false
+autostart = false
+
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]
 
-[connection signal="timeout" from="invin_timer" to="." method="_on_invin_timer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 
 

@@ -1,24 +1,24 @@
 extends KinematicBody2D
 
-var direction = Vector2()
-var start_pos = Vector2()
+var direction      = Vector2()
 
-var is_attacking = false
-var coolDown = 0
-var attack_timer = 0
-const SPEED = 4
+var coolDown       = 0
+const SPEED        = 4
 
+var isAttacking    = false
 var weaponType
-onready var hp = get_parent().myHp
-onready var mp = get_parent().myMp
+onready var hp     = get_parent().myHp
+onready var mp     = get_parent().myMp
 var dmg
 var equipType
 
-onready var world = get_world_2d().get_direct_space_state()
+onready var world  = get_world_2d().get_direct_space_state()
 
-onready var look = get_node("Looking")
-onready var sprite = get_node("Sprite")
-onready var timer = get_node("invin_timer")
+onready var look                = get_node("Looking")
+onready var sprite              = get_node("Sprite")
+onready var invincibilityTimer  = get_node("InvincibilityTimer")
+onready var weapon              = get_node("Looking/WeaponBody")
+onready var attackTimer         = get_node("AttackTimer")
 
 func _ready():
 	set_meta("Damaged", "False")
@@ -28,47 +28,46 @@ func _ready():
 
 
 func _on_player_hit():
-
 	print("player:", self.get_instance_ID())
 	set_meta("Damaged", "True")
 	move (direction*-1*SPEED*15)
 	sprite.set_opacity(0.5)
-	timer.start()
+	invincibilityTimer.start()
 	
 func _fixed_process(delta):
-	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Enemy" && self.get_meta("Damaged") == "False":
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(get_parent().get_node("Player"),test[0].collider.damage)
-
-	#-------Handles Strafing Control
-	if Input.is_action_pressed("move_up") && !is_attacking:
-		look.set_rot(deg2rad(180))
-	elif Input.is_action_pressed("move_down") && !is_attacking:
-		look.set_rot(deg2rad(0))
-	elif Input.is_action_pressed("move_left") && !is_attacking:
-		look.set_rot(deg2rad(270))
-	elif Input.is_action_pressed("move_right") && !is_attacking:
-		look.set_rot(deg2rad(90))
-
+	
 	#-------Handles Movement-------#
 	if Input.is_action_pressed("move_up"):
+		look.set_rot(deg2rad(180))
 		direction = Vector2(0,-1)
 		move(direction * SPEED)
-	elif Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down"):
+		look.set_rot(deg2rad(0))
 		direction = Vector2(0,1)
 		move(direction * SPEED)
 	if  Input.is_action_pressed("move_left"):
+		look.set_rot(deg2rad(270))
 		direction = Vector2(-1,0)
 		move(direction * SPEED)
-	elif  Input.is_action_pressed("move_right"):
+	if  Input.is_action_pressed("move_right"):
+		look.set_rot(deg2rad(90))
 		direction = Vector2(1,0)
 		move(direction * SPEED)
 
 	#-----Handles Attacking-------#
+	if Input.is_action_pressed("ui_accept") && !isAttacking:
+		isAttacking = true
+		attackTimer.start()
+		weapon._attacking()
 	
-
-func _on_invin_timer_timeout():
+func _on_InvincibilityTimer_timeout():
 	set_meta("Damaged", "False")
 	sprite.set_opacity(1)
+
+func _on_AttackTimer_timeout():
+	weapon._hideAttack()
+	isAttacking = false
