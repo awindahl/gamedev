@@ -39,6 +39,8 @@ func _process(delta):
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(test[0].collider,damage)
+		else:
+			1+1
 
 
 	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || look_x.get_collider().get_meta("Type") == "Enemy"):

@@ -26,7 +26,6 @@ func _ready():
 	look.add_exception(self)
 	set_fixed_process(true)
 
-
 func _on_player_hit():
 	print("player:", self.get_instance_ID())
 	set_meta("Damaged", "True")
@@ -35,10 +34,15 @@ func _on_player_hit():
 	invincibilityTimer.start()
 	
 func _fixed_process(delta):
+	
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Enemy" && self.get_meta("Damaged") == "False":
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(get_parent().get_node("Player"),test[0].collider.damage)
+		elif get_collider().get_meta("Type") == "Weapon":
+			weapon._setSelectedWeapon(get_collider()._getWeaponNum())
+			get_collider().get_node("CollisionShape2D").set_trigger(true)
+			get_collider().free()
 	
 	#-------Handles Movement-------#
 	if Input.is_action_pressed("move_up"):

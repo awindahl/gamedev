@@ -59,7 +59,6 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="Looking" type="RayCast2D" parent="."]
 
-editor/display_folded = true
 enabled = true
 cast_to = Vector2( 0, 43 )
 layer_mask = 3
@@ -92,7 +91,7 @@ autostart = false
 [node name="AttackTimer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.15
+wait_time = 0.4
 one_shot = false
 autostart = false
 

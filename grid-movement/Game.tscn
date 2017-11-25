@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://grid-movement/tilesets/tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scripts/tilemap_meta.gd" type="Script" id=3]
 [ext_resource path="res://grid-movement/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://grid-movement/Enemy_Axis_Movement.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Hud/Hud.tscn" type="PackedScene" id=6]
-[ext_resource path="res://grid-movement/Enemy_Node_Movement.tscn" type="PackedScene" id=7]
+[ext_resource path="res://grid-movement/Sword_Pick_Up.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Hud/Hud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://grid-movement/Enemy_Node_Movement.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node2D"]
 
@@ -40,12 +41,16 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 504.431, 283.274 )
+transform/pos = Vector2( -228.811, 424.753 )
 
 [node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
+
+[node name="Sword_Pick_Up" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -255.28, 564.236 )
 
 [node name="gui" type="CanvasLayer" parent="."]
 
@@ -55,11 +60,11 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Node2D" parent="gui" instance=ExtResource( 6 )]
+[node name="Node2D" parent="gui" instance=ExtResource( 7 )]
 
 process/pause_mode = 2
 
-[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 7 )]
+[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 322.209, 157.893 )
 
