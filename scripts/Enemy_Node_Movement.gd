@@ -42,6 +42,8 @@ func _process(delta):
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
 			play_hit._on_player_hit()
+		else: 
+			1+1
 	
 	# if the path has more than one point
 	if points.size() > 1:

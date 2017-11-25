@@ -11,9 +11,13 @@ func _attacking():
 	#get collision data and send damage to game.gd
 	print("attacking with ", selectedWeapon)
 	get_node(selectedWeapon).show()
+	get_node(selectedWeapon).set_enable_monitoring(true)
 
 func _hideAttack():
+	for N in self.get_children():
+		N.set_hidden(true)
 	get_node(selectedWeapon).set_hidden(true)
+	get_node(selectedWeapon).set_enable_monitoring(false)
 
 func _swapPattern(playerWeapon):
 	#first hide all
@@ -29,5 +33,9 @@ func _getSelectedWeapon():
 func _setSelectedWeapon(n):
 	selectedWeapon = weapons[n]
 
-func _fixed_process(delta):
-	print(get_node("Sword/CollisionShape2D").get_collision_object_shape_index())
+func _on_Sword_body_enter( body ):
+	print(body.get_meta("Type"))
+
+func _on_Unarmed_body_enter( body ):
+	print(body.get_meta("Type"))
+	
