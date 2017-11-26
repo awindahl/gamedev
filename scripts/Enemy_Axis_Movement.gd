@@ -89,4 +89,4 @@ func _on_ContainedTimer_timeout():
 func _on_InvinTimer_timeout():
 	set_meta("Damaged", "False")
 	sprite.set_opacity(1)
-	ct_speed = speed
+	speed = ct_speed
