@@ -36,9 +36,10 @@ func _ready():
 	
 func _process(delta):
 	
-	if hp == 0:
+	if hp < 1:
 		hide()
-		translate(Vector2(-500,-500))
+		#translate(Vector2(-500,-500))
+		self.queue_free()
 	
 	if ylessthan == xlessthan:
 		ylessthan = ylessthan + 1
