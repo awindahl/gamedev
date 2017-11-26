@@ -40,9 +40,10 @@ func _fixed_process(delta):
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(get_parent().get_node("Player"),test[0].collider.damage)
 		elif get_collider().get_meta("Type") == "Weapon":
+			weaponType = get_collider()._getWeaponNum()
 			weapon._setSelectedWeapon(get_collider()._getWeaponNum())
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
-			get_collider().free()
+			get_collider().queue_free()
 	
 	#-------Handles Movement-------#
 	if Input.is_action_pressed("move_up"):

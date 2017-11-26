@@ -51,6 +51,7 @@ speed = 2
 [node name="Sword_Pick_Up" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -255.28, 564.236 )
+weaponNum = 2
 
 [node name="gui" type="CanvasLayer" parent="."]
 
