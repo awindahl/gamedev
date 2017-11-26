@@ -59,6 +59,15 @@ wait_time = 3.0
 one_shot = false
 autostart = true
 
+[node name="InvinTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = false
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="InvinTimer" to="." method="_on_InvinTimer_timeout"]
 
 

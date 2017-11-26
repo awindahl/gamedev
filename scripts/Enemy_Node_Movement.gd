@@ -5,6 +5,7 @@ var s = seed(randi())
 
 # travel speed in pixel/s
 export var speed = 4
+var ct_speed = speed
 export var damage = 10
 export var hp = 30
 
@@ -12,6 +13,9 @@ onready var end = get_node("Position2D")
 onready var timer = get_node("walk_time")
 onready var collider = get_node("CollisionShape2D")
 var start_pos = self.get_pos()
+var direction
+onready var sprite = get_node("Sprite")
+onready var invinTimer = get_node("InvinTimer")
 
 # at which distance to stop moving
 # NOTE: setting this value too low might result in jerky movement near destination
@@ -23,6 +27,7 @@ var points = []
 func _ready():
 	randomize(s)
 	set_meta("Type", "Enemy")
+	set_meta("Damaged", "False")
 	set_process(true)
 
 func _process(delta):
@@ -39,7 +44,7 @@ func _process(delta):
 	# refresh the points in the path
 	points = get_node("../Navigation2D").get_simple_path(get_global_pos(), end.get_global_pos(), false)
 	var distance = points[1] - get_global_pos()
-	var direction = distance.normalized() # direction of movement
+	direction = distance.normalized() # direction of movement
 	
 	# check if colliding with player
 	if self.is_colliding():
@@ -65,3 +70,8 @@ func _on_Timer_timeout():
 	var i = rand_range(-100.0,100.0)*10
 	var j = rand_range(-100.0,100.0)*10
 	end.set_pos(Vector2(i,j))
+
+func _on_InvinTimer_timeout():
+	set_meta("Damaged", "False")
+	sprite.set_opacity(1)
+	ct_speed = speed
