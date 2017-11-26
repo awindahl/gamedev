@@ -27,9 +27,10 @@ func _ready():
 
 func _process(delta):
 	
-	if hp == 0:
+	if hp < 1:
 		hide()
-		translate(Vector2(-500,-500))
+		#translate(Vector2(-500,-500))
+		self.queue_free()
 		
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
