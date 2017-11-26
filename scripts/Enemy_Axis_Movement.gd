@@ -3,6 +3,7 @@ extends KinematicBody2D
 var s = seed(randi())
 
 export var speed = 4
+var ct_speed = speed
 export var is_x = false
 export var is_y = false
 export var is_contained = false
@@ -13,6 +14,8 @@ onready var look_x = get_node("XLOOK")
 onready var look_y = get_node("YLOOK")
 onready var timer = get_node("WalkTimer")
 onready var container = get_node("ContainedTimer")
+onready var sprite = get_node("Sprite")
+onready var invinTimer = get_node("InvinTimer")
 
 var direction = Vector2(1,-1)
 var xlessthan = randi()%3
@@ -26,6 +29,7 @@ func _ready():
 	look_x.add_exception(self)
 	look_y.add_exception(self)
 	set_meta("Type", "Enemy")
+	set_meta("Damaged", "False")
 	container.set_wait_time(randi()%5+1)
 	timer.set_wait_time(randi()%4+1)
 	set_process(true)
@@ -81,3 +85,8 @@ func _on_ContainedTimer_timeout():
 	look_x.rotate(deg2rad(180))
 	look_y.rotate(deg2rad(180))
 	direction = direction * -1
+
+func _on_InvinTimer_timeout():
+	set_meta("Damaged", "False")
+	sprite.set_opacity(1)
+	speed = ct_speed

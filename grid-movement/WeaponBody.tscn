@@ -42,10 +42,9 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="Sword" type="Area2D" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
-transform/pos = Vector2( 0, -8.99999 )
-transform/scale = Vector2( 1, 0.459432 )
+transform/pos = Vector2( -3, -9 )
+transform/scale = Vector2( 0.449915, 0.459432 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 3, 0, 0, 7.36272, 0, 56.7154 )
@@ -66,7 +65,7 @@ _update_shape_index = 0
 
 [node name="Sprite" type="Sprite" parent="Sword"]
 
-transform/pos = Vector2( 1, 51.1154 )
+transform/pos = Vector2( -0.617676, 46.8902 )
 transform/scale = Vector2( 1, 2.56611 )
 texture = ExtResource( 2 )
 modulate = Color( 0, 0, 0, 1 )

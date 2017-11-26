@@ -85,14 +85,21 @@ _update_shape_index = 0
 
 process_mode = 1
 wait_time = 1.5
-one_shot = false
+one_shot = true
 autostart = false
 
 [node name="AttackTimer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.4
-one_shot = false
+wait_time = 0.15
+one_shot = true
+autostart = false
+
+[node name="AttackCoolDown" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
 autostart = false
 
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]
@@ -100,5 +107,7 @@ autostart = false
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+
+[connection signal="timeout" from="AttackCoolDown" to="." method="_on_AttackCoolDown_timeout"]
 
 

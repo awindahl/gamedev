@@ -6,6 +6,7 @@ var coolDown       = 0
 const SPEED        = 4
 
 var isAttacking    = false
+var canAttack      = true
 var weaponType
 onready var hp     = get_parent().myHp
 onready var mp     = get_parent().myMp
@@ -19,12 +20,14 @@ onready var sprite              = get_node("Sprite")
 onready var invincibilityTimer  = get_node("InvincibilityTimer")
 onready var weapon              = get_node("Looking/WeaponBody")
 onready var attackTimer         = get_node("AttackTimer")
+onready var attackCoolDown      = get_node("AttackCoolDown")
 
 func _ready():
 	set_meta("Damaged", "False")
 	set_meta("Type", "Player")
 	look.add_exception(self)
 	set_fixed_process(true)
+	set_process_input(true)
 
 func _on_player_hit():
 	print("player:", self.get_instance_ID())
@@ -42,33 +45,36 @@ func _fixed_process(delta):
 		elif get_collider().get_meta("Type") == "Weapon":
 			weaponType = get_collider()._getWeaponNum()
 			weapon._setSelectedWeapon(get_collider()._getWeaponNum())
+			attackCoolDown.set_wait_time(get_collider()._getWeaponSpeed())
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
 			get_collider().queue_free()
 	
 	#-------Handles Movement-------#
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_pressed("move_up") && !isAttacking:
 		look.set_rot(deg2rad(180))
 		direction = Vector2(0,-1)
 		move(direction * SPEED)
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down") && !isAttacking:
 		look.set_rot(deg2rad(0))
 		direction = Vector2(0,1)
 		move(direction * SPEED)
-	if  Input.is_action_pressed("move_left"):
+	if  Input.is_action_pressed("move_left") && !isAttacking:
 		look.set_rot(deg2rad(270))
 		direction = Vector2(-1,0)
 		move(direction * SPEED)
-	if  Input.is_action_pressed("move_right"):
+	if  Input.is_action_pressed("move_right") && !isAttacking:
 		look.set_rot(deg2rad(90))
 		direction = Vector2(1,0)
 		move(direction * SPEED)
 
+func _input(event):
 	#-----Handles Attacking-------#
-	if Input.is_action_pressed("ui_accept") && !isAttacking:
+	if event.is_action_pressed("ui_accept") && !isAttacking && canAttack:
 		isAttacking = true
+		canAttack = false
 		attackTimer.start()
 		weapon._attacking()
-	
+
 func _on_InvincibilityTimer_timeout():
 	set_meta("Damaged", "False")
 	sprite.set_opacity(1)
@@ -76,3 +82,8 @@ func _on_InvincibilityTimer_timeout():
 func _on_AttackTimer_timeout():
 	weapon._hideAttack()
 	isAttacking = false
+	attackCoolDown.start()
+
+func _on_AttackCoolDown_timeout():
+	print("end")
+	canAttack = true

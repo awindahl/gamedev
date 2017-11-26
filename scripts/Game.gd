@@ -118,6 +118,16 @@ func _calculate_damage(id,damage):
 	if id.get_name() == "Player":
 		print("hurtin player")
 		_player_hurt(damage)
+	if id.get_meta("Type") == "Enemy":
+		_enemy_hurt(id)
+
+func _enemy_hurt(id):
+	var p = get_node("Player")
+	id.move(p.direction*p.SPEED*15)
+	id.set_meta("Damaged", "True")
+	id.speed=0
+	id.sprite.set_opacity(0.5)
+	id.invinTimer.start()
 
 func _player_hurt(damage):
 	print(damage)
