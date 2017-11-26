@@ -43,6 +43,7 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="Sword" type="Area2D" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 transform/pos = Vector2( 0, -8.99999 )
 transform/scale = Vector2( 1, 0.459432 )

@@ -27,6 +27,10 @@ func _ready():
 
 func _process(delta):
 	
+	if hp == 0:
+		hide()
+		translate(Vector2(-500,-500))
+		
 	if self.is_colliding():
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)

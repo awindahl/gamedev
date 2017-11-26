@@ -32,6 +32,10 @@ func _ready():
 	
 func _process(delta):
 	
+	if hp == 0:
+		hide()
+		translate(Vector2(-500,-500))
+	
 	if ylessthan == xlessthan:
 		ylessthan = ylessthan + 1
 	

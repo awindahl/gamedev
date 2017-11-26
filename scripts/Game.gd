@@ -118,7 +118,7 @@ func _calculate_damage(id,damage):
 	if id.get_name() == "Player":
 		print("hurtin player")
 		_player_hurt(damage)
-	
+
 func _player_hurt(damage):
 	print(damage)
 	get_node("gui/Node2D")._update_hp(damage,1)
