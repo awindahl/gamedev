@@ -21,7 +21,7 @@ func _on_Button_pressed():
 
 
 func _on_BackBtn_pressed():
-	get_tree().change_scene("res://Menu/main_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/main_menu.tscn")
 
 
 func _on_Button2_pressed():

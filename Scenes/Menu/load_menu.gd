@@ -39,7 +39,7 @@ func _load():
 		get_node("DeleteBtn").set_disabled(false)
 	
 func _on_BackBtn_pressed():
-	get_tree().change_scene("res://Menu/main_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/main_menu.tscn")
 
 func _on_File1Btn_pressed():
 	if deleteActive:
@@ -55,10 +55,10 @@ func _on_File1Btn_pressed():
 	else:
 		if (get_node("File1Btn/File1Label").get_text() == "Empty"):
 			main.myFile = 1
-			get_tree().change_scene("res://rpg_test/main.tscn")
+			get_tree().change_scene("res://Scenes/Creator/main.tscn")
 		else:
 			main._load_game_state(file1)
-			get_tree().change_scene("res://Menu/campain_menu.tscn")
+			get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 
 func _on_File2Btn_pressed():
 	if deleteActive:
@@ -74,10 +74,10 @@ func _on_File2Btn_pressed():
 	else:
 		if (get_node("File2Btn/File2Label").get_text() == "Empty"):
 			main.myFile = 2
-			get_tree().change_scene("res://rpg_test/main.tscn")
+			get_tree().change_scene("res://Scenes/Creator/main.tscn")
 		else:
 			main._load_game_state(file2)
-			get_tree().change_scene("res://Menu/campain_menu.tscn")
+			get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 
 func _on_File3Btn_pressed():
 	if deleteActive:
@@ -93,10 +93,10 @@ func _on_File3Btn_pressed():
 	else:
 		if (get_node("File3Btn/File3Label").get_text() == "Empty"):
 			main.myFile = 3
-			get_tree().change_scene("res://rpg_test/main.tscn")
+			get_tree().change_scene("res://Scenes/Creator/main.tscn")
 		else:
 			main._load_game_state(file3)
-			get_tree().change_scene("res://Menu/campain_menu.tscn")
+			get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 
 func _on_DeleteBtn_pressed():
 	if deleteActive:

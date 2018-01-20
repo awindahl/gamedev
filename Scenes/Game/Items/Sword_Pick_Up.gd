@@ -7,7 +7,7 @@ var weaponSpeed = 0.5
 
 func _ready():
 	set_meta("Type", "Weapon")
-	get_node("WeaponPickup").set_texture(load("res://grid-movement/tilesets/mines/" + weaponArr[weaponNum])) 
+	get_node("WeaponPickup").set_texture(load("res://Assets/Sprites/Mines/" + weaponArr[weaponNum])) 
 	
 func _getWeaponNum():
 	return 1 #weaponNum after we fix

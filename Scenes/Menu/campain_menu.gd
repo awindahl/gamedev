@@ -32,7 +32,7 @@ func _ready():
 	get_node("MPLabel").set_text("MP: " + var2str(int(main.myMp)))
 	get_node("MCLabel").set_text("Missions completed: " + var2str(int(main.myMC)))
 	if main.myClass == "Mage":
-		var image = load("res://rpg_test/boobwiz.png")
+		var image = load("res://Assets/Sprites/boobwiz.png")
 		get_node("TextureFrame").set_texture(image)
 	
 	set_fixed_process(true)
@@ -48,9 +48,9 @@ func _fixed_process(delta):
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Menu/load_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/load_menu.tscn")
 
 
 func _on_GoBtn_pressed():
 	#-- TODO: LOAD THE RIGHT MAP --
-	get_tree().change_scene("res://grid-movement/Game.tscn")
+	get_tree().change_scene("res://Scenes/Game/Game.tscn")

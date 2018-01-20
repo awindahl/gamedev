@@ -18,11 +18,11 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_NewGame_pressed():
-	get_tree().change_scene("res://Menu/load_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/load_menu.tscn")
 
 
 func _on_Options_pressed():
-	get_tree().change_scene("res://Menu/option_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/option_menu.tscn")
 
 func _input(event):
 	if(event.type == InputEvent.KEY) and not focusing:

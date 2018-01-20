@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://scripts/character_create.gd" type="Script" id=1]
-[ext_resource path="res://rpg_test/boobwiz.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Creator/character_create.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/boobwiz.png" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -390,6 +390,7 @@ margin/bottom = 49.0
 bbcode/enabled = false
 bbcode/bbcode = "Stat      			B   M   T"
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -507,6 +508,7 @@ margin/bottom = 33.0
 bbcode/enabled = false
 bbcode/bbcode = "Roll Dice"
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -524,6 +526,7 @@ margin/bottom = -40.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -541,6 +544,7 @@ margin/bottom = -20.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -558,6 +562,7 @@ margin/bottom = 0.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -575,6 +580,7 @@ margin/bottom = 20.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -604,6 +610,7 @@ margin/bottom = 40.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -621,6 +628,7 @@ margin/bottom = 61.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -638,6 +646,7 @@ margin/bottom = 81.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -655,6 +664,7 @@ margin/bottom = 101.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -694,6 +704,7 @@ custom_colors/default_color = Color( 0, 1, 0.203125, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -712,6 +723,7 @@ custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -730,6 +742,7 @@ custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -748,6 +761,7 @@ custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
+percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }

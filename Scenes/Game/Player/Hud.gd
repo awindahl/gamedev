@@ -113,7 +113,7 @@ func _on_Btn_quit_desktop_pressed():
 	get_tree().quit()
 
 func _on_Btn_quit_menu_pressed():
-	get_tree().change_scene("res://Menu/campain_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 	get_tree().set_pause(false)
 
 func _on_Btn_options_pressed():
@@ -148,5 +148,5 @@ func _on_Btn_Retry_pressed():
 
 
 func _on_Btn_Quit_pressed():
-	get_tree().change_scene("res://Menu/campain_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 	get_tree().set_pause(false)

@@ -214,7 +214,7 @@ func _on_StatRoller_pressed():
 
 #--- back btn ---
 func _on_Back_pressed():
-	get_tree().change_scene("res://Menu/load_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/load_menu.tscn")
 
 #--- next btn ---
 func _on_Next_pressed():
@@ -238,4 +238,4 @@ func _on_Next_pressed():
 	
 #--- goto next scene --- 
 	get_node("Next").set_disabled(true);
-	get_tree().change_scene("res://Menu/load_menu.tscn")
+	get_tree().change_scene("res://Scenes/Menu/load_menu.tscn")
