@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/Sword_Pick_Up.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://grid-movement/tilesets/mines/Weapon_Base.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -21,6 +21,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
+weaponNum = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -29,10 +30,10 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="WeaponPickup" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.535168, 1 )
+transform/pos = Vector2( 0.0774153, -0.0113609 )
+transform/scale = Vector2( 0.632453, 0.640073 )
 texture = ExtResource( 2 )
-modulate = Color( 1, 0, 0.585938, 1 )
 
 

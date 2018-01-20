@@ -4,6 +4,7 @@ onready var myHP = get_parent().get_parent().get_node("Player").hp
 onready var currentHP = myHP;
 onready var myMP = get_parent().get_parent().get_node("Player").mp
 onready var currentMP = myMP;
+onready var myWeapon = get_parent().get_parent().get_node("Player").weapon
 var changeInMP = 0;
 var e = 0;
 var usingMP = false
