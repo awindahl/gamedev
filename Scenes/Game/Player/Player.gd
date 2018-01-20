@@ -86,5 +86,5 @@ func _on_AttackTimer_timeout():
 	attackCoolDown.start()
 
 func _on_AttackCoolDown_timeout():
-	print("end")
+	print("Ready to attack!!")
 	canAttack = true

@@ -79,13 +79,13 @@ weaponSpeed = 2.0
 
 [node name="Sword_Pick_Up1" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -413.065, 476.157 )
+transform/pos = Vector2( -413.605, 463.729 )
 damage = 1
 weaponSpeed = 0.2
 
 [node name="Sword_Pick_Up2" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( -413.605, 415.637 )
+transform/pos = Vector2( -414.686, 417.798 )
 weaponNum = 0
 damage = 15
 weaponSpeed = 1.0
