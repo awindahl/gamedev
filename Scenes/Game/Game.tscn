@@ -5,15 +5,19 @@
 [ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Game/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Game/Enemies/Enemy_Axis_Movement.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Game/Items/Sword_Pick_Up.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Game/Player/Hud.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Game/Enemies/Enemy_Node_Movement.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Game/Enemies/Enemy_Node_Movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Game/Items/Sword_Pick_Up.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Game/Player/Hud.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node2D"]
 
+process/pause_mode = 2
 script/script = ExtResource( 1 )
 
 [node name="Navigation2D1" type="Navigation2D" parent="."]
+
+process/pause_mode = 1
+editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="Navigation2D1"]
 
@@ -37,6 +41,7 @@ script/script = ExtResource( 3 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
+process/pause_mode = 1
 editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
@@ -63,28 +68,38 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -228.811, 424.753 )
 
 [node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 5 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
 
-[node name="Sword_Pick_Up" parent="." instance=ExtResource( 6 )]
+[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 6 )]
 
+process/pause_mode = 1
+transform/pos = Vector2( 322.209, 157.893 )
+
+[node name="Sword_Pick_Up" parent="." instance=ExtResource( 7 )]
+
+process/pause_mode = 1
 transform/pos = Vector2( -413.605, 539.92 )
 weaponNum = 2
 damage = 200
 weaponSpeed = 2.0
 
-[node name="Sword_Pick_Up1" parent="." instance=ExtResource( 6 )]
+[node name="Sword_Pick_Up1" parent="." instance=ExtResource( 7 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -413.605, 463.729 )
 damage = 1
 weaponSpeed = 0.2
 
-[node name="Sword_Pick_Up2" parent="." instance=ExtResource( 6 )]
+[node name="Sword_Pick_Up2" parent="." instance=ExtResource( 7 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -414.686, 417.798 )
 weaponNum = 0
 damage = 15
@@ -92,18 +107,15 @@ weaponSpeed = 1.0
 
 [node name="gui" type="CanvasLayer" parent="."]
 
+process/pause_mode = 1
 editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Node2D" parent="gui" instance=ExtResource( 7 )]
+[node name="Node2D" parent="gui" instance=ExtResource( 8 )]
 
 process/pause_mode = 2
-
-[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 322.209, 157.893 )
 
 
