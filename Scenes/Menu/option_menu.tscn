@@ -19,35 +19,14 @@ margin/bottom = 40.0
 
 [node name="Panel" type="Panel" parent="Control"]
 
-rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -512.0
-margin/top = -291.0
-margin/right = 513.0
-margin/bottom = 313.0
-
-[node name="Camera2D" type="Camera2D" parent="Control/Panel"]
-
-transform/pos = Vector2( 515.76, 297.641 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
 
 [node name="Label" type="Label" parent="Control"]
 
@@ -72,10 +51,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 15.0
-margin/top = 579.0
-margin/right = 435.0
-margin/bottom = 610.0
+margin/left = 12.0
+margin/top = 49.0
+margin/right = 432.0
+margin/bottom = 80.0
 text = "Options
 "
 valign = 1
@@ -89,10 +68,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 444.0
-margin/top = 549.0
-margin/right = 543.0
-margin/bottom = 569.0
+margin/left = 13.0
+margin/top = 673.0
+margin/right = 127.0
+margin/bottom = 705.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -104,19 +83,16 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 100.0
-margin/bottom = 21.0
+margin/left = 6.0
+margin/top = 6.0
+margin/right = 106.0
+margin/bottom = 27.0
 text = "Back"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Button" type="Button" parent="Control"]
 
@@ -124,10 +100,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 21.0
-margin/top = 135.0
-margin/right = 134.0
-margin/bottom = 156.0
+margin/left = 9.0
+margin/top = 82.0
+margin/right = 122.0
+margin/bottom = 103.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -158,10 +134,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 22.0
-margin/top = 170.0
-margin/right = 135.0
-margin/bottom = 191.0
+margin/left = 10.0
+margin/top = 117.0
+margin/right = 123.0
+margin/bottom = 138.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

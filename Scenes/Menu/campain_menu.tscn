@@ -23,20 +23,20 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 1025.0
-margin/bottom = 601.0
+margin/right = 1280.0
+margin/bottom = 720.0
 
 [node name="CampainList" type="ItemList" parent="."]
 
-focus_neighbour/right = NodePath("../GoBtn")
+focus_neighbour/bottom = NodePath("../GoBtn")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 757.0
-margin/top = 1.0
-margin/right = 1024.0
-margin/bottom = 441.0
+margin/left = 1006.0
+margin/top = 6.0
+margin/right = 1273.0
+margin/bottom = 669.0
 custom_colors/font_color_selected = Color( 0.402344, 0.402344, 0.402344, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 2
@@ -59,14 +59,15 @@ stretch_mode = 0
 [node name="Button" type="Button" parent="."]
 
 editor/display_folded = true
+focus_neighbour/right = NodePath("../GoBtn")
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 29.0
-margin/top = 546.0
-margin/right = 110.0
-margin/bottom = 576.0
+margin/left = 13.0
+margin/top = 677.0
+margin/right = 94.0
+margin/bottom = 707.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -94,15 +95,14 @@ __meta__ = {
 
 [node name="GoBtn" type="Button" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 850.0
-margin/top = 546.0
-margin/right = 931.0
-margin/bottom = 576.0
+margin/left = 1008.0
+margin/top = 676.0
+margin/right = 1272.0
+margin/bottom = 706.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -116,7 +116,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -1.0
 margin/top = 1.0
-margin/right = 81.0
+margin/right = 264.0
 margin/bottom = 29.0
 text = "Go!"
 align = 1

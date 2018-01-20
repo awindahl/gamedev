@@ -15,11 +15,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -5.0
 margin/top = -6.0
-margin/right = 1036.0
-margin/bottom = 608.0
-__meta__ = {
-"_edit_lock_": true
-}
+margin/right = 1281.0
+margin/bottom = 723.0
 
 [node name="FeatBg" type="ColorFrame" parent="."]
 
@@ -29,10 +26,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 19.0
-margin/top = 405.0
-margin/right = 136.0
-margin/bottom = 541.0
+margin/left = 6.0
+margin/top = 538.0
+margin/right = 123.0
+margin/bottom = 674.0
 color = Color( 0.230469, 0.230469, 0.230469, 1 )
 
 [node name="Social" type="CheckBox" parent="FeatBg"]
@@ -258,10 +255,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 925.0
-margin/top = 552.0
-margin/right = 1004.0
-margin/bottom = 578.0
+margin/left = 1193.0
+margin/top = 688.0
+margin/right = 1272.0
+margin/bottom = 714.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -297,10 +294,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 23.0
-margin/top = 552.0
-margin/right = 102.0
-margin/bottom = 578.0
+margin/left = 8.0
+margin/top = 686.0
+margin/right = 87.0
+margin/bottom = 712.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -336,10 +333,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 451.0
-margin/top = 561.0
-margin/right = 566.0
-margin/bottom = 585.0
+margin/left = 588.0
+margin/top = 690.0
+margin/right = 703.0
+margin/bottom = 714.0
 placeholder/alpha = 0.6
 focus_mode = 2
 caret/caret_blink = false
@@ -390,7 +387,6 @@ margin/bottom = 49.0
 bbcode/enabled = false
 bbcode/bbcode = "Stat      			B   M   T"
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -508,7 +504,6 @@ margin/bottom = 33.0
 bbcode/enabled = false
 bbcode/bbcode = "Roll Dice"
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -526,7 +521,6 @@ margin/bottom = -40.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -544,7 +538,6 @@ margin/bottom = -20.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -562,7 +555,6 @@ margin/bottom = 0.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -580,7 +572,6 @@ margin/bottom = 20.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -610,7 +601,6 @@ margin/bottom = 40.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -628,7 +618,6 @@ margin/bottom = 61.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -646,7 +635,6 @@ margin/bottom = 81.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -664,7 +652,6 @@ margin/bottom = 101.0
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -704,7 +691,6 @@ custom_colors/default_color = Color( 0, 1, 0.203125, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -723,7 +709,6 @@ custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -742,7 +727,6 @@ custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -761,7 +745,6 @@ custom_colors/default_color = Color( 0, 1, 0.15625, 1 )
 bbcode/enabled = false
 bbcode/bbcode = ""
 visible_characters = -1
-percent_visible = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -769,8 +752,8 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 
 visibility/visible = false
-transform/pos = Vector2( 503.63, 455.358 )
-transform/scale = Vector2( 1.5, 1.5 )
+transform/pos = Vector2( 650.682, 343.796 )
+transform/scale = Vector2( 5.03729, 6.29383 )
 texture = ExtResource( 2 )
 
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
