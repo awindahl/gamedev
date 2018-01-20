@@ -53,7 +53,6 @@ func _ready():
 	center[1] = ((yBorder[0]+yBorder[1])/2)-get_node("gui/Node2D/Map/TilePanel").get_pos().y
 	get_node("gui/Node2D").mapcenter = center
 	set_process_input(true)
-	set_pause_mode(PAUSE_MODE_PROCESS)
 
 func _input(event):
 	if event.is_action_pressed("ui_character") and get_node("gui/Node2D/Character").is_hidden():
@@ -101,9 +100,11 @@ func _input(event):
 			get_node("gui/Node2D/Pause").set_hidden(false)
 			
 func _unpause():
+	print(get_tree().is_paused())
 	get_tree().set_pause(false)
 
 func _pause():
+	print(get_tree().is_paused())
 	get_tree().set_pause(true)
 
 func _close_all():
