@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Game/Player/Hud.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/level1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Tilesets/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/Tilesets/GeneralTileset.tres" type="TileSet" id=3]
 
 [node name="Node2D" type="Control"]
 
@@ -206,7 +206,6 @@ max_lines_visible = -1
 
 [node name="Map" type="Panel" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 visibility/opacity = 0.77
 focus/ignore_mouse = false
@@ -220,7 +219,6 @@ margin/bottom = 604.0
 
 [node name="TilePanel" type="Panel" parent="Map"]
 
-editor/display_folded = true
 visibility/self_opacity = 0.0
 anchor/left = 3
 anchor/top = 3

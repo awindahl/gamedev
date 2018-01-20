@@ -48,6 +48,8 @@ func _fixed_process(delta):
 			attackCoolDown.set_wait_time(get_collider()._getWeaponSpeed())
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
 			get_collider().queue_free()
+		else:
+			pass
 	
 	#-------Handles Movement-------#
 	if Input.is_action_pressed("move_up") && !isAttacking:
