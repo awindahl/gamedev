@@ -13,11 +13,9 @@
 
 script/script = ExtResource( 1 )
 
-[node name="Navigation2D Above" type="Navigation2D" parent="."]
+[node name="Navigation2D1" type="Navigation2D" parent="."]
 
-visibility/visible = false
-
-[node name="TileMap" type="TileMap" parent="Navigation2D Above"]
+[node name="TileMap" type="TileMap" parent="Navigation2D1"]
 
 z/z = 1
 mode = 0
@@ -76,15 +74,21 @@ speed = 2
 
 transform/pos = Vector2( -413.605, 539.92 )
 weaponNum = 2
+damage = 200
+weaponSpeed = 2.0
 
 [node name="Sword_Pick_Up1" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -413.065, 476.157 )
+damage = 1
+weaponSpeed = 0.2
 
 [node name="Sword_Pick_Up2" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -413.605, 415.637 )
 weaponNum = 0
+damage = 15
+weaponSpeed = 1.0
 
 [node name="gui" type="CanvasLayer" parent="."]
 

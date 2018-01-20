@@ -1,6 +1,6 @@
 extends Node2D
 
-var weapons = ["Unarmed", "Sword"]
+var weapons = ["Unarmed", "Sword", "Hammer"]
 var selectedWeapon = weapons[0]
 var damage = 10
 
@@ -9,7 +9,7 @@ func _ready():
 	print("weaponclass ready")
 
 func _attacking():
-	print("attacking with ", selectedWeapon)
+	print("Hitting with ", selectedWeapon, " for ", damage, " damage.")
 	get_node(selectedWeapon).show()
 	get_node(selectedWeapon).set_enable_monitoring(true)
 
@@ -19,32 +19,17 @@ func _hideAttack():
 	get_node(selectedWeapon).set_hidden(true)
 	get_node(selectedWeapon).set_enable_monitoring(false)
 
-func _swapPattern(playerWeapon):
-	#first hide all
-	for i in range (self.get_child_count()):
-		get_node(self.get_child(i).get_name()).hide()
-		print(self.get_child(i).get_name())
-	#then select new pattern
-	selectedWeapon = playerWeapon
-
 func _getSelectedWeapon():
 	return selectedWeapon
 
 func _setSelectedWeapon(n):
 	selectedWeapon = weapons[n]
+	
+func _setSelectedDamage(n):
+	damage = n
 
-func _on_Sword_body_enter( body ):
+func _on_body_enter( body ):
 	print(body.get_meta("Type"))
 	if body.get_meta("Type") == "Enemy" && body.get_meta("Damaged") == "False":
 		var test = get_world_2d().get_direct_space_state().intersect_point(body.get_pos(),1)
 		get_parent().get_parent().get_parent()._calculate_damage(test[0].collider,damage)
-	else:
-		1+1
-
-func _on_Unarmed_body_enter( body ):
-	print(body.get_meta("Type"))
-	if body.get_meta("Type") == "Enemy" && body.get_meta("Damaged") == "False":
-		var test = get_world_2d().get_direct_space_state().intersect_point(body.get_pos(),1)
-		get_parent().get_parent().get_parent()._calculate_damage(test[0].collider,damage)
-	else:
-		1+1

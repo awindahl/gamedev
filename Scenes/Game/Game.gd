@@ -100,11 +100,9 @@ func _input(event):
 			get_node("gui/Node2D/Pause").set_hidden(false)
 			
 func _unpause():
-	print(get_tree().is_paused())
 	get_tree().set_pause(false)
 
 func _pause():
-	print(get_tree().is_paused())
 	get_tree().set_pause(true)
 
 func _close_all():
@@ -114,10 +112,9 @@ func _close_all():
 	get_node("gui/Node2D/Pause").set_hidden(true)
 	
 func _calculate_damage(id,damage):
-	print(id.get_name(),damage)
+	print(id.get_name(), " took ", damage, " damage.")
 	get_node(id.get_name()).hp = get_node(id.get_name()).hp - damage
 	if id.get_name() == "Player":
-		print("hurtin player")
 		_player_hurt(damage)
 	if id.get_meta("Type") == "Enemy":
 		_enemy_hurt(id)
@@ -131,7 +128,6 @@ func _enemy_hurt(id):
 	id.invinTimer.start()
 
 func _player_hurt(damage):
-	print(damage)
 	get_node("gui/Node2D")._update_hp(damage,1)
 	get_node("Player")._on_player_hit()
 	

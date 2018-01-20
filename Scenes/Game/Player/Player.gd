@@ -45,6 +45,7 @@ func _fixed_process(delta):
 		elif get_collider().get_meta("Type") == "Weapon":
 			weaponType = get_collider()._getWeaponNum()
 			weapon._setSelectedWeapon(get_collider()._getWeaponNum())
+			weapon._setSelectedDamage(get_collider()._getWeaponDamage())
 			attackCoolDown.set_wait_time(get_collider()._getWeaponSpeed())
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
 			get_collider().queue_free()
