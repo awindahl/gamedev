@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Game/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Game/Enemies/Enemy_Axis_Movement.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Game/Items/Sword_Pick_Up.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Game/Player/Hud.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Tilesets/NewSet.tres" type="TileSet" id=6]
-[ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Game/Enemies/Enemy_Node_Movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Tilesets/NewSet.tres" type="TileSet" id=7]
+[ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=8]
 
 [node name="Game" type="Node2D"]
 
@@ -60,6 +61,11 @@ scale = Vector2( 1, 1 )
 
 process/pause_mode = 2
 
+[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 6 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( 322.209, 157.893 )
+
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 process/pause_mode = 1
@@ -68,7 +74,7 @@ visibility/behind_parent = true
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
 
 mode = 0
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 7 )
 cell/size = Vector2( 128, 128 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -81,7 +87,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -65539, 2, -65538, 2, -65537, 2, -131072, 2, -131071, 2, -131070, 2, -131069, 2, -131068, 2, -4, 2, -3, 2, -2, 2, -1, 2, -65536, 2, -65535, 2, -65534, 2, -65533, 2, -65532, 2, -65531, 2, -65530, 0, 65531, 2, 65532, 2, 65533, 2, 65534, 2, 65535, 2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5, 2, 6, 2, 131067, 2, 131068, 2, 131069, 0, 131070, 2, 131071, 2, 65536, 2, 65537, 2, 65538, 2, 65539, 2, 65540, 2, 65541, 2, 65542, 2, 196603, 2, 196604, 2, 196605, 2, 196606, 2, 196607, 6, 131072, 2, 131073, 7, 131074, 2, 131075, 2, 131076, 3, 131077, 0, 131078, 0, 262139, 2, 262140, 2, 262141, 2, 262142, 1, 262143, 2, 196608, 2, 196609, 2, 196610, 2, 196611, 2, 196612, 2, 196613, 16, 196614, 16, 196615, 16, 196616, 17, 327675, 2, 327676, 2, 327677, 2, 327678, 2, 327679, 5, 262144, 4, 262145, 2, 262146, 5, 262147, 24, 262148, 29, 262149, 28, 262150, 39, 262151, 26, 262152, 0, 393211, 2, 393212, 3, 393213, 2, 393214, 2, 393215, 8, 327680, 9, 327681, 2, 327682, 25, 327683, 29, 327685, 38, 327686, 26, 327687, 7, 327688, 0, 458748, 0, 458749, 1, 458750, 5, 458751, 14, 393216, 15, 393217, 1, 393218, 2, 393219, 7, 393220, 2, 524284, 2, 524285, 4, 524286, 7, 524287, 14, 458752, 20, 458753, 12, 458754, 9, 458755, 2, 458756, 2, 589820, 1, 589821, 5, 589822, 1, 589823, 18, 524288, 13, 524289, 13, 524290, 19, 524291, 2, 524292, 2, 655356, 1, 655357, 0, 655358, 2, 655359, 0, 589824, 2, 589825, 2, 589826, 2, 589827, 2, 720895, 2 )
-script/script = ExtResource( 7 )
+tile_data = IntArray( -65543, 0, -8, 0, -7, 0, -6, 0, -5, 0, -4, 0, -3, 2, -2, 0, -1, 2, -65536, 2, -65535, 2, -65534, 0, -65533, 0, -65532, 0, 65529, 0, 65530, 0, 65531, 0, 65532, 2, 65533, 2, 65534, 2, 65535, 2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 0, 131065, 0, 131066, 0, 131067, 2, 131068, 2, 131069, 2, 131070, 2, 131071, 2, 65536, 2, 65537, 2, 65538, 2, 65539, 2, 65540, 0, 196601, 0, 196602, 2, 196603, 2, 196604, 2, 196605, 2, 196606, 2, 196607, 2, 131072, 2, 131073, 2, 131074, 2, 131075, 2, 131076, 0, 262136, 0, 262137, 0, 262138, 2, 262139, 2, 262140, 2, 262141, 2, 262142, 2, 262143, 2, 196608, 2, 196609, 2, 196610, 2, 196611, 2, 196612, 2, 327672, 0, 327673, 0, 327674, 2, 327675, 2, 327676, 2, 327677, 2, 327678, 2, 327679, 2, 262144, 2, 262145, 2, 262146, 2, 262147, 0, 262148, 2, 262149, 2, 393208, 0, 393209, 0, 393210, 2, 393211, 2, 393212, 2, 393213, 2, 393214, 2, 393215, 2, 327680, 2, 327681, 2, 327682, 2, 327683, 2, 327684, 2, 327685, 2, 458744, 0, 458745, 0, 458746, 0, 458747, 0, 458748, 0, 458749, 0, 458750, 0, 458751, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0, 524285, 0, 524286, 0, 524287, 0 )
+script/script = ExtResource( 8 )
 
 
