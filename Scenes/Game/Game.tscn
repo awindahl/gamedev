@@ -25,7 +25,6 @@ transform/pos = Vector2( -228.811, 424.753 )
 process/pause_mode = 1
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
-xp = 10
 
 [node name="Sword_Pick_Up" parent="." instance=ExtResource( 4 )]
 
@@ -71,6 +70,7 @@ xp = 20
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 process/pause_mode = 1
+editor/display_folded = true
 visibility/behind_parent = true
 
 [node name="TileMap" type="TileMap" parent="Navigation2D"]

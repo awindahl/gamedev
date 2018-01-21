@@ -49,6 +49,8 @@ func _fixed_process(delta):
 			attackCoolDown.set_wait_time(get_collider()._getWeaponSpeed())
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
 			get_collider().queue_free()
+		elif get_collider().get_meta("Type") == "NPC" && Input.is_action_pressed("ui_action"):
+			get_parent().get_node("gui").get_child(0).get_node("TextBox").show()
 		else:
 			pass
 	
