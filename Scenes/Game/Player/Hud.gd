@@ -62,6 +62,8 @@ func _fixed_process(delta):
 				if get_node("Map/TilePanel/TileMap").get_scale() > Vector2(0.2,0.2):
 					get_node("Map/TilePanel/TileMap").set_scale(Vector2(get_node("Map/TilePanel/TileMap").get_scale().x-i*0.01,get_node("Map/TilePanel/TileMap").get_scale().y-i*0.01))
 
+	if get_node("TextBox").is_visible():
+		get_tree().set_pause(true)
 
 	if get_node("Pause").is_visible() and not focused:
 		get_node("Pause/Btn_resume").grab_focus()

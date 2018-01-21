@@ -7,6 +7,7 @@ const SPEED        = 4
 
 var isAttacking    = false
 var canAttack      = true
+var canTalk        = true
 var weaponType
 onready var hp     = get_parent().myHp
 onready var mp     = get_parent().myMp
@@ -49,7 +50,9 @@ func _fixed_process(delta):
 			attackCoolDown.set_wait_time(get_collider()._getWeaponSpeed())
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
 			get_collider().queue_free()
-		elif get_collider().get_meta("Type") == "NPC" && Input.is_action_pressed("ui_action"):
+		elif get_collider().get_meta("Type") == "NPC" && Input.is_action_pressed("ui_action") && canTalk:
+			canTalk = false
+			get_node("TalkTimer").start()
 			get_parent().get_node("gui").get_child(0).get_node("TextBox").show()
 		else:
 			pass
@@ -73,6 +76,7 @@ func _fixed_process(delta):
 		move(direction * SPEED)
 
 func _input(event):
+	
 	#-----Handles Attacking-------#
 	if event.is_action_pressed("ui_accept") && !isAttacking && canAttack:
 		isAttacking = true
@@ -92,3 +96,6 @@ func _on_AttackTimer_timeout():
 func _on_AttackCoolDown_timeout():
 	print("Ready to attack!!")
 	canAttack = true
+
+func _on_TalkTimer_timeout():
+	canTalk = true

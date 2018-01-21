@@ -55,6 +55,11 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
+	if not get_node("gui/Node2D/TextBox").is_hidden():
+		if event.is_action_pressed("ui_action"):
+			get_node("gui/Node2D/TextBox").hide()
+			_unpause()
+	
 	if get_node("gui/Node2D/Options").is_hidden():
 		if event.is_action_pressed("ui_character") and get_node("gui/Node2D/Character").is_hidden():
 			if !get_tree().is_paused():
