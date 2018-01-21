@@ -51,9 +51,10 @@ func _fixed_process(delta):
 			get_collider().get_node("CollisionShape2D").set_trigger(true)
 			get_collider().queue_free()
 		elif get_collider().get_meta("Type") == "NPC" && Input.is_action_pressed("ui_action") && canTalk:
+			var content = get_collider().loadText()
 			canTalk = false
 			get_node("TalkTimer").start()
-			get_parent().get_node("gui").get_child(0).get_node("TextBox").show()
+			get_parent().get_node("gui").get_child(0)._textbox_print(content)
 		else:
 			pass
 	

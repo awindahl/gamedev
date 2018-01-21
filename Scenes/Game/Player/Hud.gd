@@ -93,7 +93,12 @@ func _fixed_process(delta):
 				get_node("GameOver/FadePanel").set_opacity(get_node("GameOver/FadePanel").get_opacity()+(0.0001*i))
 			else:
 				pass
-		
+
+func _textbox_print( content ):
+	var box = get_node("TextBox")
+	box.get_node("RichTextLabel").set_bbcode(content)
+	box.show()
+
 func _update_hp(healthIn,i):
 	print(healthIn,i)
 	currentHP = currentHP-healthIn*i;

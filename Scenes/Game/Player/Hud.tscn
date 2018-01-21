@@ -1180,7 +1180,6 @@ __meta__ = {
 
 [node name="TextBox" type="Panel" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
