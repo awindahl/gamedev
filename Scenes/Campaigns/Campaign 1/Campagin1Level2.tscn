@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Game/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Game/Enemies/Enemy_Axis_Movement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Game/Items/Sword_Pick_Up.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Game/Player/Hud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Game/Enemies/Enemy_Node_Movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Tilesets/NewSet.tres" type="TileSet" id=7]
+[ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Game/NPCs/NPCtest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/NPCs/NPCtest2.tscn" type="PackedScene" id=10]
+
+[node name="Game" type="Node2D"]
+
+process/pause_mode = 2
+script/script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -228.811, 424.753 )
+
+[node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 3 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -660.541, 309.009 )
+speed = 2
+
+[node name="Sword_Pick_Up" parent="." instance=ExtResource( 4 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( 186.395, 539.92 )
+weaponNum = 2
+damage = 10
+weaponSpeed = 0.5
+
+[node name="Sword_Pick_Up1" parent="." instance=ExtResource( 4 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -33.065, 236.157 )
+damage = 10
+weaponSpeed = 0.5
+
+[node name="Sword_Pick_Up2" parent="." instance=ExtResource( 4 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -413.605, 415.637 )
+weaponNum = 0
+damage = 10
+weaponSpeed = 0.5
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+process/pause_mode = 1
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Node2D" parent="gui" instance=ExtResource( 5 )]
+
+process/pause_mode = 2
+
+[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 6 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( 322.209, 157.893 )
+xp = 20
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+process/pause_mode = 1
+visibility/behind_parent = true
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+
+transform/pos = Vector2( 1.85059, 37.0124 )
+mode = 0
+tile_set = ExtResource( 7 )
+cell/size = Vector2( 128, 128 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65528, 22, 65529, 22, 65530, 22, 65531, 22, 65532, 22, 65533, 22, 65534, 22, 65535, 22, 0, 22, 1, 22, 2, 22, 3, 22, 4, 22, 131064, 22, 131065, 22, 131066, 22, 131067, 22, 131068, 22, 131069, 22, 131070, 22, 131071, 22, 65536, 22, 65537, 22, 65538, 22, 65539, 22, 65540, 22, 196600, 22, 196601, 22, 196602, 22, 196603, 22, 196604, 22, 196605, 22, 196606, 22, 196607, 22, 131072, 22, 131073, 22, 131074, 22, 131075, 22, 131076, 22, 262136, 22, 262137, 22, 262138, 22, 262139, 22, 262140, 22, 262141, 22, 262142, 22, 262143, 22, 196608, 22, 196609, 22, 196610, 22, 196611, 22, 196612, 22, 327672, 22, 327673, 22, 327674, 22, 327675, 22, 327676, 22, 327677, 22, 327678, 22, 327679, 22, 262144, 22, 262145, 22, 262146, 22, 262147, 22, 262148, 22, 393208, 22, 393209, 22, 393210, 22, 393211, 22, 393212, 22, 393213, 22, 393214, 22, 393215, 22, 327680, 22, 327681, 22, 327682, 22, 327683, 22, 327684, 22, 458744, 22, 458745, 22, 458746, 22, 458747, 22, 458748, 22, 458749, 22, 458750, 22, 458751, 22, 393216, 22, 393217, 22, 393218, 22, 393219, 22, 393220, 22 )
+script/script = ExtResource( 8 )
+
+[node name="NPCtest" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( -339.116, 687.234 )
+
+[node name="NPCtest 2" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( -779.249, 585.45 )
+
+

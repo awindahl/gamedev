@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Game/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Game/Enemies/Enemy_Axis_Movement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Game/Items/Sword_Pick_Up.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Game/Player/Hud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Game/Enemies/Enemy_Node_Movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Tilesets/NewSet.tres" type="TileSet" id=7]
+[ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Game/NPCs/NPCtest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/NPCs/NPCtest2.tscn" type="PackedScene" id=10]
+
+[node name="Game" type="Node2D"]
+
+process/pause_mode = 2
+script/script = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -228.811, 424.753 )
+
+[node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 3 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( 229.459, 309.009 )
+speed = 2
+
+[node name="Sword_Pick_Up" parent="." instance=ExtResource( 4 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -413.605, 539.92 )
+weaponNum = 2
+damage = 10
+weaponSpeed = 0.5
+
+[node name="Sword_Pick_Up1" parent="." instance=ExtResource( 4 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -413.065, 476.157 )
+damage = 10
+weaponSpeed = 0.5
+
+[node name="Sword_Pick_Up2" parent="." instance=ExtResource( 4 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( -413.605, 415.637 )
+weaponNum = 0
+damage = 10
+weaponSpeed = 0.5
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+process/pause_mode = 1
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Node2D" parent="gui" instance=ExtResource( 5 )]
+
+process/pause_mode = 2
+
+[node name="Enemy_Node_Movement" parent="." instance=ExtResource( 6 )]
+
+process/pause_mode = 1
+transform/pos = Vector2( 322.209, 157.893 )
+xp = 20
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+process/pause_mode = 1
+visibility/behind_parent = true
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+
+transform/pos = Vector2( 1.85059, 37.0124 )
+mode = 0
+tile_set = ExtResource( 7 )
+cell/size = Vector2( 128, 128 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 65528, 27, 65529, 6, 65530, 27, 65531, 27, 65532, 27, 65533, 27, 65534, 27, 65535, 27, 0, 27, 1, 27, 2, 14, 3, 22, 4, 2, 131064, 27, 131065, 27, 131066, 27, 131067, 27, 131068, 0, 131069, 0, 131070, 7, 131071, 0, 65536, 27, 65537, 27, 65538, 14, 65539, 22, 65540, 2, 196600, 27, 196601, 3, 196602, 0, 196603, 3, 196604, 0, 196605, 0, 196606, 27, 196607, 0, 131072, 0, 131073, 27, 131074, 14, 131075, 22, 131076, 2, 262136, 27, 262137, 27, 262138, 0, 262139, 27, 262140, 3, 262141, 27, 262142, 0, 262143, 0, 196608, 0, 196609, 5, 196610, 14, 196611, 22, 196612, 2, 327672, 27, 327673, 6, 327674, 0, 327675, 0, 327676, 0, 327677, 12, 327678, 12, 327679, 12, 262144, 12, 262145, 12, 262146, 21, 262147, 22, 262148, 2, 393208, 2, 393209, 2, 393210, 2, 393211, 2, 393212, 2, 393213, 22, 393214, 22, 393215, 22, 327680, 22, 327681, 22, 327682, 22, 327683, 22, 327684, 2, 458744, 2, 458745, 2, 458746, 2, 458747, 2, 458748, 2, 458749, 2, 458750, 2, 458751, 2, 393216, 2, 393217, 2, 393218, 2, 393219, 2, 393220, 2 )
+script/script = ExtResource( 8 )
+
+[node name="NPCtest" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( -339.116, 687.234 )
+
+[node name="NPCtest 2" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( -139.249, 585.45 )
+
+

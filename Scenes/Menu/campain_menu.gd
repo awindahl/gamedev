@@ -74,4 +74,9 @@ func _on_Button_pressed():
 
 func _on_GoBtn_pressed():
 	#-- TODO: LOAD THE RIGHT MAP --
-	get_tree().change_scene("res://Scenes/Game/Game.tscn")
+	if get_node("CampainList").is_selected(0):
+		get_tree().change_scene("res://Scenes/Campaigns/Campaign 1/Campagin1Level1.tscn")
+	elif get_node("CampainList").is_selected(1):
+		get_tree().change_scene("res://Scenes/Campaigns/Campaign 1/Campagin1Level2.tscn")
+	else:
+		pass
