@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Game/Enemies/Enemy_Node_Movement.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Tilesets/NewSet.tres" type="TileSet" id=7]
 [ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Game/NPCtest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/NPCs/NPCtest.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Node2D"]
 
@@ -25,6 +25,7 @@ transform/pos = Vector2( -228.811, 424.753 )
 process/pause_mode = 1
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
+xp = 10
 
 [node name="Sword_Pick_Up" parent="." instance=ExtResource( 4 )]
 
@@ -95,6 +96,6 @@ script/script = ExtResource( 8 )
 
 [node name="NPCtest" parent="." instance=ExtResource( 9 )]
 
-transform/pos = Vector2( -294.7, 964.827 )
+transform/pos = Vector2( -339.116, 687.234 )
 
 
