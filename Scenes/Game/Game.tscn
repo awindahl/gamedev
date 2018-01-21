@@ -11,33 +11,46 @@
 
 [node name="Game" type="Node2D"]
 
+process/pause_mode = 2
 script/script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -228.811, 424.753 )
 
 [node name="Enemy_Axis_Movement" parent="." instance=ExtResource( 3 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
 
 [node name="Sword_Pick_Up" parent="." instance=ExtResource( 4 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -413.605, 539.92 )
 weaponNum = 2
+damage = 10
+weaponSpeed = 0.5
 
 [node name="Sword_Pick_Up1" parent="." instance=ExtResource( 4 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -413.065, 476.157 )
+damage = 10
+weaponSpeed = 0.5
 
 [node name="Sword_Pick_Up2" parent="." instance=ExtResource( 4 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( -413.605, 415.637 )
 weaponNum = 0
+damage = 10
+weaponSpeed = 0.5
 
 [node name="gui" type="CanvasLayer" parent="."]
 
+process/pause_mode = 1
 editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
@@ -50,10 +63,12 @@ process/pause_mode = 2
 
 [node name="Enemy_Node_Movement" parent="." instance=ExtResource( 6 )]
 
+process/pause_mode = 1
 transform/pos = Vector2( 322.209, 157.893 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
+process/pause_mode = 1
 editor/display_folded = true
 visibility/behind_parent = true
 
