@@ -171,9 +171,8 @@ func _fixed_process(delta):
 	for k in range(get_node("FeatBg").get_children().size()-1):
 		if !feat_chosen:
 			if get_node("FeatBg").get_child(k).is_pressed():
-				feat = str(get_node("FeatBg").get_child(k).get_name())
+				feat = get_node("FeatBg").get_child(k).get_name()
 				feat_chosen = true
-				print(feat)
 				selectedFeat = get_node("FeatBg").get_child(k)
 				
 				for l in range(get_node("FeatBg").get_children().size()-1):
@@ -184,7 +183,6 @@ func _fixed_process(delta):
 			if !selectedFeat.is_pressed():
 				feat = ""
 				feat_chosen = false
-				print(feat)
 				selectedFeat = ""
 				for m in range(get_node("FeatBg").get_children().size()-1):
 					get_node("FeatBg").get_child(m).set_toggle_mode(true)

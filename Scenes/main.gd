@@ -3,8 +3,8 @@ extends Node
 var myName;
 var mySprite;
 var myInventory;
-var myWep = ["","",""];
-var myEquip = [["","",""],["","",""],["","",""]];
+var myWep = ["",""]; #0 primary, 1 secondary
+var myEquip = ["","Shirt","Pants","Shoes","",""]; #0 head, 1 torso, 2 legs, 3 feet, 4 hands, 5 back
 var myExp;
 var myLevel;
 var myAbilities;
@@ -15,7 +15,6 @@ var myStr;
 var myAgi;
 var myCha;
 var myInt;
-var i = 0;
 var myFile;
 var tempNameSave;
 var myFeat = ["","",""];
@@ -93,8 +92,8 @@ func _save():
 		"Charisma" : myCha,
 		"Intellect": myInt,
 		"Feats"    : [ myFeat[0], myFeat[1], myFeat[2]],
-		"Weapon"   : [ myWep[0], myWep[1], myWep[2]],
-		"Equip"    : [[myEquip[0][0],myEquip[0][1],myEquip[0][2]],[myEquip[1][0],myEquip[1][1],myEquip[1][2]],[myEquip[2][0],myEquip[2][1],myEquip[2][2]]],
+		"Weapon"   : [ myWep[0], myWep[1]],
+		"Equip"    : [ myEquip[0], myEquip[1], myEquip[2], myEquip[3], myEquip[4], myEquip[5]],
 		"Name"     : myName,
 		"mySprite" : mySprite,
 		"Inventory": myInventory,
@@ -126,18 +125,25 @@ func _update_game_data():
 func _save_game_state(var saveName):
 	var saveGame = File.new();
 	var saveGameInfo = File.new();
+	
+	var existing = false;
+	var addToFile = "";
+	var count = 0;
+	
 	if saveGame.file_exists("user://Saves/Rpg/"+saveName+".sve"):
-		i = i + 1;
-		if saveGame.file_exists("user://Saves/Rpg/"+saveName+".sve"):
-			i = i + 1;
-			saveGame.open("user://Saves/Rpg/"+saveName+var2str(i)+".sve", File.WRITE);
-			tempNameSave = saveName+var2str(i)
-		else:
-			saveGame.open("user://Saves/Rpg/"+saveName+var2str(i)+".sve", File.WRITE);
-			tempNameSave = saveName+var2str(i)
+		existing = true
+
 	else:
 		saveGame.open("user://Saves/Rpg/"+saveName+".sve", File.WRITE);
-		tempNameSave = saveName
+		tempNameSave = saveName;
+		
+	while existing:
+		count += 1;
+		if not saveGame.file_exists("user://Saves/Rpg/"+saveName+var2str(count)+".sve"):
+			addToFile = var2str(count)
+			saveGame.open("user://Saves/Rpg/"+saveName+addToFile+".sve", File.WRITE);
+			tempNameSave = saveName+addToFile;
+			existing = false;
 	
 	var data = _save();
 	
@@ -174,9 +180,9 @@ func _load_game_state(var saveName):
 			myAgi = current_line["Agility"]
 			myCha = current_line["Charisma"]
 			myInt = current_line["Intellect"]
-			[ myFeat[0], myFeat[1], myFeat[2]] = current_line["Feats"]
-			[ myWep[0], myWep[1], myWep[2]] = current_line["Weapon"]
-			[[myEquip[0][0],myEquip[0][1],myEquip[0][2]],[myEquip[1][0],myEquip[1][1],myEquip[1][2]],[myEquip[2][0],myEquip[2][1],myEquip[2][2]]] = current_line["Equip"]
+			myFeat = current_line["Feats"]
+			myWep = current_line["Weapon"]
+			myEquip = current_line["Equip"]
 			myName = current_line["Name"]
 			mySprite = current_line["mySprite"]
 			myInventory = current_line["Inventory"]
@@ -188,7 +194,6 @@ func _load_game_state(var saveName):
 			myMp = int(current_line["MP"])
 			myClass = current_line["Class"]
 		load_data.close()
-
 	
 func _delete_save(var saveName):
 	print("delete: "+saveName)
