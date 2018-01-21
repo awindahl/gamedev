@@ -34,4 +34,5 @@ func _on_body_enter( body ):
 		var test = get_world_2d().get_direct_space_state().intersect_point(body.get_pos(),1)
 		get_parent().get_parent().get_parent()._calculate_damage(test[0].collider,damage)
 	else:
-		pass
+		if body.get_meta("Type") == "NPC" && body.get_meta("Damaged") == "False":
+			print("why would you do this?")
