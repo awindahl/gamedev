@@ -92,8 +92,22 @@ func _fixed_process(delta):
 			else:
 				pass
 		
-		
-		
+func _update_hp(healthIn,i):
+	print(healthIn,i)
+	currentHP = currentHP-healthIn*i;
+	diff = floor(get_node("HUD/HPOutline").get_size().x*(float(healthIn)/float(myMP)))
+	if currentHP <= 0:
+		currentHP = 0
+		diff = get_node("HUD/HPActual").get_size().x
+		get_parent().get_parent()._player_dead()
+		get_node("GameOver").show()
+		get_node("GameOver/Btn_Retry").grab_focus()
+	if currentHP > myHP:
+		currentHP = myHP
+		diff = get_node("HUD/HPOutline").get_size().x-get_node("HUD/HPActual").get_size().x
+	get_node("HUD/HPActual").set_size(Vector2(get_node("HUD/HPActual").get_size().x-diff*i,get_node("HUD/MPActual").get_size().y))
+	get_node("HUD/HPLabel").set_text(var2str(currentHP) + "/" + var2str(myHP))
+
 func _on_Button_pressed():
 	if currentMP == 0:
 		pass
@@ -116,36 +130,47 @@ func _on_Btn_quit_menu_pressed():
 	get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 	get_tree().set_pause(false)
 
-func _on_Btn_options_pressed():
-	pass # replace with function body
-	# -- TODO: MAKE CUSTOM OPTIONS MENU FOR INGAME --
-
 func _on_Btn_resume_pressed():
 	get_node("Pause").set_hidden(true)
 	get_tree().set_pause(false)
-	
-func _update_hp(healthIn,i):
-	print(healthIn,i)
-	currentHP = currentHP-healthIn*i;
-	diff = floor(get_node("HUD/HPOutline").get_size().x*(float(healthIn)/float(myMP)))
-	if currentHP <= 0:
-		currentHP = 0
-		diff = get_node("HUD/HPActual").get_size().x
-		get_parent().get_parent()._player_dead()
-		get_node("GameOver").show()
-		get_node("GameOver/Btn_Retry").grab_focus()
-	if currentHP > myHP:
-		currentHP = myHP
-		diff = get_node("HUD/HPOutline").get_size().x-get_node("HUD/HPActual").get_size().x
-	get_node("HUD/HPActual").set_size(Vector2(get_node("HUD/HPActual").get_size().x-diff*i,get_node("HUD/MPActual").get_size().y))
-	get_node("HUD/HPLabel").set_text(var2str(currentHP) + "/" + var2str(myHP))
-	
+
+func _on_Btn_options_pressed():
+	get_node("Options").show()
+	get_node("Options/CloseBtn").grab_focus()
+	get_node("Pause/Btn_resume").set_disabled(true)
+	get_node("Pause/Btn_options").set_disabled(true)
+	get_node("Pause/Btn_quit_menu").set_disabled(true)
+	get_node("Pause/Btn_quit_desktop").set_disabled(true)
+
+func _on_CloseBtn_pressed():
+	get_node("Options").hide()
+	get_node("Pause/Btn_resume").set_disabled(false)
+	get_node("Pause/Btn_options").set_disabled(false)
+	get_node("Pause/Btn_quit_menu").set_disabled(false)
+	get_node("Pause/Btn_quit_desktop").set_disabled(false)
+	get_node("Pause/Btn_options").grab_focus()
+
+func _on_FullscreenBtn_pressed():
+	OS.set_window_resizable(true)
+	if OS.is_window_fullscreen():
+		OS.set_window_fullscreen(false)
+	else:
+		OS.set_window_fullscreen(true)
+
+func _on_VsyncBtn_pressed():
+	if OS.is_vsync_enabled():
+		OS.set_use_vsync(false)
+		print("off")
+		get_node("Options/VsyncBtn/VsyncLabel").set_text("Vsync off")
+	else:
+		OS.set_use_vsync(true)
+		print("on")
+		get_node("Options/VsyncBtn/VsyncLabel").set_text("Vsync on")
 
 func _on_Btn_Retry_pressed():
 	get_parent().get_tree().set_pause(false)
 	get_tree().reload_current_scene()
 	get_node("GameOver").hide()
-
 
 func _on_Btn_Quit_pressed():
 	get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
