@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Game/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Tilesets/NewSet.tres" type="TileSet" id=7]
 [ext_resource path="res://Scenes/Game/tilemap_meta.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Game/NPCs/NPCtest.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Game/NPCs/NPCtest2.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
 
@@ -97,5 +98,9 @@ script/script = ExtResource( 8 )
 [node name="NPCtest" parent="." instance=ExtResource( 9 )]
 
 transform/pos = Vector2( -339.116, 687.234 )
+
+[node name="NPCtest 2" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( -139.249, 585.45 )
 
 
