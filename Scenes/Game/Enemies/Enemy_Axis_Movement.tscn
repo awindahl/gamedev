@@ -27,6 +27,7 @@ is_y = true
 is_contained = false
 damage = 10
 hp = 30
+xp = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 

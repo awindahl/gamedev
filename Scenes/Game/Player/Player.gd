@@ -39,10 +39,13 @@ func _on_player_hit():
 	
 func _fixed_process(delta):
 	
-	if self.is_colliding():
+	if self.is_colliding() && get_collider() != null:
 		if get_collider().get_meta("Type") == "Enemy" && self.get_meta("Damaged") == "False":
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
-			get_parent()._calculate_damage(get_parent().get_node("Player"),test[0].collider.damage)
+			if test[0] != null:
+				get_parent()._calculate_damage(get_parent().get_node("Player"),test[0].collider.damage)
+			else:
+				pass
 		elif get_collider().get_meta("Type") == "Weapon":
 			weaponType = get_collider()._getWeaponNum()
 			weapon._setSelectedWeapon(get_collider()._getWeaponNum())

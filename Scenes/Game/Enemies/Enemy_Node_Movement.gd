@@ -38,7 +38,7 @@ func _process(delta):
 		get_parent()._enemy_killed(xp);
 		self.queue_free()
 		
-	if self.is_colliding():
+	if self.is_colliding() && get_collider() != null:
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(test[0].collider,damage)
@@ -49,7 +49,7 @@ func _process(delta):
 	direction = distance.normalized() # direction of movement
 	
 	# check if colliding with player
-	if self.is_colliding():
+	if self.is_colliding() && get_collider() != null:
 		if get_collider().get_meta("Type") == "Player" && get_collider().get_meta("Damaged") == "False":
 			var play_hit = get_parent().get_node("Player")
 			play_hit._on_player_hit()
