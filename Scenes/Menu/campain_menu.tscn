@@ -26,6 +26,99 @@ margin/top = 0.0
 margin/right = 1280.0
 margin/bottom = 720.0
 
+[node name="PanelStats" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 9.0
+margin/top = 8.0
+margin/right = 311.0
+margin/bottom = 662.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[node name="StatsLabel" type="Label" parent="PanelStats"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 136.0
+margin/top = 1.0
+margin/right = 176.0
+margin/bottom = 15.0
+text = "Stats"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelEquip" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 317.0
+margin/top = 8.0
+margin/right = 657.0
+margin/bottom = 662.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[node name="EquipLabel" type="Label" parent="PanelEquip"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 135.0
+margin/top = 2.0
+margin/right = 204.0
+margin/bottom = 16.0
+text = "Equipment"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelInventory" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 664.0
+margin/top = 8.0
+margin/right = 1004.0
+margin/bottom = 662.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[node name="Label" type="Label" parent="PanelInventory"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 141.0
+margin/top = 2.0
+margin/right = 202.0
+margin/bottom = 16.0
+text = "Inventory"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="CampainList" type="ItemList" parent="."]
 
 focus_neighbour/bottom = NodePath("../GoBtn")
@@ -34,13 +127,31 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 1006.0
-margin/top = 6.0
+margin/top = 27.0
 margin/right = 1273.0
-margin/bottom = 669.0
+margin/bottom = 662.0
 custom_colors/font_color_selected = Color( 0.402344, 0.402344, 0.402344, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_separation = 2
 custom_constants/hseparation = 1
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 1112.0
+margin/top = 9.0
+margin/right = 1169.0
+margin/bottom = 23.0
+text = "Missions"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureFrame" type="TextureFrame" parent="."]
 
@@ -48,13 +159,16 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 5.0
-margin/top = 3.0
-margin/right = 142.0
-margin/bottom = 140.0
+margin/left = 9.0
+margin/top = 8.0
+margin/right = 146.0
+margin/bottom = 145.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Button" type="Button" parent="."]
 
@@ -67,7 +181,7 @@ size_flags/vertical = 2
 margin/left = 13.0
 margin/top = 677.0
 margin/right = 94.0
-margin/bottom = 707.0
+margin/bottom = 709.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -95,6 +209,7 @@ __meta__ = {
 
 [node name="GoBtn" type="Button" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -102,7 +217,7 @@ size_flags/vertical = 2
 margin/left = 1008.0
 margin/top = 676.0
 margin/right = 1272.0
-margin/bottom = 706.0
+margin/bottom = 708.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -134,10 +249,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 141.0
-margin/right = 130.0
-margin/bottom = 172.0
+margin/left = 18.0
+margin/top = 147.0
+margin/right = 140.0
+margin/bottom = 178.0
 align = 1
 uppercase = true
 percent_visible = 1.0
@@ -150,10 +265,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 170.0
-margin/right = 130.0
-margin/bottom = 201.0
+margin/left = 12.0
+margin/top = 180.0
+margin/right = 134.0
+margin/bottom = 211.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -164,10 +279,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 200.0
-margin/right = 130.0
-margin/bottom = 231.0
+margin/left = 12.0
+margin/top = 213.0
+margin/right = 134.0
+margin/bottom = 244.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -178,10 +293,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 230.0
-margin/right = 130.0
-margin/bottom = 261.0
+margin/left = 12.0
+margin/top = 246.0
+margin/right = 134.0
+margin/bottom = 277.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -192,13 +307,97 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 260.0
-margin/right = 130.0
-margin/bottom = 291.0
+margin/left = 12.0
+margin/top = 279.0
+margin/right = 134.0
+margin/bottom = 310.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="StrLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 312.0
+margin/right = 134.0
+margin/bottom = 343.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AgiLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 345.0
+margin/right = 134.0
+margin/bottom = 376.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ChaLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 378.0
+margin/right = 134.0
+margin/bottom = 409.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="IntLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 411.0
+margin/right = 134.0
+margin/bottom = 442.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FeatLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 444.0
+margin/right = 134.0
+margin/bottom = 475.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FeatExplanation" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 475.0
+margin/right = 307.0
+margin/bottom = 658.0
+bbcode/enabled = true
+bbcode/bbcode = ""
+visible_characters = -1
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
