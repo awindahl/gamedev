@@ -9,6 +9,7 @@ export var is_y = false
 export var is_contained = false
 export var damage = 10
 export var hp = 30
+export var xp = 10
 
 onready var look_x = get_node("XLOOK")
 onready var look_y = get_node("YLOOK")
@@ -38,7 +39,7 @@ func _process(delta):
 	
 	if hp < 1:
 		hide()
-		#translate(Vector2(-500,-500))
+		get_parent()._enemy_killed(xp);
 		self.queue_free()
 	
 	if ylessthan == xlessthan:

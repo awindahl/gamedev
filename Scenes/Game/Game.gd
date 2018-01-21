@@ -127,6 +127,10 @@ func _enemy_hurt(id):
 	id.sprite.set_opacity(0.5)
 	id.invinTimer.start()
 
+func _enemy_killed(xp):
+	myExp += xp;
+	print(myExp);
+
 func _player_hurt(damage):
 	get_node("gui/Node2D")._update_hp(damage,1)
 	get_node("Player")._on_player_hit()

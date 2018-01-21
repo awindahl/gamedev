@@ -8,6 +8,7 @@ export var speed = 4
 var ct_speed = speed
 export var damage = 10
 export var hp = 30
+export var xp = 20
 
 onready var end = get_node("Position2D")
 onready var timer = get_node("walk_time")
@@ -34,7 +35,7 @@ func _process(delta):
 	
 	if hp < 1:
 		hide()
-		#translate(Vector2(-500,-500))
+		get_parent()._enemy_killed(xp);
 		self.queue_free()
 		
 	if self.is_colliding():
