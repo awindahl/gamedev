@@ -10,6 +10,7 @@ func _ready():
 	else:
 		get_node("Control/Button2/Label").set_text("Vsync off")
 	
+	set_fixed_process(true)
 	set_process_input(true)
 
 func _on_Button_pressed():
@@ -38,4 +39,32 @@ func _input(event):
 	if(event.type == InputEvent.KEY) and not focusing:
 		get_node("Control/Button").grab_focus()
 		focusing = true
+	
+func _fixed_process(delta):
+	if get_node("Control/ConfirmationDialog").get_ok().is_pressed():
+		if main.mySave1 != null:
+			main._delete_save(main.mySave1)
+			main.mySave1 = null
 
+		if main.mySave2 != null:
+			main._delete_save(main.mySave2)
+			main.mySave2 = null
+			
+		if main.mySave3 != null:
+			main._delete_save(main.mySave3)
+			main.mySave3 = null
+		main._game_data()
+		main._update_game_data()
+		
+	if get_node("Control/ConfirmationDialog").is_visible() == false:
+		get_node("Control/BackBtn").set_disabled(false)
+		get_node("Control/clearDataBtn").set_disabled(false)
+		get_node("Control/Button").set_disabled(false)
+		get_node("Control/Button2").set_disabled(false)
+		
+func _on_clearDataBtn_pressed():
+	get_node("Control/ConfirmationDialog").show()
+	get_node("Control/BackBtn").set_disabled(true)
+	get_node("Control/clearDataBtn").set_disabled(true)
+	get_node("Control/Button").set_disabled(true)
+	get_node("Control/Button2").set_disabled(true)

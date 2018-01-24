@@ -28,7 +28,43 @@ margin/top = 0.0
 margin/right = 1280.0
 margin/bottom = 720.0
 
-[node name="Label" type="Label" parent="Control"]
+[node name="ColorFrame2" type="ColorFrame" parent="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 858.0
+margin/top = 70.0
+margin/right = 1262.0
+margin/bottom = 658.0
+color = Color( 0.371094, 0.352249, 0.352249, 1 )
+
+[node name="ColorFrame3" type="ColorFrame" parent="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 435.0
+margin/top = 70.0
+margin/right = 839.0
+margin/bottom = 658.0
+color = Color( 0.232361, 0.233674, 0.316406, 1 )
+
+[node name="ColorFrame4" type="ColorFrame" parent="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 70.0
+margin/right = 414.0
+margin/bottom = 658.0
+color = Color( 0.201508, 0.242188, 0.209771, 1 )
+
+[node name="OptionsLabel" type="Label" parent="Control"]
 
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
@@ -51,19 +87,64 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 12.0
-margin/top = 49.0
-margin/right = 432.0
-margin/bottom = 80.0
-text = "Options
-"
+margin/left = 139.0
+margin/top = 682.0
+margin/right = 1258.0
+margin/bottom = 696.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="GraphicOptions" type="Label" parent="Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 11.0
+margin/top = 53.0
+margin/right = 99.0
+margin/bottom = 67.0
+text = "Video options"
 valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SoundOptions" type="Label" parent="Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 435.0
+margin/top = 51.0
+margin/right = 526.0
+margin/bottom = 65.0
+text = "Sound options"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="DataOptions" type="Label" parent="Control"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 857.0
+margin/top = 51.0
+margin/right = 938.0
+margin/bottom = 65.0
+text = "Data options"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="BackBtn" type="Button" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -96,14 +177,15 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 9.0
+margin/left = 18.0
 margin/top = 82.0
-margin/right = 122.0
-margin/bottom = 103.0
+margin/right = 131.0
+margin/bottom = 115.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -115,11 +197,12 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
+margin/left = 1.0
 margin/top = 0.0
-margin/right = 112.0
-margin/bottom = 20.0
+margin/right = 113.0
+margin/bottom = 34.0
 text = "Toggle fullscreen"
+align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -130,14 +213,15 @@ __meta__ = {
 
 [node name="Button2" type="Button" parent="Control"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 117.0
-margin/right = 123.0
-margin/bottom = 138.0
+margin/left = 18.0
+margin/top = 127.0
+margin/right = 131.0
+margin/bottom = 164.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -149,11 +233,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 112.0
-margin/bottom = 20.0
-text = "Toggle "
+margin/left = 1.0
+margin/top = -1.0
+margin/right = 113.0
+margin/bottom = 36.0
+text = "Toggle vsync"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -162,10 +246,48 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="clearDataBtn" type="Button" parent="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 869.0
+margin/top = 81.0
+margin/right = 976.0
+margin/bottom = 116.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "REMOVE ALL DATA"
+flat = false
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 460.0
+margin/top = 274.0
+margin/right = 824.0
+margin/bottom = 433.0
+popup/exclusive = false
+window/title = "Deleting data..."
+dialog/text = "WARNING!
+YOU ARE ABOUT TO DELETE ALL THE GAME SAVEDATA.
+THIS PROCESS IS IRREVERSIBLE. 
+
+DO YOU WANT TO CONTINUE?"
+dialog/hide_on_ok = true
+
 [connection signal="pressed" from="Control/BackBtn" to="." method="_on_BackBtn_pressed"]
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]
+
+[connection signal="pressed" from="Control/clearDataBtn" to="." method="_on_clearDataBtn_pressed"]
 
 

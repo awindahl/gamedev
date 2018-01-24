@@ -163,7 +163,7 @@ func _save_game_state(var saveName):
 	saveGameInfo.close();
 
 func _load_game_state(var saveName):
-	print(saveName)
+	print("Loading " + saveName)
 	if saveName == null:
 		pass
 	else:
@@ -174,7 +174,6 @@ func _load_game_state(var saveName):
 		
 		while !(load_data.eof_reached()):
 			current_line.parse_json(load_data.get_line())
-			print(current_line)
 			
 		myFile = current_line["File"]
 		myStr = current_line["Strength"]
@@ -194,6 +193,7 @@ func _load_game_state(var saveName):
 		myHp = int(current_line["HP"])
 		myMp = int(current_line["MP"])
 		myClass = current_line["Class"]
+		
 		load_data.close()
 	
 func _delete_save(var saveName):
