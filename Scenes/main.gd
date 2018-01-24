@@ -81,8 +81,7 @@ func _ready():
 			mySave3 = null
 	findGame.close()
 	
-	var root = get_parent();
-	current_scene = root.get_child( root.get_child_count() -1 );
+	current_scene = get_parent().get_child( get_parent().get_child_count() -1 );
 	
 func _save():
 	var savedict = {
@@ -132,7 +131,6 @@ func _save_game_state(var saveName):
 	
 	if saveGame.file_exists("user://Saves/Rpg/"+saveName+".sve"):
 		existing = true
-
 	else:
 		saveGame.open("user://Saves/Rpg/"+saveName+".sve", File.WRITE);
 		tempNameSave = saveName;
@@ -157,7 +155,7 @@ func _save_game_state(var saveName):
 	saveGameInfo.open("res://game_data.sve", File.WRITE);
 	var data2 = _game_data();
 	
-	#EKIN HELP var err = saveGame.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.WRITE, "cockmuncher")
+	saveGame.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.WRITE, "test") #in the future, lock with OS.get_unique_ID()
 
 	saveGame.store_line(data.to_json());
 	saveGameInfo.store_line(data2.to_json());
@@ -171,28 +169,31 @@ func _load_game_state(var saveName):
 	else:
 		var current_line = {}
 		var load_data = File.new();
-		#EKIN HELP var err = load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "cockmuncher")
-		load_data.open("user://Saves/Rpg/"+saveName+".sve", File.READ)
+
+		load_data.open_encrypted_with_pass("user://Saves/Rpg/"+saveName+".sve", File.READ, "test") #in the future, open with OS.get_unique_ID()
+		
 		while !(load_data.eof_reached()):
 			current_line.parse_json(load_data.get_line())
-			myFile = current_line["File"]
-			myStr = current_line["Strength"]
-			myAgi = current_line["Agility"]
-			myCha = current_line["Charisma"]
-			myInt = current_line["Intellect"]
-			myFeat = current_line["Feats"]
-			myWep = current_line["Weapon"]
-			myEquip = current_line["Equip"]
-			myName = current_line["Name"]
-			mySprite = current_line["mySprite"]
-			myInventory = current_line["Inventory"]
-			myExp = current_line["Exp"]
-			myLevel = current_line["Level"]
-			myAbilities = current_line["Abilities"]
-			myMC = current_line["MisCom"]
-			myHp = int(current_line["HP"])
-			myMp = int(current_line["MP"])
-			myClass = current_line["Class"]
+			print(current_line)
+			
+		myFile = current_line["File"]
+		myStr = current_line["Strength"]
+		myAgi = current_line["Agility"]
+		myCha = current_line["Charisma"]
+		myInt = current_line["Intellect"]
+		myFeat = current_line["Feats"]
+		myWep = current_line["Weapon"]
+		myEquip = current_line["Equip"]
+		myName = current_line["Name"]
+		mySprite = current_line["mySprite"]
+		myInventory = current_line["Inventory"]
+		myExp = current_line["Exp"]
+		myLevel = current_line["Level"]
+		myAbilities = current_line["Abilities"]
+		myMC = current_line["MisCom"]
+		myHp = int(current_line["HP"])
+		myMp = int(current_line["MP"])
+		myClass = current_line["Class"]
 		load_data.close()
 	
 func _delete_save(var saveName):

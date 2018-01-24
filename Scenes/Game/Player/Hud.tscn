@@ -254,6 +254,7 @@ __meta__ = {
 
 [node name="Inventory" type="Panel" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 visibility/self_opacity = 0.77
 focus/ignore_mouse = false
