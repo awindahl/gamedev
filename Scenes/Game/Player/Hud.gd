@@ -66,7 +66,7 @@ func _input(event):
 				
 	#Inventory
 	if get_node("Inventory").is_visible():
-		if event.is_action_pressed("ui_action"):
+		if event.is_action_pressed("ui_action") and !get_node("Inventory/Selector/Box").is_visible():
 			selecting = true
 			print("Selected: " + currentSelection.get_name())
 			get_node("Inventory/Selector/Box").show()

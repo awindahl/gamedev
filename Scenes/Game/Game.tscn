@@ -26,7 +26,6 @@ transform/pos = Vector2( -228.811, 424.753 )
 process/pause_mode = 1
 transform/pos = Vector2( 229.459, 309.009 )
 speed = 2
-xp = 10
 
 [node name="Sword_Pick_Up" parent="." instance=ExtResource( 4 )]
 

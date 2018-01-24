@@ -76,6 +76,8 @@ func _input(event):
 			_close_all()
 			get_node("gui/Node2D/Inventory").set_hidden(false)
 		elif event.is_action_pressed("ui_inventory"):
+			get_node("gui/Node2D").selecting = false
+			get_node("gui/Node2D/Inventory/Selector/Box").hide()
 			_close_all()
 			_unpause()
 			

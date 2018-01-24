@@ -2015,6 +2015,7 @@ type_mask = 5
 
 [node name="Box" type="Panel" parent="Inventory/Selector"]
 
+editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
