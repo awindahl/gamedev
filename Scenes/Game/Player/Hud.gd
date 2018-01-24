@@ -1,20 +1,37 @@
 extends Control
 
+#General HUD:
 onready var myHP = get_parent().get_parent().get_node("Player").hp
 onready var currentHP = myHP;
 onready var myMP = get_parent().get_parent().get_node("Player").mp
 onready var currentMP = myMP;
-onready var myWeapon = get_parent().get_parent().get_node("Player").weapon
 var changeInMP = 0;
 var e = 0;
 var usingMP = false
 var diff
 var color
-var zoomed = false
 var focused = false
+
+#Map:
+var zoomed = false
 var mapcenter = [0,0]
 
+#Inventory:
+var arraySlots
+var currentSelection
+var moving = true
+var selecting = false
+var checkUp
+var checkDown
+var checkLeft
+var checkRight
+var keys
+var keyPress
+var keyCheck
+var slowdown = 15 #ghetto timer needs changing to more sofisticated timer
+
 func _ready():
+	#General HUD:
 	get_node("HUD/HPLabel").set_text(var2str(currentHP) + "/" + var2str(myHP))
 	get_node("HUD/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
 	if main.myClass == "Fighter":
@@ -27,21 +44,56 @@ func _ready():
 		color = "0000FF"
 	get_node("HUD/MPActual").set_frame_color(color)
 	
+	#Inventory:
+	arraySlots = get_node("Inventory/ItemFrame").get_children()
+	currentSelection = arraySlots[0]
+	checkUp = get_node("Inventory/Selector/UpCast")
+	checkDown = get_node("Inventory/Selector/DownCast")
+	checkLeft = get_node("Inventory/Selector/LeftCast")
+	checkRight =  get_node("Inventory/Selector/RightCast")
+	
 	set_fixed_process(true)
 	set_process_input(true)
 	
 func _input(event):
+	#Map
 	if get_node("Map").is_visible():
 		if event.is_action_pressed("ui_select"):
 			if zoomed:
 				zoomed = false
 			else:
 				zoomed = true
+				
+	#Inventory
+	if get_node("Inventory").is_visible():
+		if event.is_action_pressed("ui_action"):
+			selecting = true
+			print("Selected: " + currentSelection.get_name())
+			get_node("Inventory/Selector/Box").show()
+			get_node("Inventory/Selector/Box/Use").grab_focus()
+			
 
 func _fixed_process(delta):
+	#General HUD:
+	if usingMP:
+		currentMP = currentMP - changeInMP*e;
+		diff = floor(get_node("HUD/MPOutline").get_size().x*(float(changeInMP)/float(myMP)))
+		if currentMP <= 0:
+			currentMP = 0
+			diff = get_node("HUD/MPActual").get_size().x
+			get_node("Button").set_disabled(true)
+		if currentMP > myMP:
+			currentMP = myMP
+			diff = get_node("HUD/MPOutline").get_size().x-get_node("HUD/MPActual").get_size().x
+			
+		get_node("HUD/MPActual").set_size(Vector2(get_node("HUD/MPActual").get_size().x-e*diff,get_node("HUD/MPActual").get_size().y))
+		get_node("HUD/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
+		usingMP = false;
+		changeInMP = 0;
+	
+	
 	#-- TODO: GET FIRST/LAST TILE BOTH HORIZONTALLY AND VERTICALLY
 	#         TO HINDER MAP SCROLLING OUTSIDE OF AREA.
-	
 	#         ADD OPTION TO REMAP KEYS AND SHOW WHAT KEYS ARE MAPPED
 	#         ON THE MAP SCREEN.
 	if get_node("Map").is_visible():
@@ -68,24 +120,47 @@ func _fixed_process(delta):
 	if get_node("Pause").is_visible() and not focused:
 		get_node("Pause/Btn_resume").grab_focus()
 		focused = true
+	
 	if not get_node("Pause").is_visible():
 		focused = false
-	
-	if usingMP:
-		currentMP = currentMP - changeInMP*e;
-		diff = floor(get_node("HUD/MPOutline").get_size().x*(float(changeInMP)/float(myMP)))
-		if currentMP <= 0:
-			currentMP = 0
-			diff = get_node("HUD/MPActual").get_size().x
-			get_node("Button").set_disabled(true)
-		if currentMP > myMP:
-			currentMP = myMP
-			diff = get_node("HUD/MPOutline").get_size().x-get_node("HUD/MPActual").get_size().x
-			
-		get_node("HUD/MPActual").set_size(Vector2(get_node("HUD/MPActual").get_size().x-e*diff,get_node("HUD/MPActual").get_size().y))
-		get_node("HUD/MPLabel").set_text(var2str(currentMP) + "/" + var2str(myMP))
-		usingMP = false;
-		changeInMP = 0;
+
+	if get_node("Inventory").is_visible():
+		checkUp.add_exception(currentSelection)
+		checkDown.add_exception(currentSelection)
+		checkLeft.add_exception(currentSelection)
+		checkRight.add_exception(currentSelection)
+		if !moving and !selecting:
+			keys = [
+				["move_up", checkUp], 
+				["move_down", checkDown],
+				["move_left", checkLeft],
+				["move_right", checkRight]
+				]
+			for keyPair in keys:
+				keyPress = keyPair[0]
+				keyCheck = keyPair[1]
+				if Input.is_action_pressed(keyPress):
+					keyCheck.set_enabled(true)
+					if keyCheck.is_colliding():
+						print(keyCheck.get_collider())
+						get_node("Inventory/Selector").set_pos(get_node("Inventory/ItemFrame").get_pos() + keyCheck.get_collider().get_pos())
+						currentSelection = keyCheck.get_collider()
+						keyCheck.set_enabled(false)
+						checkUp.clear_exceptions()
+						checkDown.clear_exceptions()
+						checkLeft.clear_exceptions()
+						checkRight.clear_exceptions()
+						get_node("Inventory/RichTextLabel").add_text("Selected item in inventory slot " + currentSelection.get_name()); get_node("Inventory/RichTextLabel").newline()
+						moving = true
+		if slowdown > 0:
+			slowdown -=1
+		
+		if slowdown < 1:
+			moving = false
+			slowdown = 15
+
+	if get_node("Character").is_visible():
+		pass
 
 	if get_node("GameOver").is_visible():
 		for i in range (0,10) :
@@ -182,3 +257,8 @@ func _on_Btn_Retry_pressed():
 func _on_Btn_Quit_pressed():
 	get_tree().change_scene("res://Scenes/Menu/campain_menu.tscn")
 	get_tree().set_pause(false)
+
+func _on_Btn_Back_pressed():
+	get_node("Inventory/Selector/Box").hide()
+	selecting = false
+	slowdown = 15

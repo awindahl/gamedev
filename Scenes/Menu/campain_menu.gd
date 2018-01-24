@@ -79,4 +79,4 @@ func _on_GoBtn_pressed():
 	elif get_node("CampainList").is_selected(1):
 		get_tree().change_scene("res://Scenes/Campaigns/Campaign 1/Campagin1Level2.tscn")
 	else:
-		pass
+		get_tree().change_scene("res://Scenes/Game/Game.tscn") #For quick testing now
