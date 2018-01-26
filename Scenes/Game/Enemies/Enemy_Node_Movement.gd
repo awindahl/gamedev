@@ -5,6 +5,7 @@ var s = seed(randi())
 
 # travel speed in pixel/s
 export var speed = 4
+var momentum = 0.0
 var ct_speed = speed
 export var damage = 10
 export var hp = 30
@@ -54,20 +55,23 @@ func _process(delta):
 			var play_hit = get_parent().get_node("Player")
 			play_hit._on_player_hit()
 		else: 
-			1+1
+			pass
 	
 	# if the path has more than one point
 	if points.size() > 1:
 		if distance.length() > eps:
 			if floor(timer.get_time_left()) < 1:
-				move(Vector2(direction.x*speed,0))
+				momentum = momentum + 0.02
+				move(Vector2(direction.x*speed*momentum,0))
 			else:
-				move(Vector2(0,direction.y*speed))
+				momentum = momentum + 0.02
+				move(Vector2(0,direction.y*speed*momentum))
 		else:
 			move(Vector2(0,0)) # close enough - stop moving
 		update() # we update the node so it has to draw it self again
 
 func _on_Timer_timeout():
+	momentum = 0.0
 	self.move(Vector2(0,0))
 	var i = rand_range(-100.0,100.0)*10
 	var j = rand_range(-100.0,100.0)*10

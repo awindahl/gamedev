@@ -3,6 +3,7 @@ extends KinematicBody2D
 var s = seed(randi())
 
 export var speed = 4
+var momentum = 0.0
 var ct_speed = speed
 export var is_x = false
 export var is_y = false
@@ -50,7 +51,7 @@ func _process(delta):
 			var test = get_world_2d().get_direct_space_state().intersect_point(get_collider().get_pos(),1)
 			get_parent()._calculate_damage(test[0].collider,damage)
 		else:
-			1+1
+			pass
 
 
 	if look_x.is_colliding() && (look_x.get_collider().get_meta("Type") == "Map" || look_x.get_collider().get_meta("Type") == "Enemy"):
@@ -63,14 +64,16 @@ func _process(delta):
 	
 	if is_x:
 		if floor(timer.get_time_left()) == xlessthan:
-			move(Vector2(speed * direction.x, 0))
+			momentum = momentum + 0.02
+			move(Vector2(speed * direction.x * momentum, 0))
 			xmove = true
 		elif !ymove:
 			xmove = false
 			move(Vector2(0,0))
 	if is_y:
 		if floor(timer.get_time_left()) == ylessthan:
-			move(Vector2(0,speed * direction.y))
+			momentum = momentum + 0.02
+			move(Vector2(0,speed * direction.y * momentum))
 			ymove = true
 		elif !xmove:
 			move(Vector2(0,0))
@@ -78,6 +81,7 @@ func _process(delta):
 			
 	
 func _on_ContainedTimer_timeout():
+	momentum = 0.0
 	xlessthan = randi()%3
 	ylessthan = randi()%3
 	if ylessthan == xlessthan:
