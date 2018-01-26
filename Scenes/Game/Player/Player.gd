@@ -3,7 +3,8 @@ extends KinematicBody2D
 var direction      = Vector2()
 
 var coolDown       = 0
-const SPEED        = 4
+const SPEED        = 5
+var momentum       = 0.0
 
 var isAttacking    = false
 var canAttack      = true
@@ -62,23 +63,38 @@ func _fixed_process(delta):
 		else:
 			pass
 	
+	if (Input.is_action_pressed("move_down")) || (Input.is_action_pressed("move_up")) || (Input.is_action_pressed("move_left")) || (Input.is_action_pressed("move_right")):
+		if Input.is_action_pressed("move_up") && !isAttacking:
+			look.set_rot(deg2rad(180))
+			direction = Vector2(0,-1)
+			if momentum < 1.0:
+				momentum = momentum + 0.02
+			move(direction * SPEED * momentum)
+		if Input.is_action_pressed("move_down") && !isAttacking:
+			look.set_rot(deg2rad(0))
+			direction = Vector2(0,1)
+			if momentum < 1.0:
+				momentum = momentum + 0.02
+			move(direction * SPEED * momentum)
+		if  Input.is_action_pressed("move_left") && !isAttacking:
+			look.set_rot(deg2rad(270))
+			direction = Vector2(-1,0)
+			if momentum < 1.0:
+				momentum = momentum + 0.02
+			move(direction * SPEED * momentum)
+		if  Input.is_action_pressed("move_right") && !isAttacking:
+			look.set_rot(deg2rad(90))
+			direction = Vector2(1,0)
+			if momentum < 1.0:
+				momentum = momentum + 0.02
+			move(direction * SPEED * momentum)
+	else:
+		momentum = 0.0
+	
+	
+	
 	#-------Handles Movement-------#
-	if Input.is_action_pressed("move_up") && !isAttacking:
-		look.set_rot(deg2rad(180))
-		direction = Vector2(0,-1)
-		move(direction * SPEED)
-	if Input.is_action_pressed("move_down") && !isAttacking:
-		look.set_rot(deg2rad(0))
-		direction = Vector2(0,1)
-		move(direction * SPEED)
-	if  Input.is_action_pressed("move_left") && !isAttacking:
-		look.set_rot(deg2rad(270))
-		direction = Vector2(-1,0)
-		move(direction * SPEED)
-	if  Input.is_action_pressed("move_right") && !isAttacking:
-		look.set_rot(deg2rad(90))
-		direction = Vector2(1,0)
-		move(direction * SPEED)
+
 
 func _input(event):
 	
